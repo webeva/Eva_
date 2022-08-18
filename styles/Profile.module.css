@@ -1,0 +1,238 @@
+.profileBanner {
+  margin-left: var(--sidebar-width);
+  height: 300px;
+  object-fit: cover;
+  width: 60vw;
+}
+.pfpContainer {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(63, 63, 63);
+}
+.profilePFP {
+  width: 8.125rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 5px solid #141d26;
+  position: relative;
+  top: -65px;
+  left: var(--profile-left);
+}
+.profileName {
+  color: var(--color-white);
+  position: relative;
+  top: -55px;
+  left: var(--profile-left);
+  font-size: 20px;
+  font-weight: bold;
+}
+.profileWallet {
+  color: rgb(114, 114, 114);
+  position: relative;
+  top: -50px;
+  left: var(--profile-left);
+  font-size: 14px;
+}
+.profileBio {
+  color: var(--color-white);
+  position: relative;
+  top: -110px;
+  left: var(--profile-left);
+  width: 100px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 16px;
+  font-weight: 500;
+  width: 40vw;
+}
+.profileBio a {
+  color: var(--color-primary);
+  cursor: pointer;
+}
+.profileBio a:hover {
+  text-decoration: underline;
+  color: var(--color-secondary);
+}
+.followers {
+  display: inline;
+  color: var(--color-white);
+}
+.line {
+  width: 100%;
+  border-bottom: 1px solid var(--color-white);
+  height: 10px;
+  margin-left: var(--notification-left);
+  margin-bottom: 10px;
+  position: relative;
+  top: -12.549537648612946vh;
+}
+.balance {
+  font-size: 0.2rem;
+}
+.text {
+  display: inline;
+  margin-left: 5px;
+  color: var(--color-grey);
+}
+.profileEdit {
+  color: var(--color-white);
+  position: relative;
+  top: -160px;
+  left: 56.977604166666664vw;
+
+  font-size: 16px;
+  font-weight: bold;
+  border: 0.5px solid var(--color-white);
+  width: fit-content;
+  justify-content: center;
+  display: flex;
+  padding: 10px 10px;
+  border-radius: 1000px;
+}
+.profileEdit:hover {
+  cursor: pointer;
+}
+
+/* ===== Buy button ==== */
+.buy {
+  color: var(--color-white);
+  width: 100px;
+  height: 40px;
+  background-color: var(--color-primary);
+  border-radius: 5px;
+  left: 66vw;
+  position: relative;
+  top: -199px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.blockchain {
+  color: var(--color-primary);
+}
+.blockchain:hover {
+  text-decoration: underline;
+}
+
+/* ===== ProfileTab === */
+.profileTabs {
+  display: flex;
+  justify-content: center;
+  color: var(--color-white);
+  font-weight: bold;
+  position: relative;
+  bottom: 11.889035667107vh;
+  right: 3vw;
+}
+.profileTabs a {
+  margin-left: 20px;
+
+  cursor: pointer;
+  padding: 5px 5px;
+}
+.profileTabs a:hover {
+  background-color: var(--color-primary);
+  border-radius: 5px;
+}
+
+.profileTab {
+  padding-bottom: 10px;
+}
+.linkify {
+  color: var(--color-primary);
+}
+.linkify:hover {
+  text-decoration: underline;
+}
+.back {
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+}
+.Message {
+  width: 57vw;
+  position: relative;
+  bottom: 11.489035667107vh;
+  left: var(--sidebar-width);
+}
+/* ========= Media Quries ===== */
+@media all and (max-width: 1135px) {
+  .profileEdit {
+    left: 50vw;
+  }
+  .buy {
+    left: 57vw;
+  }
+}
+@media all and (max-width: 1015px) {
+  .profileBanner {
+    width: 85vw;
+  }
+}
+@media all and (max-width: 816px) {
+  .profileBio {
+    left: 25vw;
+    width: 80vw;
+  }
+  .profileName {
+    left: 25vw;
+  }
+  .profileWallet {
+    left: 25vw;
+    word-wrap: normal;
+  }
+  .profilePFP {
+    left: 25vw;
+  }
+  .edit {
+    left: 57vw;
+  }
+  .buy {
+    left: 64vw;
+  }
+}
+@media all and (max-width: 505px) {
+  .profileEdit {
+    left: 50vw;
+  }
+  .profileBanner {
+    left: 0;
+    margin-left: 0;
+    width: 100vw;
+    object-fit: fill;
+  }
+
+  .line {
+    left: 0;
+    margin-left: 0;
+  }
+  .Message {
+    margin-left: 0;
+    left: 0;
+  }
+  .profileBio {
+    left: 10vw;
+    width: 80vw;
+  }
+  .profileName {
+    left: 10vw;
+  }
+  .profileWallet {
+    left: 10vw;
+    word-wrap: normal;
+  }
+  .profilePFP {
+    left: 10vw;
+  }
+  .edit {
+    left: 57vw;
+  }
+  .buy {
+    left: 64vw;
+  }
+}

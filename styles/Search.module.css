@@ -1,0 +1,112 @@
+/* =========== Search Profile ========= */
+.container {
+  width: 50vw;
+  height: fit-content;
+  margin-bottom: 5px;
+  color: var(--color-white);
+  position: relative;
+  top: 26vh;
+  padding: 5px 10px;
+  margin-left: 45px;
+}
+.body {
+  margin-left: var(--sidebar-width);
+  margin-top: 5vh;
+  padding-bottom: 200px;
+  width: 100%;
+  overflow-x: hidden;
+}
+.container:hover {
+  cursor: pointer;
+}
+.profilePic {
+  border-radius: 50%;
+  width: 49px;
+  margin-right: 10px;
+  height: 49px;
+  margin-top: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.follow {
+  cursor: pointer;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 11px 15px;
+  border-radius: 5px;
+}
+.buy {
+  cursor: pointer;
+  border: 1px solid var(--color-white);
+  background-color: transparent;
+  color: var(--color-white);
+  padding: 11px 15px;
+  border-radius: 5px;
+}
+/* ============= Trending Tags ========== */
+.trending {
+  color: var(--color-white);
+  margin-top: 5vh;
+  margin-left: 5vw;
+  background-color: var(--color-hover);
+  width: 47vw;
+  border-radius: 25px;
+  padding: 10px 30px;
+}
+.tag {
+  cursor: pointer;
+  padding: 9px 8px;
+}
+.tag:hover {
+  background-color: var(--color-bg);
+}
+/* ========= Main Window ====== */
+.mainWindow {
+  margin-left: var(--sidebar-width);
+  overflow-x: hidden;
+}
+/* ======= Banner ======== */
+.banner {
+  width: 45.5vw;
+  margin-top: 20vh;
+  border-radius: 20px;
+  margin-left: 10%;
+}
+
+/* ====== Media Queries ==== */
+
+@media all and (max-width: 650px) {
+  .mainWindow {
+    margin-left: 20vw;
+    overflow-x: hidden;
+  }
+  .trending {
+    width: 60vw;
+  }
+  .banner {
+    width: 60vw;
+  }
+  .container {
+    width: 65vw;
+  }
+}
+
+@media all and (max-width: 505px) {
+  .mainWindow {
+    margin-left: 5vw;
+    overflow-x: hidden;
+  }
+  .trending {
+    width: 80vw;
+  }
+  .banner {
+    width: 80vw;
+  }
+  .body {
+    margin-left: 0px;
+  }
+  .container {
+    width: 85vw;
+  }
+}

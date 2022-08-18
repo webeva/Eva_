@@ -1,0 +1,1 @@
+The style for the mobile bottom bar can be found at Phone.module.css

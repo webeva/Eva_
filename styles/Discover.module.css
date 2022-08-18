@@ -1,0 +1,93 @@
+.wrapper {
+  max-width: 450px;
+  width: 100%;
+  top: 5vh;
+  left: 30vw;
+  position: absolute;
+  z-index: 99;
+}
+.searchInput {
+  background: var(--color-hover);
+  width: 35vw;
+  border-radius: 10px;
+  box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.209);
+  position: relative;
+  color: var(--color-white);
+}
+
+.searchInput input {
+  height: 55px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: 0 60px 0 20px;
+  font-size: 15px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+  z-index: 99999;
+}
+.icon {
+  height: 55px;
+  width: 55px;
+  line-height: 55px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  background-color: var(--color-primary);
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  flex-direction: row;
+  padding-left: 15px;
+  padding-top: 5px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  z-index: 99999;
+}
+.autocompleteBox {
+  opacity: 0;
+  max-height: 280px;
+  overflow-y: auto;
+  display: none;
+  z-index: 99999;
+}
+.autocompleteBox li {
+  list-style: none;
+  padding: 12px 12px;
+  width: 100%;
+  cursor: default;
+  border-radius: 3px;
+  z-index: 99999;
+}
+.autocompleteBox li:hover {
+  background-color: #222222;
+  cursor: pointer;
+}
+/* =========== Trends ======= */
+.trending {
+  margin-left: 10vw;
+  color: var(--color-white);
+}
+
+/* ========== Media Queries ==== */
+
+@media all and (max-width: 920px) {
+  .wrapper {
+    left: 23vw;
+  }
+  .searchInput {
+    width: 55vw;
+  }
+}
+@media all and (max-width: 505px) {
+  .wrapper {
+    left: 15vw;
+  }
+  .searchInput {
+    width: 75vw;
+  }
+}

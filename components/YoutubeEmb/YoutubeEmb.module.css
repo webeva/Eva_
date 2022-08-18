@@ -1,0 +1,10 @@
+.hideVideo {
+  height: 100%;
+  width: 95%;
+  background: var(--color-primary);
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 20px;
+  padding: 150px 50px;
+}

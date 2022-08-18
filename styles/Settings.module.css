@@ -1,0 +1,268 @@
+.settinglist {
+  width: 33vw;
+  height: fit-content;
+  margin-left: calc(var(--sidebar-width) - 2.4vw);
+  margin-top: 6vw;
+  border-right: 1px solid var(--color-white);
+}
+.settinglist li {
+  margin-top: 2vh;
+  padding: 1px 10px;
+  list-style: none;
+  cursor: pointer;
+}
+.settinglist li h3 {
+  color: var(--color-white);
+  margin-left: 10px;
+  line-height: 9px;
+  font-size: 0.9rem;
+}
+
+.settinglist li p {
+  color: var(--color-white-two);
+  margin-left: 10px;
+  line-height: 15px;
+}
+.settingicon {
+  display: inline-block;
+  margin-left: 8px;
+}
+.accWhen {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-grey);
+}
+.who {
+  display: inline;
+  gap: 10px;
+  font-weight: 500;
+  align-items: center;
+  font-size: 0.9rem;
+  width: 100%;
+}
+.profile {
+  display: inline-block;
+  margin-left: 5px;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.nothing {
+  outline: none;
+}
+.dim {
+  color: var(--color-grey);
+}
+/* ========== Customization ========== */
+.customizeTheme {
+  font-size: 0.9rem;
+  color: var(--color-white);
+}
+/* ===== Font Sizes ====== */
+.fontSize {
+  margin-top: 2.5rem;
+}
+.fontSize > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-hover);
+  padding: 2px 15px;
+  border-radius: 15px;
+  width: 35vw;
+}
+.chooseSize {
+  background-color: var(--color-primary-dim);
+  height: 0.3rem;
+  width: 100%;
+  margin: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.customizeTheme .chooseSize span {
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--color-primary-dim);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.customizeTheme .chooseSize span.active {
+  background-color: var(--color-primary);
+}
+
+/* ====== Colors ====== */
+.color {
+  margin-top: 2rem;
+}
+.chooseColor {
+  background: var(--color-hover);
+  padding: 12px 15px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.chooseColor span {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/* ===== Different Primary Color Options ==== */
+
+.yellow {
+  background-color: #e6d14c;
+}
+.orange {
+  background-color: #e6754c;
+}
+.green {
+  background-color: #4ce69e;
+}
+.blue {
+  background-color: #1da1f2;
+}
+.purple {
+  background-color: #6b4ce6;
+}
+
+/* ====== Background ====== */
+.background {
+  margin-top: 2rem;
+}
+.chooseBg {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.chooseBg > div {
+  padding: 4px 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+.chooseBg > div.active {
+  outline: 2px solid var(--color-primary);
+}
+.chooseBg > div:nth-child(1) {
+  background-color: rgba(47, 49, 54, 255);
+  color: white;
+}
+.chooseBg > div:nth-child(2) {
+  background-color: #241e38;
+  color: white;
+}
+.chooseBg > div span {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--color-grey);
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+/* =========== Big Profile Picture (Account) ======== */
+.profileBig {
+  width: 10vw;
+  height: 10vw;
+  top: 37vh;
+  left: 1vw;
+
+  border-radius: 50%;
+  border: var(--color-hover);
+  position: relative;
+}
+.profileBig:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 5px var(--color-primary);
+}
+.banner {
+  position: absolute;
+  width: 38vw;
+  height: 50vh;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.banner:hover {
+  cursor: pointer;
+}
+.content {
+  position: absolute;
+  top: 15vh;
+  left: 53vw;
+  background-color: var(--color-bg);
+}
+.inputAccount {
+  line-height: 24px;
+  margin: 0;
+  border-radius: 16px;
+  display: flex;
+  max-width: 100%;
+  min-height: fit-content;
+  outline: 1px solid var(--color-primary);
+  position: relative;
+  transition: all 0.1s linear 0s;
+  height: 40px;
+  padding: 8px 16px;
+  margin-top: 41vh;
+}
+.back {
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+}
+.buyDeso {
+  width: 40vw;
+}
+
+@media all and (max-width: 505px) {
+  .settinglist {
+    width: 100vw;
+    margin-left: -20px;
+    margin-top: 10vh;
+    padding-bottom: 10vh;
+    left: 0;
+    border: none;
+  }
+  .buyDeso {
+    width: 80vw;
+  }
+  .accWhen {
+    font-size: 13px;
+  }
+  .content {
+    left: 15vw;
+    top: 20vh;
+  }
+  .banner {
+    height: 25vh;
+    width: 70vw;
+  }
+  .profileBig {
+    top: 20vh;
+    width: 20vw;
+    height: 20vw;
+    left: 5vw;
+  }
+  .inputAccount {
+    margin-top: 25vh;
+  }
+  .settingicon {
+    width: 25px;
+    height: 25px;
+  }
+}
+@media all and (max-width: 285px) {
+  .content {
+    left: 2vw;
+    top: 20vh;
+  }
+}

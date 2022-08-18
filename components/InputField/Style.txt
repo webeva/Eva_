@@ -1,0 +1,1 @@
+The style for the input field can be found in Main.module.css

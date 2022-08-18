@@ -1,0 +1,167 @@
+.rightbarContent {
+  padding: 25px;
+  width: 100%;
+}
+
+/* ============= Trends ========== */
+.trends {
+  height: auto;
+  width: 20vw;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 19px;
+  overflow: hidden;
+  background: var(--color-page-identify);
+  border-radius: 20px;
+  padding-bottom: 10px;
+  font-family: 0.8rem;
+}
+.category {
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  font-weight: 500;
+  vertical-align: middle;
+  padding-left: 15px;
+  margin-top: 15px;
+}
+.category:hover {
+  cursor: pointer;
+  background-color: var(--category-hover);
+}
+.categorytitle {
+  font-size: 1.1rem;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+/* ======= Profile ===== */
+.profile {
+  display: inline-block;
+}
+.profilePic {
+  border-radius: 50%;
+  width: 50px;
+  margin-right: 10px;
+  height: 50px;
+  display: inline-block;
+}
+.profiletrend {
+  border-radius: 50%;
+  width: 3vw;
+  margin-right: 10px;
+  height: 3vw;
+  display: inline-block;
+  margin-top: 10px;
+  vertical-align: middle;
+}
+
+.who {
+  display: inline;
+  gap: 10px;
+  font-weight: 500;
+  align-items: center;
+  font-size: 0.9rem;
+  width: 100%;
+}
+.accWhen {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-grey);
+}
+/* ============== SignUp/Login ========= */
+.login {
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  margin-left: 10px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  height: 40px;
+  width: 15vw;
+  padding: 10px 10px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.login:hover {
+  background-color: var(--color-secondary);
+}
+/* ============ Balance ============ */
+.balance {
+  font-size: 1rem;
+  margin-left: 10px;
+  font-weight: 500;
+}
+/* ============ Buy Deso =========== */
+.buy {
+  width: 20vw;
+  height: 10vh;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: var(--hover-transition);
+}
+.buy:hover {
+  background: var(--color-secondary);
+}
+.hide {
+  display: none;
+}
+.noAuth {
+  height: 33vh;
+  min-height: fit-content;
+  width: 20vw;
+  min-width: fit-content;
+  border: 0.5px solid var(--color-white);
+  border-radius: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  padding: 8px 3px;
+}
+.noAuth h1 {
+  font-size: 1.5rem;
+  margin-left: 15px;
+}
+.noAuth p {
+  margin-left: 15px;
+  font-size: 0.9rem;
+}
+.agree {
+  color: var(--color-primary);
+}
+.agree:hover {
+  text-decoration: underline;
+}
+/* ==== Terms and Conditions ====== */
+.terms {
+  color: var(--color-white);
+  font-size: 0.8rem;
+  margin-left: 7px;
+}
+.terms:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+@media all and (max-width: 1155px) {
+  .buy {
+    width: 19vw;
+  }
+  .trends {
+    width: 19vw;
+  }
+}
+@media all and (min-width: 1500px) {
+  .terms {
+    font-size: 0.9rem;
+  }
+  .profilePic {
+    width: 55px;
+    height: 55px;
+  }
+}

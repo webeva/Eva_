@@ -9,9 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "deso-protocol": "^0.4.1",
     "next": "12.1.6",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-modal": "^3.15.1",
+    "recoil": "^0.7.4"
   },
   "devDependencies": {
     "eslint": "8.18.0",

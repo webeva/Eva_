@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /Svg/
+Disallow: /images/
+Allow: /images/favicon.png
+Disallow: /settings/display
+Disallow: /settings/extensions
+Disallow: /settings/language
+Disallow: /404
+Disallow: /500

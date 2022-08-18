@@ -1,16 +1,234 @@
 html,
+:root {
+  --color-white: white;
+  --color-white-two: #e4e4e4;
+  --color-black: #000000;
+  --color-grey: #808080;
+  --color-danger: rgb(251, 81, 81);
+  --color-success: rgb(81, 251, 81);
+  --color-primary: #1d9bf0;
+  --color-secondary: #0d97ec;
+  --color-primary-dim: #9fd4f5;
+  --color-page-identify: #272626ed;
+
+  --color-bg: rgba(47, 49, 54, 255);
+  --color-bg2: rgb(54, 57, 63);
+  --color-placeholder: #aaa;
+  --color-hover: #282828;
+  --category-hover: rgb(60, 58, 58);
+  --color-feed: rgb(100, 95, 95);
+  --color-feed-hover: rgb(75, 71, 71);
+  --hover-transition: all 300ms ease;
+  --card-border-radius: 3rem;
+  --sidebar-width: calc((100vw - 700px) * 0.45);
+  --notification-left: calc((100vw - 650px) * 0.45);
+  --profile-left: calc((100vw - 600px) * 0.45);
+}
+
+/* =============== Primary Colors ============= */
+
+/* ======== Blue Primary Color ======== */
+[data-color="blue"] {
+  --color-primary: #1d9bf0;
+  --color-secondary: #0d97ec;
+  --color-primary-dim: #9fd4f5;
+}
+/* ======== Purple Primary Color ======== */
+[data-color="purple"] {
+  --color-primary: #6b4ce6;
+  --color-secondary: #7457e9;
+  --color-primary-dim: #b3a4f1;
+}
+/* ======== Yellow Primary Color ======== */
+[data-color="yellow"] {
+  --color-primary: #e6d14c;
+  --color-secondary: #f5e26c;
+  --color-primary-dim: #efe28e;
+}
+/* ======== Orange Primary Color ======== */
+[data-color="orange"] {
+  --color-primary: #e6754c;
+  --color-secondary: #ea8b69;
+  --color-primary-dim: #eca48a;
+}
+/* ======== Green Primary Color ======== */
+[data-color="green"] {
+  --color-primary: #4ce69e;
+  --color-secondary: #6cf6b5;
+  --color-primary-dim: #96eec5;
+}
+
+/* ============ Themes ============ */
+[data-theme="sun"] {
+  --color-white: black;
+  --color-page-identify: #f7f7f7;
+  --color-bg: white;
+  --color-bg2: #ffffff;
+  --color-placeholder: #aaa;
+  --color-hover: #f7f7f7;
+  --color-feed: #fdfdfd;
+  --color-feed-hover: #f7f7f7;
+  --category-hover: whitesmoke;
+}
+
+[data-theme="vortex"] {
+  --color-bg: rgba(47, 49, 54, 255);
+  --color-bg2: rgb(54, 57, 63);
+  --color-placeholder: #aaa;
+  --color-hover: #282828;
+  --color-feed: rgb(100, 95, 95);
+  --color-feed-hover: rgb(75, 71, 71);
+  --category-hover: rgb(60, 58, 58);
+}
+
+[data-theme="abyss"] {
+  --color-bg: #1e1e2c;
+  --color-bg2: #2d2d44;
+  --color-placeholder: #aaa;
+  --color-hover: #3c3f58;
+  --color-feed: #707793;
+  --color-page-identify: #3c3f58;
+  --color-feed-hover: #3c3f58;
+  --category-hover: #1e1e2c;
+}
+
 body {
   padding: 0;
   margin: 0;
+  background-color: var(--color-bg);
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  outline: none;
   text-decoration: none;
+  list-style: none;
+  border: none;
+}
+/* Page indentifier */
+.pageIdentify {
+  padding: 20px;
+  background-color: var(--color-page-identify);
+  position: fixed;
+  top: 0px;
+  left: var(--sidebar-width);
+  color: var(--color-white);
+  width: 100vw;
+  height: 10vh;
+  font-weight: bold;
+  font-size: 20px;
+  z-index: 5;
+}
+.mainWindow {
+  left: var(--sidebar-width);
+  margin-top: 1vh;
+
+  position: absolute;
 }
 
-* {
-  box-sizing: border-box;
+/* ================= Theme Customization =============== */
+.card {
+  text-align: center;
+  display: grid;
+  place-items: center;
+  background: var(--color-white);
+  line-height: 1px;
+}
+/* ================ Displays for phones ============= */
+.phone {
+  display: none;
+}
+/* ======== Show and Hide ======== */
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+/* ======== Settings ===== */
+.active {
+  outline: 3px solid var(--color-primary);
+}
+.activeColor {
+  outline: 3px solid var(--color-white);
+}
+/* ================ Media Queries =================== */
+@media all and (max-width: 1155px) {
+  :root {
+    --sidebar-width: calc((100vw - 800px) * 0.45);
+    --notification-left: calc((100vw - 750px) * 0.45);
+    --profile-left: calc((100vw - 700px) * 0.45);
+  }
+}
+@media all and (max-width: 1015px) {
+  :root {
+    --sidebar-width: calc((100vw - 700px) * 0.8);
+    --notification-left: calc((100vw - 650px) * 0.8);
+    --profile-left: calc((100vw - 600px) * 0.8);
+  }
+}
+@media all and (max-width: 825px) {
+  :root {
+    --sidebar-width: calc((100vw - 700px) * 1.5);
+    --notification-left: calc((100vw - 650px) * 1.5);
+    --profile-left: calc((100vw - 600px) * 1.5);
+  }
+}
+@media all and (max-width: 770px) {
+  :root {
+    --sidebar-width: calc((100vw - 700px) * 1.9);
+    --notification-left: calc((100vw - 650px) * 1.9);
+    --profile-left: calc((100vw - 600px) * 1.9);
+  }
+}
+@media all and (max-width: 755px) {
+  :root {
+    --sidebar-width: calc((100vw - 700px) * 3 + 50px);
+    --notification-left: calc((100vw - 650px) * 3 + 50px);
+    --profile-left: calc((100vw - 600px) * 3 + 50px);
+  }
+}
+@media all and (max-width: 720px) {
+  :root {
+    --sidebar-width: 110px;
+    --notification-left: 120px;
+    --profile-left: 130px;
+  }
+}
+@media all and (max-width: 565px) {
+  :root {
+    --sidebar-width: 90px;
+    --notification-left: 100px;
+    --profile-left: 110px;
+  }
+}
+@media all and (max-width: 520px) {
+  :root {
+    --sidebar-width: 80px;
+    --notification-left: 90px;
+    --profile-left: 100px;
+  }
+}
+@media all and (max-width: 505px) {
+  .pageIdentify {
+    left: 0;
+  }
+  .phone {
+    display: block;
+  }
+  .mainWindow {
+    left: 0;
+  }
+}
+/* ====== For Larger Devices ====== */
+@media all and (min-width: 1500px) {
+  :root {
+    --sidebar-width: calc((100vw - 880px) * 0.45);
+    --notification-left: calc((100vw - 880px) * 0.45);
+    --profile-left: calc((100vw - 780px) * 0.45);
+  }
 }

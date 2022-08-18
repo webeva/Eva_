@@ -1,0 +1,24 @@
+.wrapper {
+  position: absolute;
+  top: 11vh;
+  left: var(--sidebar-width);
+  width: 57vw;
+  overflow-x: hidden;
+}
+.back {
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+}
+@media all and (max-width: 505px) {
+  .wrapper {
+    width: 100%;
+    left: 0px;
+    padding-bottom: 60px;
+  }
+}
+@media all and (max-width: 1020px) and (min-width: 506px) {
+  .wrapper {
+    width: calc(95vw - var(--sidebar-width));
+  }
+}

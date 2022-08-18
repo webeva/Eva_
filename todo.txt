@@ -1,0 +1,4 @@
+1) Add the ability to buy creator coins.
+2) Add the wallet and rewards tab. 
+3) Ability to upload many images. 
+4) Ability to upload videos. 

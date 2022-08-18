@@ -1,0 +1,29 @@
+.container {
+  width: 54vw;
+  height: fit-content;
+  color: var(--color-white);
+  position: relative;
+  top: 70px;
+  border-bottom: 1px solid var(--color-grey);
+  padding: 10px 4px;
+  left: 0.5vw;
+}
+.container:hover {
+  cursor: pointer;
+}
+.publicKey {
+  color: var(--color-grey);
+  margin-left: 5px;
+  display: inline;
+}
+@media all and (max-width: 1015px) {
+  .container {
+    width: calc(95vw - var(--sidebar-width));
+  }
+}
+
+@media all and (max-width: 505px) {
+  .container {
+    width: 95vw;
+  }
+}

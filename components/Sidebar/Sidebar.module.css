@@ -1,0 +1,110 @@
+.siderContent{
+    padding-top: 2.0875vw;
+    padding-right: 4.859375vw;
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height:100vh;
+    align-items: end;
+    position: relative;
+}
+
+.details {
+    display: flex;
+    padding: 5px;
+    gap:14px;
+    margin-left: 10px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+.menuItems {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    gap: 20px;
+    margin-top: 15px;
+    align-items: center;
+    font-weight: 600;
+    font-size: 19.5px;
+    padding:10px;
+    border-radius: 1000px;
+    color: var(--color-white) !important;
+    margin-left: 10px;
+    
+}
+.menuItems:hover{
+    cursor:pointer;
+    background-color: var(--color-hover);
+}
+.imageva{
+    width: 70px;
+}
+.hide{
+    display: none;
+}
+
+/* ========= Media Queries ======== */
+
+@media all and (min-width:1500px){
+    .siderContent{
+        padding-top: 50px;
+        padding-right: 5.859375vw;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: column;
+        height:85vh;
+        align-items: end;
+    }
+    .menuItems {
+        display: flex;
+        justify-content: start;
+        gap: 13px;
+        margin-top: 30px;
+        align-items: center;
+        font-weight: 600;
+        font-size: 26px;
+        padding:10px;
+        width: 120%;
+        border-radius: 1000px;
+        color: white !important;
+        text-decoration: none !important;
+    }
+    
+    
+}
+
+@media all and (max-width:1155px){
+    .menuItems{
+        font-size: 0;
+    }
+    .imageva{
+        width: 8.47291666666667vw;
+        position: absolute;
+        top: 0;
+        left: 50px;
+    } 
+    .siderContent{
+        padding-right: 2.5vw;
+    }
+    
+    
+}
+@media all and (max-width:565px){
+    .imageva{
+        width: 4.47291666666667vw;
+        position: absolute;
+        top: 10px;
+        left: 50px;
+    } 
+    .siderContent{
+        padding-right: 2vw;
+    }
+  }
+  @media all and (max-width:520px){
+    
+    .siderContent{
+        padding-right: 1vw;
+    }
+  }
