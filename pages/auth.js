@@ -15,6 +15,8 @@ import { useEffect } from "react";
 import style from "../styles/Auth.module.css";
 //Import Deso
 import DesoApi from "../Functions/Desoapi";
+//Import Next link 
+import Link from "next/link"
 
 export default function Auth() {
   const [logged, SetLogged] = useRecoilState(AppState);
@@ -99,9 +101,10 @@ export default function Auth() {
               </div>
               <p className={style.pTag}>
                 By creating an account you agree to our{" "}
-                <a className={style.aTag} href="/terms">
+                <Link className={style.aTag} href="/terms">
                   Terms and Conditions
-                </a>{" "}
+                </Link>
+               
                 and{" "}
                 <a className={style.aTag} href="#">
                   Privacy Policies

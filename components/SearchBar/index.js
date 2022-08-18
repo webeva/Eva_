@@ -100,7 +100,7 @@ export default function SearchBar() {
               relevantTags.map(function (value) {
                 const { clouttag } = value;
                 return (
-                  <li onClick={() => searchCloutPost(clouttag)}>
+                  <li key={clouttag} onClick={() => searchCloutPost(clouttag)}>
                     {" "}
                     # {clouttag}
                   </li>

@@ -19,7 +19,7 @@ import LoadingSpinner from "../components/Spinner";
 import NotificationPost from "../components/NotificationPost";
 //Import Profile Picture
 import ProfilePic from "../components/ProfilePic";
-const notifications = () => {
+const Notifications = () => {
   //Stores all the notifications
   const [notificationsFeed, setnotifications] = useState([]);
   //Stores the usernames
@@ -215,4 +215,4 @@ const notifications = () => {
   );
 };
 //Export the notifications page
-export default notifications;
+export default Notifications;

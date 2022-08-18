@@ -21,6 +21,8 @@ import { AppState, HasAccount } from "../../atom/AppStateAtom";
 import LoadingSpinner from "../Spinner";
 //Import Profile picture
 import ProfilePic from "../ProfilePic";
+//Import Nextjs Links
+import Link from "next/link"
 
 const Rightbar = () => {
 
@@ -151,7 +153,7 @@ const Rightbar = () => {
         <div className={styles.category} onClick={()=> goToUser("Krassenstein")}><ProfilePic profile={"BC1YLj3a3xppVPtAoMAzh1FFYtCTiGomjaA5PRcqS1PVRk8KqDw385y"} username={"Krassenstein"} size={40}></ProfilePic> <p style={{display:"inline", marginLeft:"0.5vw",fontSize:"16px"}}>Krassenstein</p></div>
         <div className={styles.category} onClick={()=> goToUser("Web3_Eva")}><ProfilePic profile={"BC1YLhNySXmFdZDyuwT9V115PbbSB2dfx2Y4mKowBwGDYx7KDDE2Ycb"} username={"Web3_Eva"} size={40}></ProfilePic> <p style={{display:"inline", marginLeft:"0.5vw", fontSize:"16px"}}>Web3 Eva</p></div>
       </div>
-      <a href="/terms" className={styles.terms}>Terms and Conditions</a> <a href="#" className={styles.terms}>Privacy Policy</a>
+      <Link href="/terms" className={styles.terms}>Terms and Conditions</Link> <a href="#" className={styles.terms}>Privacy Policy</a>
     </div>
     </>
   );
