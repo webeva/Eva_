@@ -5,7 +5,7 @@ import DesoApi from "../../Functions/Desoapi";
 //Import Deso
 import Deso from "deso-protocol";
 //Import the style
-import style from "../../styles/MessageInFeed.module.css";
+import style from "./style.module.css";
 //Import the profile picture component 
 import ProfilePic from "../ProfilePic";
 //Import router from next

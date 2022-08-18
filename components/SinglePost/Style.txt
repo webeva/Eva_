@@ -1,1 +1,0 @@
-The style for the single post can be found at MessageInFeed.module.css

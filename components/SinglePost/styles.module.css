@@ -1,0 +1,340 @@
+.feedEva {
+    width: 100%;
+    border-bottom: 1px solid rgb(63, 63, 63);
+    padding: 20px;
+    color: var(--color-white);
+    justify-content: space-between;
+    display: flex;
+  }
+  .dropDown {
+    position: absolute;
+    left: 34.3vw;
+    width: 14.5vw;
+    z-index: 5;
+    background-color: var(--color-hover);
+    padding: 8px 8px;
+    border-radius: 7px;
+    display: none;
+    box-shadow: 3px 6px 10px var(--color-primary);
+  }
+  
+  .dropDown li {
+    padding: 8px 4px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+  }
+  .dropDown li:hover {
+    font-weight: bold;
+    background-color: var(--color-primary);
+  }
+  .show {
+    display: inline-block;
+    width: 100%;
+  }
+  .hide {
+    display: none;
+  }
+  .feedEva:hover {
+    background-color: var(--color-hover);
+    cursor: pointer;
+  }
+  .container {
+    position: relative;
+    height: fit-content;
+    display: inline-block;
+  }
+  .profilePic {
+    border-radius: 50%;
+    width: 50px;
+    aspect-ratio: 1/1;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  .nft {
+    width: 98%;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    padding: 15px 10px;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+    display: inline-block;
+  }
+  .nftButton {
+    border-radius: 5px;
+    border: 1px solid var(--color-white);
+    background-color: transparent;
+    color: var(--color-white);
+    padding: 13px 13px;
+    display: inline-block;
+  
+    cursor: pointer;
+  }
+  .middle {
+    transition: 0.5s ease;
+    opacity: 0;
+    border-radius: 12px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    box-shadow: 2px 2px 4px var(--color-black);
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .follow {
+    background-color: transparent;
+    color: white;
+    border: none;
+  }
+  .follow:hover {
+    cursor: pointer;
+  }
+  
+  .container:hover .image {
+    opacity: 0.3;
+  }
+  
+  .container:hover .middle {
+    opacity: 1;
+  }
+  
+  .text {
+    background-color: rgb(34, 34, 34);
+    color: white;
+    font-size: 20px;
+    padding: 16px 32px;
+    border-radius: 12px;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .completeEva {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    gap: 10px;
+    width: 89%;
+  }
+  .interactions {
+    margin-top: 9px;
+    display: flex;
+    justify-content: start;
+    gap: 100px;
+  }
+  .interactionNums {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 1000px;
+  }
+  .interactionNums:hover {
+    cursor: pointer;
+    background-color: #1da0f20b;
+  }
+  .who {
+    display: flex;
+    gap: 10px;
+    font-weight: 600;
+    align-items: center;
+  }
+  .accWhen {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--color-grey);
+  }
+  .evaContent {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-word;
+    cursor: pointer;
+  }
+  
+  .evaImg {
+    width: 98%;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  .linkify {
+    color: var(--color-primary);
+  }
+  .linkify:hover {
+    text-decoration: underline;
+  }
+  .edit {
+    position: relative;
+    top: 0px;
+    left: 51vw;
+  }
+  .editbox {
+    position: relative;
+    top: 0px;
+    left: 30vw;
+  }
+  
+  /* ====== Donate Diamond ====== */
+  .diamondamount {
+    display: none;
+    width: auto;
+    height: fit-content;
+    padding: 5px 5px;
+    background-color: var(--color-page-identify);
+    border-radius: 10px;
+    position: absolute;
+    left: 30vw;
+    z-index: 5;
+    border: 1px solid var(--color-primary);
+  }
+  .diamondamount ul {
+    padding: 0;
+  }
+  .diamondamount ul li {
+    display: inline-block;
+    color: var(--color-white);
+    margin-left: 5px;
+    cursor: pointer;
+    padding: 3px 3px;
+    transition: var(--hover-transition);
+  }
+  .diamondamount ul li:hover {
+    background-color: #1da0f20b;
+    border-radius: 10px;
+    outline: 1px solid var(--color-primary);
+    color: var(--color-primary-dim);
+  }
+  .diamondamount ul li img {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  .repost {
+    display: none;
+    width: auto;
+    height: fit-content;
+    padding: 5px 15px;
+    background-color: var(--color-page-identify);
+    border-radius: 10px;
+    position: absolute;
+    left: 30vw;
+    box-shadow: 3px 5px 10px var(--color-primary);
+  }
+  .repost ul {
+    padding: 0;
+  }
+  .repost ul li {
+    padding: 4px 5px;
+    color: var(--color-white);
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  .repost ul li:hover {
+    background-color: #1da0f20b;
+    font-weight: bold;
+    padding: 4px 3px;
+  }
+  
+  .goToPage {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 70px;
+    height: 60px;
+  }
+  .mention a {
+    color: var(--color-primary);
+    cursor: pointer;
+  }
+  .mention a:hover {
+    text-decoration: underline;
+    color: var(--color-secondary);
+  }
+  .mention:hover {
+    cursor: pointer;
+  }
+  
+  .quote {
+    border: 1px solid var(--color-grey);
+    width: auto;
+    height: 100%;
+    border-radius: 3px;
+    padding: 15px 15px;
+    margin-top: 10px;
+  }
+  .quote:hover {
+    border: 1px solid var(--color-primary);
+    box-shadow: 2px 2px 2px 2px var(--color-primary);
+  }
+  /* =========== Post Page =========== */
+  .line {
+    width: 100%;
+    border-bottom: 1px solid var(--color-white);
+    height: 10px;
+  }
+  .evaImg[src="undefined"] {
+    display: none;
+  }
+  
+  /* ====== Media queries ======= */
+  @media all and (max-width: 1015px) {
+    .feedEva {
+      width: calc(100vw - var(--sidebar-width));
+    }
+  }
+  
+  @media all and (max-width: 755px) {
+    .interactions {
+      gap: 70px;
+    }
+  }
+  @media all and (max-width: 690px) {
+    .interactions {
+      gap: 8vw;
+    }
+  }
+  @media all and (max-width: 650px) {
+    .feedEva {
+      width: calc(95vw - var(--sidebar-width));
+    }
+  }
+  @media all and (max-width: 530px) {
+    .interactions {
+      gap: 6vw;
+    }
+  }
+  @media all and (max-width: 505px) {
+    .pageIdentify {
+      left: 0;
+    }
+    .feedEva {
+      width: 100vw;
+    }
+    .edit {
+      left: 80vw;
+    }
+    .dropDown {
+      left: 45vw;
+      width: 30vw;
+    }
+  }
+  @media all and (max-width: 380px) {
+    .interactions {
+      gap: 4vw;
+    }
+  }
+  /* ========= Larger devices ============ */
+  @media all and (min-width: 1500px) {
+    .feedEva {
+      width: 54.5vw;
+      font-size: 1.1rem;
+    }
+    .interactions {
+      gap: 100px;
+    }
+    .profilePic {
+      margin-right: 5px;
+    }
+  }
+  

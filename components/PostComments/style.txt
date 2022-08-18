@@ -1,1 +1,0 @@
-The style for the post comments can be found in MessageInFeed.module.css

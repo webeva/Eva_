@@ -8,7 +8,7 @@ import DesoApi from "../../Functions/Desoapi";
 import Deso from "deso-protocol";
 
 //Import the style from Messagesinfeed
-import style from "../../styles/MessageInFeed.module.css";
+import style from "./styles.module.css";
 
 //Import useEffect and useState from React
 import { useEffect, useState } from "react";
