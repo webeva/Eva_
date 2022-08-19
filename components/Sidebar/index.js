@@ -139,7 +139,7 @@ const Sidebar = () => {
             </div>
           </Link>
           {/* Link to the discover page */}
-          <Link prefetch={false} href="/discover" className={style.link}>
+          <Link href="/discover" className={style.link}>
             <div className={style.menuItems}>
               <img
                 style={{
@@ -154,7 +154,7 @@ const Sidebar = () => {
             </div>
           </Link>
           {/* Link to the weekly debate post */}
-          <Link prefetch={false} href="/" className={style.link}>
+          <Link href="/posts/25a688ce6c52c5b08217154c2343abc10f839f99bf2ab91e4bb82216071ee0fb" className={style.link}>
             <div className={style.menuItems}>
               <img
                 style={{
@@ -209,7 +209,7 @@ const Sidebar = () => {
           )}
            {/* Link to the settings account page*/}
           <Link
-            prefetch={false}
+            
             href="/settings/account"
             className={style.link}
           >
