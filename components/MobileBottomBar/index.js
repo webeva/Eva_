@@ -11,6 +11,9 @@ import { AppState} from "../../atom/AppStateAtom";
 import { NotifiImage } from "../../atom/notificationAtom";
 import DesoApi from "../../Functions/Desoapi";
 import { useRouter } from "next/router";
+//Import Deso
+import Deso from "deso-protocol";
+
 
 export default function MobileBottomBar() {
   const [logged, setLogged] = useRecoilState(AppState);
@@ -22,6 +25,19 @@ export default function MobileBottomBar() {
     const response = await deso.login();
     setLogged(true);
     router.push("/auth");
+  }
+  async function logout() {
+    const deso = new Deso();
+    //Get the user's public key 
+    const request = localStorage.getItem("deso_user_key");
+    //Logout the user 
+    const response = await deso.identity.logout(request);
+    //If sucess tell the page that we have logged out
+    if (response) {
+      localStorage.setItem("deso_user_key", "");
+      setLogged(false);
+      router.push("/")
+    }
   }
 
   return (
@@ -67,7 +83,8 @@ export default function MobileBottomBar() {
             src="/Svg/setting.svg"
           />
         </Link>
-        <img
+        <img 
+          onClick={()=> logout()}
           className={logged ? style.item : style.hide}
           style={{ marginLeft: "5vw" }}
           alt="Logout"

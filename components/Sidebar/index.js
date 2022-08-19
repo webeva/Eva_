@@ -42,6 +42,7 @@ const Sidebar = () => {
     if (response) {
       localStorage.setItem("deso_user_key", "");
       SetLogged(false);
+      router.push("/")
     }
   }
   //Set up the nextjs router
