@@ -70,11 +70,11 @@ export default function Profile(username, res){
           if(response.Profile.ExtraData.FeaturedImageURL){
             setBanner(response.Profile.ExtraData.FeaturedImageURL)
           }else{
-            setBanner("/images/banner.webp")
+            setBanner("/images/Banner.webp")
           }
           
         }catch(error){
-          setBanner("/images/banner.webp")
+          setBanner("/images/Banner.webp")
           
         }
        
