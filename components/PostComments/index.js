@@ -12,7 +12,7 @@ import ProfilePic from "../ProfilePic";
 import { useRouter } from "next/router";
 //Import useRecoil state and the relevant atoms
 import { useRecoilState } from "recoil";
-import { modalState, postIdState } from "../../atom/modalAtom";
+import { modalState, postIdState, EditState, EditStateHash } from "../../atom/modalAtom";
 
 //Export the post comments (Takes the post Id as a param)
 export default function PostComments(id) {
@@ -21,6 +21,8 @@ export default function PostComments(id) {
   const [value, setValue] = useState({}); /* Will store comments */
   const [open, setOpen] = useRecoilState(modalState); /* Comment Modal State */
   const [postId, setPostId] = useRecoilState(postIdState); /* Comment modal Post Id state */
+  const [editOpen, setEditOpen] = useRecoilState(EditState)
+  const [editHash, setEditHash] = useRecoilState(EditStateHash)
 
   //Call getComments once we have the post Id
   useEffect(() => {

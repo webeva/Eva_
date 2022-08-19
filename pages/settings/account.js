@@ -13,7 +13,7 @@ export default function Account() {
     const [bio, setBio] = useState("")
     const [fr, setFr] = useState("")
     const [pic, setPic] = useState("/images/profile.png")
-    const [bg, setBg] = useState("/images/banner.webp")
+    const [bg, setBg] = useState("/images/Banner.webp")
     const [isMobile, setIsMobile] = useState(false)
     const ProfileinputFile = useRef(null);
     const BannerinputFile = useRef(null);
