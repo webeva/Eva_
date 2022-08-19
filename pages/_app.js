@@ -112,10 +112,7 @@ function MyApp({ Component, pageProps }) {
           content="decentralized social media, decentralized social media apps, decentralised social media platform, decentralised twitter, deso, post2earn, posttoearn, twitter decentralized social media, decentralized twitter alternative, decentralized social media blockchain, elon musk decentralized social media, decentralized social media apps, decentralized, twitter, share, connect, blockchain, earn, cryptocurrency, decentralized social media platforms blockchain, best decentralized social media platforms, Top decentralized social media platforms"
         />
         <meta name="robots" content="index, archive" />
-        <meta
-          name="google-site-verification"
-          content="-QDfATapg28Fu8VwKF5f1h1S4aB3sPL8LLGKnD6MK6Y"
-        />
+        <meta name="google-site-verification" content="8kQp0RpYF1oBWZChwmjeLYglGSmsKpN90BBCmMGcUFE" />
         <meta
           name="description"
           content="The most advanced decentralized social media platform built on top of a blockchain. Gain cryptocurrency by posting and sharing. A revolution in social media yet to take over the world."
