@@ -228,7 +228,7 @@ const Sidebar = () => {
           </Link>
           {/* Logout link */}
           <div
-            onClick={() => logout}
+            onClick={() => logout()}
             className={logged ? style.menuItems : style.hide}
           >
             <img
