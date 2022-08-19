@@ -43,7 +43,7 @@ export default function MobileBottomBar() {
             src="/Svg/discover.svg"
           />
         </Link>
-        <Link href="/">
+        <Link href="/posts/25a688ce6c52c5b08217154c2343abc10f839f99bf2ab91e4bb82216071ee0fb">
           <img
             className={logged ? style.item : style.hide}
             style={{ marginLeft: "5vw" }}
