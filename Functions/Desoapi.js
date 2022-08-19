@@ -300,10 +300,7 @@ class DesoApi {
     }
     /* ===== Logs in the user ====== */
     async login(){
-        const request = {
-            "accessLevelRequest":3,
-            "jumio": true
-        }
+        const request = 4
         const response = await this.getClient().identity.login(request)
     }
     
