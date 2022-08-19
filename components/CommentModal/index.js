@@ -111,7 +111,7 @@ const CommentModal = () =>
                      
                       <div style={{width:"100%", padding:"2vh 1vw", marginLeft:"1vw"}}>
                       <div onClick={()=>{setQuote(false), setOpen(false)}} className={style.closemodal}>
-                          <img src="/Svg/x-grey.svg" width={22} height={22}/>
+                          <img alt="Close modal" src="/Svg/x-grey.svg" width={22} height={22}/>
                       </div>
                       <div  className={Messagestyle.container} style={{marginTop:"10px"}}>
                       <img
@@ -155,7 +155,7 @@ const CommentModal = () =>
                                   <img
                                     src={post.ImageURLs[0]}
                                     className={Messagestyle.evaImg}
-                                    alt = "Image"
+                                    alt = "Image on post"
                                     id={post.PostHashHex + "Image"}
                                     onError={(e)=>{HideVideo(post.PostHashHex + "Image")}}
                                   ></img>
@@ -213,7 +213,7 @@ const CommentModal = () =>
                                           <img
                                             src={post.RepostedPostEntryResponse.ImageURLs[0]}
                                             className={Messagestyle.evaImg}
-                                            alt = "Image"
+                                            alt = "Reposted Image"
                                             id={post.RepostedPostEntryResponse.PostHashHex + "Image"}
                                             onError={(e)=>{HideVideo(post.PostHashHex + "Image")}}
                                           ></img>

@@ -146,7 +146,7 @@ const Rightbar = () => {
           <div  style={{marginTop:"4vh"}} className={styles.buy} onClick={()=> getStartDeso()}>Get Free Starter Deso</div>
           </>
         )}
-      {HasAnAccount ? <a className={styles.buy} href="https://www.coinbase.com/price/decentralized-social">{logged? "Withdraw": "Buy"} $Deso</a>: <div></div> }
+      {HasAnAccount ? <a className={styles.buy} target="_blank" href="https://www.coinbase.com/price/decentralized-social">{logged? "Withdraw": "Buy"} $Deso</a>: <div></div> }
       <div className={styles.trends}>
         <h1 className={styles.categorytitle} >Recommended  Creators</h1>
         <div className={styles.category} onClick={()=> goToUser("dharmesh")} style={{marginTop:30}}><ProfilePic profile={"BC1YLianxEsskKYNyL959k6b6UPYtRXfZs4MF3GkbWofdoFQzZCkJRB"} username={"dharmesh"} size={40}></ProfilePic> <p style={{display:"inline", marginLeft:"0.5vw", fontSize:"16px"}}>dharmesh</p></div>

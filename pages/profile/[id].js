@@ -214,7 +214,7 @@ export default function Profile(username, res){
         </Head>
         
         <div  className="pageIdentify">
-              <img className={style.back} onClick={()=> history.back()}  src="/Svg/back.svg" width={30} height={30}/>
+              <img className={style.back} onClick={()=> history.back()}  src="/Svg/back.svg" width={30} height={30} alt="back"/>
               <p id="pageidentify" style={{display:"inline"}}>{info.Username}</p>
               <div style={{marginLeft:"55vw", display:"inline-block"}} className="details"></div>
             </div>

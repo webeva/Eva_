@@ -132,7 +132,7 @@ export default function Account() {
   return (
     <>
     <div  className="pageIdentify">
-    <img className={style.back} onClick={()=> history.back()}  src="/Svg/back.svg" width={30} height={30}/>
+    <img alt="back" className={style.back} onClick={()=> history.back()}  src="/Svg/back.svg" width={30} height={30}/>
             <p id="pageidentify" style={{display:"inline"}}>Settings</p>
             
         </div>

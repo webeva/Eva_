@@ -40,7 +40,7 @@ const Sidebar = () => {
     const response = await deso.identity.logout(request);
     //If sucess tell the page that we have logged out
     if (response) {
-      localStorage.setItem("deso_user_key", null);
+      localStorage.setItem("deso_user_key", "");
       SetLogged(false);
     }
   }
@@ -228,7 +228,7 @@ const Sidebar = () => {
           </Link>
           {/* Logout link */}
           <div
-            onClick={logout}
+            onClick={() => logout}
             className={logged ? style.menuItems : style.hide}
           >
             <img

@@ -170,6 +170,7 @@ const Notifications = () => {
                   </div>
                   <img
                     src={imgs[index]}
+                    alt = "User profile"
                     width={30}
                     height={30}
                     style={{

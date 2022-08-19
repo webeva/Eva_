@@ -334,6 +334,7 @@ export default function InputField(postId) {
                   verticalAlign: "middle",
                 }}
                 src="/Svg/x.svg"
+                alt = "Remove uploaded Image"
               />
             </button>
           </div>
@@ -353,7 +354,7 @@ export default function InputField(postId) {
             <img
               style={{ width: "20px", height: "20px" }}
               src="/Svg/image.svg"
-              alt="image"
+              alt="Uploaded Image"
             />
           </div>
           <div
@@ -365,7 +366,7 @@ export default function InputField(postId) {
             <img
               style={{ width: "22px", height: "22px" }}
               src="/Svg/link.svg"
-              alt="link"
+              alt="Embed link"
             />
           </div>
           <div className={style.imgOrEva}>
