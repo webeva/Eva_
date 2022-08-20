@@ -300,7 +300,7 @@ class DesoApi {
     }
     /* ===== Logs in the user ====== */
     async login(){
-        const request = 4
+        const request = 3
         const response = await this.getClient().identity.login(request)
     }
     

@@ -63,6 +63,9 @@ export default function NotificationPost(id) {
                 width: "45vw",
                 border: "1px solid var(--color-primary)",
                 borderRadius: "5px",
+                wordWrap: "break-word",
+                whiteSpace: "pre-wrap",
+                wordBreak: "break-word",
               }}
               key={postInfo.PostHashHex}
             >
