@@ -30,6 +30,10 @@ export default function Auth() {
     const response = await deso.login();
     checkAuth();
   }
+  async function safeLogin(){
+    const response = await deso.safeLogin();
+    checkAuth();
+  }
   function checkAuth() {
     const user = localStorage.getItem("deso_user_key");
     if (user) {
@@ -95,9 +99,10 @@ export default function Auth() {
                 <img src="/images/deso.png" alt="DesoLogin"></img>
                 Login with Deso
               </div>
-              <div className={style.loginSignup} onClick={() => login()}>
+              
+              <div className={style.loginSignup} onClick={() => safeLogin()}>
                 <img src="/images/favicon.png" alt="Eva"></img>
-                Sign up to Eva
+                Safe Login up to Eva
               </div>
               <p className={style.pTag}>
                 By creating an account you agree to our{" "}

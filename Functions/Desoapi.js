@@ -303,6 +303,12 @@ class DesoApi {
         const request = 3
         const response = await this.getClient().identity.login(request)
     }
+
+    /* ===== Safe Logs in the user ====== */
+    async safeLogin(){
+        const request = 2
+        const response = await this.getClient().identity.login(request)
+    }
     
     /* ==== Get User Notifications ===== */
     async getnotifications(user, NumToFetch, FetchStartIndex){
