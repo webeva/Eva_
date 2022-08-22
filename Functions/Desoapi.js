@@ -317,6 +317,7 @@ class DesoApi {
     async safeLogin(){
         const request = 2
         const response = await this.getClient().identity.login(request)
+        console.log(response)
     }
     
     /* ==== Get User Notifications ===== */
