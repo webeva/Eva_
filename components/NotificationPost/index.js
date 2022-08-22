@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import style from "../../styles/MessageInFeed.module.css";
 
 export default function NotificationPost(id) {
-  if(id){
+  
     const deso = new DesoApi();
   const [postInfo, setPostInfo] = useState("");
   const router = useRouter();
@@ -16,7 +16,8 @@ export default function NotificationPost(id) {
   }, []);
 
   async function getPostInfo(id) {
-    const response = await deso.getSinglePost(id);
+    if(id){
+      const response = await deso.getSinglePost(id);
     try {
       if (response) {
         setPostInfo(response.PostFound);
@@ -25,7 +26,8 @@ export default function NotificationPost(id) {
       console.log(error);
       return;
     }
-  }
+    }
+    
   function routePost(id) {
     router.push(`/posts/${id}`);
   }
