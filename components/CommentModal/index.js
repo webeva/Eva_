@@ -88,7 +88,11 @@ const CommentModal = () =>
         return <div dangerouslySetInnerHTML={{__html: innerText}}></div>  
       }
       const customStyles = {
-        overlay: {zIndex: 1000},
+        
+        overlay: {
+          background: "rgba(0,0,0,0.8)",
+          zIndex: 1000,
+        }
         
         
       };

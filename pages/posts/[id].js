@@ -25,6 +25,7 @@ const BuyNFTModal = dynamic(()=> import("../../components/BuyNFTModal"))
 const InputField = dynamic(()=> import("../../components/InputField"))
 const CreateNft = dynamic(()=> import("../../components/CreateNFT"))
 const EditPost = dynamic(()=> import("../../components/EditPostModal"))
+const Status = dynamic(()=> import("../../components/Status"))
 //Export the post page
 export default function Post() {
     const router = useRouter()
@@ -44,6 +45,7 @@ export default function Post() {
     <BuyNFTModal></BuyNFTModal>
     <CreateNft></CreateNft>
     <EditPost></EditPost>
+    <Status></Status>
         <div className={style.wrapper}>
         <SinglePost postId={id}/>
         {logged && <InputField postId={id}/>}

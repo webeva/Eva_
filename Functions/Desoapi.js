@@ -122,7 +122,13 @@ class DesoApi {
                 "EmbedVideoURL": link
             }
         }
-        const response = await this.getClient().posts.submitPost(request);
+        try{
+            const response = await this.getClient().posts.submitPost(request);
+            return response
+        }catch(error){
+            return error
+        }
+        
     }
 
     async hidePost(postHash, publickey58){
@@ -148,7 +154,7 @@ class DesoApi {
         }
         
     }
-    /* ========= Send messages ====== */
+    /* ========= Edit a message ====== */
 
     async editMessage(publickey58, text, img, link, post){
         let ImageSend;
@@ -177,7 +183,7 @@ class DesoApi {
         }
         try{
             const response = await this.getClient().posts.submitPost(request);
-        return response
+            return response
         }catch(error){
             alert(error)
         }
@@ -217,6 +223,7 @@ class DesoApi {
             "RepostedPostHashHex": repost
         }
         const response = await this.getClient().posts.submitPost(request);
+        return response
     }
 
 
@@ -251,6 +258,7 @@ class DesoApi {
             }
         }
         const response = await this.getClient().posts.submitPost(request);
+        return response
     }
 
 
@@ -272,6 +280,7 @@ class DesoApi {
                 "DiamondLevel": DiamondLevel
               };
               const response = await this.getClient().social.sendDiamonds(request)
+              return response
         }catch(error){
             console.log(error)
         }
@@ -738,8 +747,7 @@ class DesoApi {
             const response = await this.getClient().social.updateProfile(request);
             return response
         }catch(error){
-            console.log(error)
-            return
+            return(error)
         }
     }
 

@@ -81,7 +81,7 @@
   color: var(--color-white);
   position: relative;
   top: -160px;
-  left: 56.977604166666664vw;
+  left: 54.977604166666664vw;
 
   font-size: 16px;
   font-weight: bold;
@@ -196,9 +196,9 @@
     left: 64vw;
   }
 }
-@media all and (max-width: 505px) {
+@media all and (max-width: 700px) {
   .profileEdit {
-    left: 50vw;
+    left: 47vw;
   }
   .profileBanner {
     left: 0;

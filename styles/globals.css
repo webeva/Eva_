@@ -198,21 +198,8 @@ body {
     --profile-left: 130px;
   }
 }
-@media all and (max-width: 565px) {
-  :root {
-    --sidebar-width: 90px;
-    --notification-left: 100px;
-    --profile-left: 110px;
-  }
-}
-@media all and (max-width: 520px) {
-  :root {
-    --sidebar-width: 80px;
-    --notification-left: 90px;
-    --profile-left: 100px;
-  }
-}
-@media all and (max-width: 505px) {
+
+@media all and (max-width: 700px) {
   .pageIdentify {
     left: 0;
   }

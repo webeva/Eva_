@@ -92,7 +92,7 @@
   }
 }
 
-@media all and (max-width: 505px) {
+@media all and (max-width: 700px) {
   .mainWindow {
     margin-left: 5vw;
     overflow-x: hidden;

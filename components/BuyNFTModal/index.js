@@ -11,7 +11,10 @@ export default function BuyNFTModal() {
   const [open, setOpen] = useRecoilState(NFTState)
   //Custom style to set the z-index of the modal
   const customStyles = {
-    overlay: { zIndex: 1000 },
+    overlay: {
+      background: "rgba(0,0,0,0.8)",
+      zIndex: 1000,
+    }
   };
   //Return the html
   return (

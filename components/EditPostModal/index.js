@@ -9,7 +9,10 @@ export default function EditPost() {
   const [postHash, setPostHash] = useRecoilState(EditStateHash);
 
   const customStyles = {
-    overlay: { zIndex: 9999 },
+    overlay: {
+      background: "rgba(0,0,0,0.8)",
+      zIndex: 1000,
+    }
   };
   return (
     <Modal

@@ -13,7 +13,7 @@ import { useState, useEffect } from "react";
 import MessageInFeed from "../components/MessageInFeed";
 //Import paginiation atom
 import { loadState } from "../atom/feedAtom";
-import { AppState, HasAccount } from "../atom/AppStateAtom";
+import { AppState } from "../atom/AppStateAtom";
 import { useRecoilState } from "recoil";
 //Import use Router
 import { useRouter } from "next/router";
@@ -24,6 +24,7 @@ const CommentModal = dynamic(() => import("../components/CommentModal"));
 const BuyNFTModal = dynamic(() => import("../components/BuyNFTModal"));
 const CreateNft = dynamic(() => import("../components/CreateNFT"));
 const EditPost = dynamic(() => import("../components/EditPostModal"));
+const Status = dynamic(()=> import("../components/Status"))
 //Import input field
 import InputField from "../components/InputField";
 export default function Home() {
@@ -58,11 +59,14 @@ export default function Home() {
   //Return the html
   return (
     <>
+      <Status/>
+      <EditPost/>
       <div className="pageIdentify">
-        <CommentModal />
-        <BuyNFTModal />
-        <CreateNft />
-        <EditPost></EditPost>
+      <CommentModal />
+      <BuyNFTModal />
+      <CreateNft />
+       
+        
         <p id="pageidentify" style={{ display: "inline" }}>
           Home
         </p>

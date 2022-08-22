@@ -223,7 +223,7 @@
   width: 40vw;
 }
 
-@media all and (max-width: 505px) {
+@media all and (max-width: 700px) {
   .settinglist {
     width: 100vw;
     margin-left: -20px;

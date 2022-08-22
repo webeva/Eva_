@@ -7,7 +7,7 @@ on if the user is logged into the website */
 import style from "../../styles/Phone.module.css";
 import Link from "next/link";
 import { useRecoilState } from "recoil";
-import { AppState} from "../../atom/AppStateAtom";
+import { AppState, HasAccount} from "../../atom/AppStateAtom";
 import { NotifiImage } from "../../atom/notificationAtom";
 import DesoApi from "../../Functions/Desoapi";
 import { useRouter } from "next/router";
@@ -20,11 +20,21 @@ export default function MobileBottomBar() {
   const [notifiImage] = useRecoilState(NotifiImage);
   const deso = new DesoApi();
   const router = useRouter();
+  const [hasAnAccount] = useRecoilState(HasAccount);
   //Logs the user in and sets logged to true
   async function login() {
     const response = await deso.login();
     setLogged(true);
     router.push("/auth");
+  }
+  //Route the user to their profile page
+  async function routeProfile() {
+    //Get the current user's public key
+    const publicKey = localStorage.getItem("deso_user_key");
+    //Convert that publickey to their username
+    const Username = await deso.UsernameByPublickey(publicKey);
+    //Go to /profile + user's username
+    router.push(`/profile/${Username}`);
   }
   async function logout() {
     const deso = new Deso();
@@ -75,6 +85,26 @@ export default function MobileBottomBar() {
             src={notifiImage ? "/Svg/bell-on.svg" : "/Svg/bell.svg"}
           />
         </Link>
+        {hasAnAccount ? (
+            <div onClick={() => routeProfile()}  className={logged ? style.item : style.hide}>
+              
+                <img
+                  style={{
+                    width: "30px",
+                    height: "30px",
+                    display: "inline-block",
+                    marginLeft:"3vw"
+                    
+                    
+                  }}
+                  alt="profile"
+                  src="/Svg/user.svg"
+                />
+                
+            </div>
+          ) : (
+            <div></div>
+          )}
         <Link href="/settings">
           <img
             className={logged ? style.item : style.hide}

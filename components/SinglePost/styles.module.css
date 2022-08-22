@@ -304,7 +304,7 @@
       gap: 6vw;
     }
   }
-  @media all and (max-width: 505px) {
+  @media all and (max-width: 700px) {
     .pageIdentify {
       left: 0;
     }

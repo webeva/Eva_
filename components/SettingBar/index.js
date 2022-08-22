@@ -110,10 +110,10 @@ export default function SettingBar() {
           />
           <div className={style.profile}>
             <div className={style.who}>
-              <h3>Buy/Withdraw $Deso</h3>
+              <h3>Buy/Withdraw $DeSo</h3>
             </div>
             <div className={style.accWhen}>
-              <p>Click here to purchase $Deso.</p>
+              <p>Click here to purchase $DeSo.</p>
             </div>
           </div>
         </li>

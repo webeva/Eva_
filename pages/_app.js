@@ -119,9 +119,6 @@ function MyApp({ Component, pageProps }) {
           data-rh="true"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#2f3136" />
-        <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="canonical" href="https://web3eva.netlify.app/" />
       </Head>
@@ -137,6 +134,7 @@ function MyApp({ Component, pageProps }) {
               <Sidebar />
             </div>
             <div>
+              
               <Component {...pageProps} />
             </div>
             <div className={showRighbar ? style.rightBar : style.hide}>

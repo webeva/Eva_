@@ -52,3 +52,11 @@ export const EditStateHash = atom({
     key: "EditStateHash", // unique ID (with respect to other atoms/selectors)
     default: null // default value (aka initial value)
 })
+
+
+/* =========== Success/Error Modal ============= */
+
+export const Response = atom({
+    key: "Response", // unique ID (with respect to other atoms/selectors)
+    default: null // default value (aka initial value)
+})

@@ -5,7 +5,7 @@
 /* ====== Chat Box ====== */
 
 .evaBox {
-  width: 90%;
+  width: 48vw;  
 }
 .emojii {
   width: 19px;
@@ -88,7 +88,6 @@
   border-radius: 10px;
   max-width: 450px;
 }
-
 /* ========= Feeds ======== */
 
 .feeds {
@@ -133,6 +132,7 @@
   background-color: var(--color-hover);
 }
 
+
 /* =========== Media Queries ======= */
 
 @media all and (max-width: 1309px) {
@@ -171,15 +171,13 @@
     display: none;
   }
 }
-@media all and (max-width: 770px) {
-  .evaBox {
+@media all and (max-width: 960px) {
+  .profileEva {
     width: 70vw;
   }
 }
 @media all and (max-width: 755px) {
-  .evaBox {
-    width: 68vw;
-  }
+  
   .feeds {
     width: 78vw;
   }
@@ -200,7 +198,10 @@
     display: none;
   }
 }
-@media all and (max-width: 505px) {
+@media all and (max-width: 700px) {
+  .profileEva {
+    width: 90vw;
+  }
   .mainContent {
     left: 0;
   }
@@ -211,6 +212,10 @@
   .feed:nth-child(6) {
     display: inline-block;
   }
+  .evaBox{
+    width: 100vw;
+  }
+  
 }
 @media all and (max-width: 412px) {
   .feed:nth-child(6) {

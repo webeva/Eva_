@@ -18,7 +18,7 @@ export default function Display() {
               }
         }
         const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-        if(vw < 505){
+        if(vw < 700){
            
             setIsMobile(true)
         }

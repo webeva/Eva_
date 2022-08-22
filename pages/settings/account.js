@@ -4,6 +4,10 @@ import DesoApi from "../../Functions/Desoapi"
 import style from "../../styles/Settings.module.css"
 import { useRecoilState } from "recoil"
 import { HasAccount } from "../../atom/AppStateAtom"
+import { Response } from "../../atom/modalAtom"
+//Import dynamic loading from next
+import dynamic from "next/dynamic";
+const Status = dynamic(()=> import("../../components/Status"))
 
 
 export default function Account() {
@@ -18,6 +22,7 @@ export default function Account() {
     const ProfileinputFile = useRef(null);
     const BannerinputFile = useRef(null);
     const [HasAnAccount] = useRecoilState(HasAccount)
+    const [response, setResponse] = useRecoilState(Response)
     //Get the current user information
     useEffect(()=>{
         const user = localStorage.getItem("deso_user_key")
@@ -25,7 +30,7 @@ export default function Account() {
             getProfile(user)
         }
         const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-        if(vw < 505){
+        if(vw < 700){
            
             setIsMobile(true)
         }
@@ -85,6 +90,7 @@ export default function Account() {
             checkedFr = checkedFr * 100
         }
         const response = await deso.updateInfo(localStorage.getItem("deso_user_key"), username, bio, checkedFr, pic, bg)
+        setResponse(response)
             
     }
     //Clicks the banner upload image input
@@ -131,6 +137,7 @@ export default function Account() {
 
   return (
     <>
+    <Status></Status>
     <div  className="pageIdentify">
     <img alt="back" className={style.back} onClick={()=> history.back()}  src="/Svg/back.svg" width={30} height={30}/>
             <p id="pageidentify" style={{display:"inline"}}>Settings</p>
@@ -140,8 +147,8 @@ export default function Account() {
         
     <div  className={style.content}>
     {HasAnAccount? <div></div>: <div className={style.buyDeso} >
-        <h2 style={{color:"var(--color-white)"}}>To Create A Profile You Need Some Deso</h2>
-        <p style={{color:"var(--color-white)", paddingRight:"100px"}}>Deso is a cryptocurrency used on Eva. To get started you only need 0.001 Deso or around $0.01 USD</p>
+        <h2 style={{color:"var(--color-white)"}}>To Create A Profile You Need Some DeSo</h2>
+        <p style={{color:"var(--color-white)", paddingRight:"100px"}}>DeSo is a cryptocurrency used on Eva. To get started you only need 0.001 DeSo or around $0.01 USD</p>
         <button onClick={()=> starterDeso()}  style={{color:"var(--color-white)", borderRadius:"15px", background:"var(--color-primary)", width:"fit-content", paddingLeft:"2vw", paddingRight:"2vw", height:"8vh", cursor:"pointer", fontSize:"15px", marginBottom:"4vh"}}>Get Free Deso</button>
         <button onClick={()=>buyDeso()} style={{color:"var(--color-white)", borderRadius:"15px", background:"var(--color-primary)", width:"fit-content", paddingLeft:"2vw", paddingRight:"2vw", height:"8vh", cursor:"pointer", fontSize:"15px", marginLeft:"1vw"}}>Buy $Deso</button>
         

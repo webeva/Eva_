@@ -97,7 +97,7 @@ export default function Auth() {
 
               <div className={style.loginSignup} onClick={() => login()}>
                 <img src="/images/deso.png" alt="DesoLogin"></img>
-                Login with Deso
+                Login with DeSo
               </div>
               
               <div className={style.loginSignup} onClick={() => safeLogin()}>

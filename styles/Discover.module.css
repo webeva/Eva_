@@ -83,7 +83,7 @@
     width: 55vw;
   }
 }
-@media all and (max-width: 505px) {
+@media all and (max-width: 700px) {
   .wrapper {
     left: 15vw;
   }

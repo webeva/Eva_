@@ -1,0 +1,17 @@
+.modal{
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 7px 65px;
+    width: auto;
+    text-align: center;
+    height: auto;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    z-index: 7;
+    border-radius: 7px;
+    padding-bottom: 20px;
+    box-shadow: 2px 2px 5px var(--color-black);
+    transition: var(--hover-transition);
+}

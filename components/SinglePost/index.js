@@ -2,9 +2,9 @@
 component but will only get one message and will 
 be used in the posts page */
 
-//Import the deso api
+//Import the SeSo api
 import DesoApi from "../../Functions/Desoapi";
-//Import Deso 
+//Import DeSo 
 import Deso from "deso-protocol";
 
 //Import the style from Messagesinfeed
@@ -31,7 +31,7 @@ import YoutubeEmb from "../YoutubeEmb";
 export default function SinglePost(postId) {
   //Store the postId object as a variable 
   const id = postId.postId;
-  //Intialize the deso api
+  //Intialize the DeSo api
   const deso = new DesoApi();
   const [value, setValue] = useState({}); /* Used to store the post info ie: body... */
   //Set up nextjs's router

@@ -12,6 +12,7 @@ import DesoApi from "../../Functions/Desoapi";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { modalState, quoteState, EditStateHash, EditState } from "../../atom/modalAtom";
+import { Response } from "../../atom/modalAtom";
 
 export default function InputField(postId) {
 
@@ -33,6 +34,8 @@ export default function InputField(postId) {
 
   const [postHash, setPostHash] = useRecoilState(EditStateHash);
   const [editState, setEditState] = useRecoilState(EditState)
+
+  const [response, setResponse] = useRecoilState(Response);
   useEffect(()=>{
    
     if(postHash){
@@ -70,6 +73,7 @@ export default function InputField(postId) {
         const user = localStorage.getItem("deso_user_key");
         try{
           const response = await deso.editMessage(user, newmessage, theFile, url, postHash);
+          setResponse(response)
         }catch(error){
           return
         }
@@ -104,6 +108,7 @@ export default function InputField(postId) {
         }
         const user = localStorage.getItem("deso_user_key");
         const response = await deso.sendMessage(user, newmessage, theFile, url);
+        setResponse(response)
         setQuote(false);
         //Clear the input field and upload image field once the message has been sent
         document.getElementById("postTxtArea").value = "";
@@ -133,6 +138,7 @@ export default function InputField(postId) {
             url,
             postId.postId
           );
+          setResponse(response)
   
           document.getElementById("postTxtArea").value = "";
           setTheFile(null);
@@ -161,7 +167,8 @@ export default function InputField(postId) {
             theFile,
             postId.postId,
             url
-          );
+          ).then(()=>{
+            setResponse(response)
           document.getElementById("postTxtArea").value = "";
           setTheFile(null);
           setLink("");
@@ -169,11 +176,14 @@ export default function InputField(postId) {
           setSelectedFile("");
           //Clear the input field and upload image field once the message has been sent
           file = [];
-          //Redirect the user to that post's page
-          router.push(`/posts/${postId.postId}`);
           //Close the comment modal
           setOpen(false);
           setnewmessage("")
+          //Redirect the user to that post's page
+          setTimeout(() => {
+            router.push(`/posts/${postId.postId}`);
+          }, 1000);
+          });
         }
     }
       
@@ -223,6 +233,13 @@ export default function InputField(postId) {
     setSelectedFile(URL.createObjectURL(img));
     setclosebutton("flex");
   };
+
+  //Resize the textarea as more text is written 
+  function autoGrow(element){
+    element.style.height = "auto"
+    element.style.height = (element.scrollHeight)+"px";
+  }
+
   async function getImageUrl (result){
     const user = localStorage.getItem("deso_user_key")
     const JWT = await deso.getJwt(user)
@@ -277,6 +294,7 @@ export default function InputField(postId) {
           id="postTxtArea"
           name="postTxtArea"
           onChange={(e) => setnewmessage(e.target.value)}
+          onInput={(e)=> autoGrow(e.target)}
           placeholder={quoteComment}
           type="text"
           value={newmessage}
@@ -290,11 +308,12 @@ export default function InputField(postId) {
             outline: "none",
             paddingLeft: "20px",
             fontWeight: "500",
-            width: "600px",
+            width:"100%",
             height: "8vh",
-            overflow: "none",
+            overflow: "auto",
+            maxHeight:"200px"
           }}
-        ></textarea>
+          ></textarea>
 
         <input
           onChange={(e) => setLink(e.target.value)}
