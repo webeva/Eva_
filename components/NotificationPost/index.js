@@ -7,7 +7,8 @@ import { useRouter } from "next/router";
 import style from "../../styles/MessageInFeed.module.css";
 
 export default function NotificationPost(id) {
-  const deso = new DesoApi();
+  if(id){
+    const deso = new DesoApi();
   const [postInfo, setPostInfo] = useState("");
   const router = useRouter();
   useEffect(() => {
@@ -76,5 +77,7 @@ export default function NotificationPost(id) {
       )}
     </>
   );
+  }
+  
 }
 //End of notification post component

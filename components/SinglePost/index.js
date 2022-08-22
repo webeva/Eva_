@@ -316,32 +316,9 @@ export default function SinglePost(postId) {
                 </>
               )
             )}
-            {value.PostExtraData.EmbedVideoURL && (
-              <div
-                style={{
-                  position: "relative",
-                  paddingBottom: "56.25%",
-                  paddingTop: "30px",
-                  height: "0px",
-                }}
-              >
-                <iframe
-                  style={{
-                    position: "absolute",
-                    left: "0",
-                    top: "0",
-                    right: "0",
-                    bottom: "0",
-                    height: "100%",
-                    width: "100%",
-                    borderRadius: "8px",
-                  }}
-                  src={value.PostExtraData.EmbedVideoURL}
-                  frameBorder="0"
-                  allowFullScreen
-                ></iframe>
-              </div>
-            )}
+            
+             
+                    
             {value.PostExtraData.EmbedVideoURL && (
                 <YoutubeEmb link={value.PostExtraData.EmbedVideoURL}></YoutubeEmb>                  
             )}

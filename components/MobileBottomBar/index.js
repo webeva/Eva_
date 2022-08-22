@@ -85,6 +85,7 @@ export default function MobileBottomBar() {
             src={notifiImage ? "/Svg/bell-on.svg" : "/Svg/bell.svg"}
           />
         </Link>
+        
         {hasAnAccount ? (
             <div onClick={() => routeProfile()}  className={logged ? style.item : style.hide}>
               
@@ -103,9 +104,11 @@ export default function MobileBottomBar() {
                 
             </div>
           ) : (
-            <div></div>
+            <></>
           )}
-        <Link href="/settings">
+      {/* Link to the settings page */}
+      
+      <Link href="/settings">
           <img
             className={logged ? style.item : style.hide}
             style={{ marginLeft: "5vw" }}
@@ -120,6 +123,11 @@ export default function MobileBottomBar() {
           alt="Logout"
           src="/Svg/logout.svg"
         />
+
+
+
+          
+        
         <button
           onClick={() => login()}
           className={logged ? style.hide : style.btn}

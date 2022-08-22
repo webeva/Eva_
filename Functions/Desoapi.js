@@ -472,8 +472,10 @@ class DesoApi {
     }
 
     /* ====== The user has seen his notifications ======= */
-    async sawNotifications(user, jwt){
+    async sawNotifications(user, jwt, index){
+       
         if(!user){
+            
             console.log("User is needed")
             return
         }
@@ -482,12 +484,14 @@ class DesoApi {
             const request = {
                 "PublicKeyBase58Check": user, 
                 "UnreadNotifications": 0,
-                "LastUnreadNotificationIndex": 0,
-                "LastSeenIndex": 0,
+                "LastUnreadNotificationIndex": index,
+                "LastSeenIndex": index,
                 "JWT": jwt
                
             }
+            
             const response = await this.getClient().notification.setNotificationMetadata(request);
+           
             return response
 
         }catch(error){

@@ -386,7 +386,7 @@ export default function PostComments(id) {
                     width={15}
                     height={15}
                     className={style.edit}
-                    style={{ left: "50vw" }}
+                    
                     alt="moreOptions"
                   ></img>
                   <div style={{ position: "relative" }}>

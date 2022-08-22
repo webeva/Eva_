@@ -1,4 +1,4 @@
-const withPWA = require('next-pwa')
+
 
 /** @type {import('next').NextConfig} */
 
@@ -20,15 +20,10 @@ const securityHeaders = [
 
 ]
 
-const nextConfig = withPWA({
+const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [ 'diamondapp.com', 'ancient-reef-76919.herokuapp.com'],
-  },
-  pwa: {
-    dest: "public",
-    register: true, 
-    skipWaiting: true
   },
   async headers(){
     return [
@@ -39,6 +34,6 @@ const nextConfig = withPWA({
       }
     ]
   }
-})
+}
 
 module.exports = nextConfig

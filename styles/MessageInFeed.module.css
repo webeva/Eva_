@@ -1,7 +1,8 @@
 .feedEva {
   width: 100%;
   border-bottom: 1px solid rgb(63, 63, 63);
-  padding: 20px;
+  padding-top: 20px;
+ padding-bottom: 20px;
   color: var(--color-white);
   justify-content: space-between;
   display: flex;
@@ -312,12 +313,13 @@
     width: 100vw;
   }
   .edit {
-    left: 80vw;
+    left: 83vw;
   }
   .dropDown {
-    left: 45vw;
+    left: 40vw;
     width: 30vw;
   }
+  
 }
 @media all and (max-width: 380px) {
   .interactions {

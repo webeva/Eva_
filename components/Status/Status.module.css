@@ -15,3 +15,9 @@
     box-shadow: 2px 2px 5px var(--color-black);
     transition: var(--hover-transition);
 }
+@media all and (max-width: 700px) {
+    .modal{
+        top: 80%;
+        
+    }
+}

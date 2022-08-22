@@ -100,11 +100,15 @@ const Sidebar = () => {
     uses server side rendering. In that case log the error */
     try {
       //Get the json web token
-      const jwt = await deso.getJwt(user);
+      const jwt = await deso.getJwt(localStorage.getItem("deso_user_key"));
       //Send the response
-      const response = await deso.sawNotifications(user, jwt);
+      const value = await deso.getUnreadNotifications(localStorage.getItem("deso_user_key"))
+      const index = value.LastUnreadNotificationIndex
+      const response = await deso.sawNotifications(localStorage.getItem("deso_user_key"), jwt, index);
+     
     } catch (error) {
       //Logs the errors.
+
       console.log(error);
     }
   }
