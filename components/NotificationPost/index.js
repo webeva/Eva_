@@ -16,7 +16,7 @@ export default function NotificationPost(id) {
   }, []);
 
   async function getPostInfo(id) {
-    if(id){
+   
       const response = await deso.getSinglePost(id);
     try {
       if (response) {
@@ -26,7 +26,7 @@ export default function NotificationPost(id) {
       console.log(error);
       return;
     }
-    }
+    
     
   function routePost(id) {
     router.push(`/posts/${id}`);
