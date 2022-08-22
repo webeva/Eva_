@@ -111,7 +111,7 @@ function MyApp({ Component, pageProps }) {
           name="keywords"
           content="decentralized social media, decentralized social media apps, decentralised social media platform, decentralised twitter, deso, post2earn, posttoearn, twitter decentralized social media, decentralized twitter alternative, decentralized social media blockchain, elon musk decentralized social media, decentralized social media apps, decentralized, twitter, share, connect, blockchain, earn, cryptocurrency, decentralized social media platforms blockchain, best decentralized social media platforms, Top decentralized social media platforms"
         />
-        <meta name="robots" content="index, archive" />
+
         <meta name="google-site-verification" content="8kQp0RpYF1oBWZChwmjeLYglGSmsKpN90BBCmMGcUFE" />
         <meta
           name="description"

@@ -7,3 +7,5 @@ Disallow: /settings/extensions
 Disallow: /settings/language
 Disallow: /404
 Disallow: /500
+
+Sitemap: https://eva-phi.vercel.app/sitemap.xml

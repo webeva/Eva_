@@ -2,7 +2,9 @@ import { Html, Head, Main, NextScript } from "next/document";
 export default function Document() {
   return (
     <Html id="html" lang="en" dir="ltr" style={{ overflowX: "hidden" }}>
-      <Head/>
+      <Head>
+      <meta name="robots" content="index, archive" />
+      </Head>
     
       <body>
         <Main />
