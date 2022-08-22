@@ -108,7 +108,10 @@ export default function InputField(postId) {
         }
         const user = localStorage.getItem("deso_user_key");
         const response = await deso.sendMessage(user, newmessage, theFile, url);
+        console.log(response.TransactionHex)
+        console.log(response)
         if(response.TransactionHex){
+          console.log(response.TransactionHex)
           const approve = window.open('https://identity.deso.org/approve?tx=' + response.TransactionHex)
         }
         setResponse(response)
