@@ -7,8 +7,7 @@ import { useRouter } from "next/router";
 import style from "../../styles/MessageInFeed.module.css";
 
 export default function NotificationPost(id) {
-  
-    const deso = new DesoApi();
+  const deso = new DesoApi();
   const [postInfo, setPostInfo] = useState("");
   const router = useRouter();
   useEffect(() => {
@@ -16,8 +15,7 @@ export default function NotificationPost(id) {
   }, []);
 
   async function getPostInfo(id) {
-   
-      const response = await deso.getSinglePost(id);
+    const response = await deso.getSinglePost(id);
     try {
       if (response) {
         setPostInfo(response.PostFound);
@@ -26,8 +24,7 @@ export default function NotificationPost(id) {
       console.log(error);
       return;
     }
-    
-    
+  }
   function routePost(id) {
     router.push(`/posts/${id}`);
   }
@@ -69,6 +66,7 @@ export default function NotificationPost(id) {
                 wordWrap: "break-word",
                 whiteSpace: "pre-wrap",
                 wordBreak: "break-word",
+                paddingLeft:"1vw"
               }}
               key={postInfo.PostHashHex}
             >
@@ -79,7 +77,5 @@ export default function NotificationPost(id) {
       )}
     </>
   );
-  }
-  
 }
 //End of notification post component

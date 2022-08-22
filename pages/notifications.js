@@ -193,10 +193,7 @@ const Notifications = () => {
                 )}
                 {value.Metadata.SubmitPostTxindexMetadata && (
                   <NotificationPost
-                    id={
-                      value.Metadata.SubmitPostTxindexMetadata
-                        .PostHashBeingModifiedHex
-                    }
+                    id={value.Metadata.SubmitPostTxindexMetadata.PostHashBeingModifiedHex}
                   />
                 )}
               </div>
