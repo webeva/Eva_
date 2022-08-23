@@ -459,10 +459,10 @@ const MessageInFeed = (feed) => {
                               <div className={style.who} onClick={()=> routePost(PostHashHex)}>
                                 
                               <p >{isProfile ? profileUsername :value.ProfileEntryResponse.Username}  </p>
-                                <div className={style.accWhen}>
+                                <div className={style.accWhen} style={{marginLeft:"0.2vw"}}>
                                   {
                                       `
-                                      ${PosterPublicKeyBase58Check.slice(0,4)} ... ${PosterPublicKeyBase58Check.slice(38)} ·
+                                      ${PosterPublicKeyBase58Check.slice(0,4)} ... ${PosterPublicKeyBase58Check.slice(4,5)} ·
                                       ${timeSince(TimestampNanos)} 
                                      
                                       `  

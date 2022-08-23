@@ -1,8 +1,8 @@
 .feedEva {
-  width: 100%;
+  width: 98%;
   border-bottom: 1px solid rgb(63, 63, 63);
   padding-top: 20px;
- padding-bottom: 20px;
+  padding-bottom: 20px;
   color: var(--color-white);
   justify-content: space-between;
   display: flex;
@@ -68,7 +68,6 @@
   color: var(--color-white);
   padding: 13px 13px;
   display: inline-block;
-
   cursor: pointer;
 }
 .middle {
@@ -318,6 +317,9 @@
   .dropDown {
     left: 40vw;
     width: 30vw;
+  }
+  .nftButton {
+    margin: 0;
   }
   
 }

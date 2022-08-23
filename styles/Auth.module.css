@@ -48,8 +48,9 @@
 }
 .pTag {
   font-size: 0.8rem;
-
   text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 @media only screen and (max-width: 860px) {

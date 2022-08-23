@@ -96,23 +96,23 @@ export default function Auth() {
               <h2 className={style.title}>Login to Eva</h2>
 
               <div className={style.loginSignup} onClick={() => login()}>
-                <img src="/images/deso.png" alt="DesoLogin"></img>
+                <img src="/images/favicon.png" alt="DesoLogin"></img>
                 Login with DeSo
               </div>
               
               <div className={style.loginSignup} onClick={() => safeLogin()}>
                 <img src="/images/favicon.png" alt="Eva"></img>
-                Safe Login up to Eva
+                Safe Login to Eva
               </div>
               <p className={style.pTag}>
-                By creating an account you agree to our{" "}
+                By creating an account you agree to our {" "}
                 <Link className={style.aTag} href="/terms">
-                  Terms and Conditions
+                   Terms and Conditions
                 </Link>
                
-                and{" "}
+                {" "} and {" "}
                 <a className={style.aTag} href="#">
-                  Privacy Policies
+                   Privacy Policies
                 </a>
               </p>
             </form>

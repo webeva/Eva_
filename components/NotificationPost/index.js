@@ -58,15 +58,16 @@ export default function NotificationPost(id) {
             </div>
           ) : (
             <article
-              className={style.feedEva}
+              
               style={{
-                width: "45vw",
+                width: "auto",
                 border: "1px solid var(--color-primary)",
                 borderRadius: "5px",
                 wordWrap: "break-word",
                 whiteSpace: "pre-wrap",
                 wordBreak: "break-word",
-                paddingLeft:"1vw"
+                paddingLeft:"1vw",
+                padding: "18px 18px"
               }}
               key={postInfo.PostHashHex}
             >

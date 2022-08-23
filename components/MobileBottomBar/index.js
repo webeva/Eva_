@@ -56,7 +56,7 @@ export default function MobileBottomBar() {
         <Link href="/">
           <img
             className={logged ? style.item : style.hide}
-            style={{ marginLeft: "15vw" }}
+            style={{ marginLeft: "10vw" }}
             alt="Home"
             src="/Svg/home.svg"
           />

@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  const [showRighbar, SetShowRightBar] = useState(true);
+  const [showRighbar, SetShowRightBar] = useState(false);
   const [showSidebar, SetShowSidebar] = useState(true);
   const [isAuth, setIsAuth] = useState(false);
   const [theme, setTheme] = useState("");
