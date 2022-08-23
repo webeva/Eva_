@@ -11,13 +11,14 @@ import { AppState, HasAccount} from "../../atom/AppStateAtom";
 import { NotifiImage } from "../../atom/notificationAtom";
 import DesoApi from "../../Functions/Desoapi";
 import { useRouter } from "next/router";
-//Import Deso
-import Deso from "deso-protocol";
+
+import { useState, useEffect } from "react";
 
 
 export default function MobileBottomBar() {
   const [logged, setLogged] = useRecoilState(AppState);
   const [notifiImage] = useRecoilState(NotifiImage);
+  const [isAuth, setIsAuth] = useState(false)
   const deso = new DesoApi();
   const router = useRouter();
   const [hasAnAccount] = useRecoilState(HasAccount);
@@ -37,11 +38,10 @@ export default function MobileBottomBar() {
     router.push(`/profile/${Username}`);
   }
   async function logout() {
-    const deso = new Deso();
     //Get the user's public key 
     const request = localStorage.getItem("deso_user_key");
     //Logout the user 
-    const response = await deso.identity.logout(request);
+    const response = await deso.logout(request)
     //If sucess tell the page that we have logged out
     if (response) {
       localStorage.setItem("deso_user_key", "");
@@ -50,98 +50,105 @@ export default function MobileBottomBar() {
     }
   }
 
+  useEffect(() =>{
+    if(router.pathname){
+      if (router.pathname == "/auth" || router.pathname == "/terms") {
+        setIsAuth(true)
+      }else{
+        setIsAuth(false)
+      }
+    }
+  }, [router])
+
   return (
     <>
+    {isAuth == false && 
       <div className={style.bar}>
-        <Link href="/">
-          <img
-            className={logged ? style.item : style.hide}
-            style={{ marginLeft: "10vw" }}
-            alt="Home"
-            src="/Svg/home.svg"
-          />
-        </Link>
-        <Link href="/discover">
-          <img
-            className={logged ? style.item : style.hide}
-            style={{ marginLeft: "5vw" }}
-            alt="Discover"
-            src="/Svg/discover.svg"
-          />
-        </Link>
-        <Link href="/posts/25a688ce6c52c5b08217154c2343abc10f839f99bf2ab91e4bb82216071ee0fb">
-          <img
-            className={logged ? style.item : style.hide}
-            style={{ marginLeft: "5vw" }}
-            alt="Debate"
-            src="/Svg/megaphone.svg"
-          />
-        </Link>
-        <Link href="/notifications">
-          <img
-            className={logged ? style.item : style.hide}
-            style={{ marginLeft: "5vw" }}
-            alt="Notifications"
-            src={notifiImage ? "/Svg/bell-on.svg" : "/Svg/bell.svg"}
-          />
-        </Link>
-        
-        {hasAnAccount ? (
-            <div onClick={() => routeProfile()}  className={logged ? style.item : style.hide}>
-              
-                <img
-                  style={{
-                    width: "30px",
-                    height: "30px",
-                    display: "inline-block",
-                    marginLeft:"3vw"
-                    
-                    
-                  }}
-                  alt="profile"
-                  src="/Svg/user.svg"
-                />
-                
-            </div>
-          ) : (
-            <></>
-          )}
-      {/* Link to the settings page */}
-      
-      <Link href="/settings">
-          <img
-            className={logged ? style.item : style.hide}
-            style={{ marginLeft: "5vw" }}
-            alt="Settings"
-            src="/Svg/setting.svg"
-          />
-        </Link>
-        <img 
-          onClick={()=> logout()}
+      <Link href="/">
+        <img
+          className={logged ? style.item : style.hide}
+          style={{ marginLeft: "10vw" }}
+          alt="Home"
+          src="/Svg/home.svg"
+        />
+      </Link>
+      <Link href="/discover">
+        <img
           className={logged ? style.item : style.hide}
           style={{ marginLeft: "5vw" }}
-          alt="Logout"
-          src="/Svg/logout.svg"
+          alt="Discover"
+          src="/Svg/discover.svg"
         />
-
-
-
-          
-        
-        <button
-          onClick={() => login()}
-          className={logged ? style.hide : style.btn}
-          style={{ marginLeft: "9vw" }}
-        >
-          Sign Up
-        </button>
-        <button
-          onClick={() => login()}
-          className={logged ? style.hide : style.btn}
-        >
-          Log in
-        </button>
-      </div>
+      </Link>
+      <Link href="/posts/25a688ce6c52c5b08217154c2343abc10f839f99bf2ab91e4bb82216071ee0fb">
+        <img
+          className={logged ? style.item : style.hide}
+          style={{ marginLeft: "5vw" }}
+          alt="Debate"
+          src="/Svg/megaphone.svg"
+        />
+      </Link>
+      <Link href="/notifications">
+        <img
+          className={logged ? style.item : style.hide}
+          style={{ marginLeft: "5vw" }}
+          alt="Notifications"
+          src={notifiImage ? "/Svg/bell-on.svg" : "/Svg/bell.svg"}
+        />
+      </Link>
+      
+      {hasAnAccount ? (
+          <div onClick={() => routeProfile()}  className={logged ? style.item : style.hide}>
+            
+              <img
+                style={{
+                  width: "30px",
+                  height: "30px",
+                  display: "inline-block",
+                  marginLeft:"3vw"
+                  
+                  
+                }}
+                alt="profile"
+                src="/Svg/user.svg"
+              />
+              
+          </div>
+        ) : (
+          <></>
+        )}
+    {/* Link to the settings page */}
+    
+    <Link href="/settings">
+        <img
+          className={logged ? style.item : style.hide}
+          style={{ marginLeft: "5vw" }}
+          alt="Settings"
+          src="/Svg/setting.svg"
+        />
+      </Link>
+      <img 
+        onClick={()=> logout()}
+        className={logged ? style.item : style.hide}
+        style={{ marginLeft: "5vw" }}
+        alt="Logout"
+        src="/Svg/logout.svg"
+      />
+      <button
+        onClick={() => login()}
+        className={logged ? style.hide : style.btn}
+        style={{ marginLeft: "9vw" }}
+      >
+        Sign Up
+      </button>
+      <button
+        onClick={() => login()}
+        className={logged ? style.hide : style.btn}
+      >
+        Log in
+      </button>
+    </div>
+}     
     </>
   );
 }

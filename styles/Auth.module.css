@@ -52,6 +52,12 @@
   padding-left: 50px;
   padding-right: 50px;
 }
+.hide{
+  display: none;
+}
+.red{
+  background-color: red;
+}
 
 @media only screen and (max-width: 860px) {
   .loginSignup {

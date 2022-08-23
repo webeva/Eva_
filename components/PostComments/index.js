@@ -2,8 +2,6 @@
 import { useEffect, useState } from "react";
 //Import the Deso Api
 import DesoApi from "../../Functions/Desoapi";
-//Import Deso
-import Deso from "deso-protocol";
 //Import the style
 import style from "./style.module.css";
 //Import the profile picture component 
@@ -32,7 +30,11 @@ export default function PostComments(id) {
   //Function that gets the comments (Takes the post Id as a param)
   async function getComments(id) {
     //Get the single post
-    const response = await desoapi.getSinglePost(id.postId);
+    const user = localStorage.getItem("deso_user_key")
+    const post = id.postId
+    const response = await desoapi.getSinglePost(post, user);
+    
+    
     try {
       //Set the value as that post's comments
       if (response.PostFound.Comments) {
@@ -88,7 +90,6 @@ export default function PostComments(id) {
   //This function likes or unlikes posts
   async function like(message) {
     //Set up deso
-    const deso = new Deso();
     let IsUnlike; /* True = unlike message */
     if (document.getElementById(message + "likeimg").src =="http://localhost:3000/Svg/star-on.svg" ||document.getElementById(message + "likeimg").src == "https://web3eva.netlify.app/Svg/star-on.svg") {
       //If we have already liked the comment then this is a unlike
@@ -120,15 +121,7 @@ export default function PostComments(id) {
       document.getElementById(message + "likeimg").src = "/Svg/star-on.svg";
     }
 
-    //Form the request 
-    const request = {
-      ReaderPublicKeyBase58Check: localStorage.getItem("deso_user_key"), /* Current user */
-      LikedPostHashHex: message, /* Post id */
-      MinFeeRateNanosPerKB: 1000, /* MinFeeRateNanosperKb */
-      IsUnlike: IsUnlike, /* Is it an unlike or not */
-    };
-    //Send the request 
-    const response = await deso.social.createLikeStateless(request);
+    const response = await desoapi.likeMessage(localStorage.getItem("deso_user_key"), message, 1000, IsUnlike)
   }
   //Open the donate diamond modal 
   function opendiamond(PostHashHex) {
@@ -214,7 +207,7 @@ export default function PostComments(id) {
   //Function that is used to copy the link of a post to the clipboard (Takes post id as a param)
   function copyToClipboard(value) {
     //Used in production mode
-    var productionLink = "https://web3eva.netlify.app/posts/";
+    var productionLink = "https://eva-phi.vercel.app/posts/";
     //Used in development
     var localHost = "http://localhost:3000/posts/";
     //Get the link to copy to the clipboard
@@ -227,7 +220,7 @@ export default function PostComments(id) {
 
   function sharePost(value) {
     //Used in production mode
-    var productionLink = "https://web3eva.netlify.app/posts/";
+    var productionLink = "https://eva-phi.vercel.app/posts/";
     //Used in development
     var localHost = "http://localhost:3000/posts/";
     //Get the link to copy to the clipboard
@@ -377,7 +370,7 @@ export default function PostComments(id) {
               ) : (
                 <article
                   className={style.feedEva}
-                  style={{ padding: "0px", paddingTop: "1vw" }}
+                  style={{ padding: "0px", paddingTop: "1vw", width:"97.2%" }}
                   key={PostHashHex}
                 >
                   <img
@@ -464,7 +457,7 @@ export default function PostComments(id) {
                       <p>{value.ProfileEntryResponse.Username} </p>
                       <div className={style.accWhen}>
                         {`
-                            ${PosterPublicKeyBase58Check.slice(0,4)} ... ${PosterPublicKeyBase58Check.slice(38)} ·
+                            ${PosterPublicKeyBase58Check.slice(0,4)} ... ${PosterPublicKeyBase58Check.slice(4,6)} ·
                             ${timeSince(TimestampNanos)}          
                         `}
                       </div>
@@ -606,7 +599,7 @@ export default function PostComments(id) {
                                            0,
                                            4
                                          )} ... ${RepostedPostEntryResponse.PosterPublicKeyBase58Check.slice(
-                                  38
+                                  4,6
                                 )} ·
                                          ${timeSince(
                                            RepostedPostEntryResponse.TimestampNanos

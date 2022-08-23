@@ -10,8 +10,6 @@ bottom bar component. */
 import Link from "next/link";
 //Importing the stylsheet as style
 import style from "./Sidebar.module.css";
-//Import Deso
-import Deso from "deso-protocol";
 //Import useRouter from Next
 import { useRouter } from "next/router";
 //Import from react
@@ -33,11 +31,11 @@ const Sidebar = () => {
 
   //Async function that logs the user out 
   async function logout() {
-    const deso = new Deso();
+    
     //Get the user's public key 
     const request = localStorage.getItem("deso_user_key");
     //Logout the user 
-    const response = await deso.identity.logout(request);
+    const response = await deso.logout(request);
     //If sucess tell the page that we have logged out
     if (response) {
       localStorage.setItem("deso_user_key", "");

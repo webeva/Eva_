@@ -20,7 +20,7 @@ export default function Discover() {
    const router = useRouter()
    const {id} = router.query
    const [feed, setFeed] = useState("")
-   const [logged, isLogged] = useRecoilState(AppState)
+   const [logged] = useRecoilState(AppState)
    useEffect(()=>{
     if(id){
       setFeed(id.replace(/\s/g, '').toLowerCase())
@@ -34,7 +34,7 @@ export default function Discover() {
       <CreateNFT></CreateNFT>
       <EditPost></EditPost>
       <BuyNFTModal></BuyNFTModal>
-      <div className="mainWindow" style={{marginTop:"35vh", width:"720px"}}>
+      <div className="mainWindow" style={{marginTop:"25vh", overflowX:"hidden"}}>
       {logged ? <MessageInFeed feed={feed}/> : <div style={{color:"var(--color-white)", width:"100%", textAlign:"center"}}>Login To View these posts</div>}
       </div>
       

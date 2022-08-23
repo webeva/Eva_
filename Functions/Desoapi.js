@@ -60,7 +60,38 @@ class DesoApi {
 
     /* ======= Get Single Post ========= */
 
-    async getSinglePost(postHash, commentLimit=25, commentOffset = 0, addGlobalFeedBool = false){
+    async getSinglePost(postHash, user, commentLimit=25, commentOffset = 0, addGlobalFeedBool = false){
+        let currentUser;
+        if(!postHash){
+            console.log("Post hash needed.")
+            return
+        }
+        if(user){
+            currentUser = user
+        }else{
+            currentUser = ""
+        }
+        const request = {
+            "PostHashHex" : postHash,
+            "CommentLimit": commentLimit,
+            "CommentOffset": commentOffset,
+            "AddGlobalFeedBool": addGlobalFeedBool,
+            "ReaderPublicKeyBase58Check": currentUser
+        }
+        try{
+            const response = await this.getClient().posts.getSinglePost(request);
+
+            return response
+            
+        }catch(error){
+            console.log(error)
+            return null
+        }
+    }
+
+    /* ======= Get Single Post with user ========= */
+
+    async getSinglePostWithUser(postHash, user, commentLimit=25, commentOffset = 0, addGlobalFeedBool = false){
         if(!postHash){
             console.log("Post hash needed")
             return
@@ -69,7 +100,8 @@ class DesoApi {
             "PostHashHex" : postHash,
             "CommentLimit": commentLimit,
             "CommentOffset": commentOffset,
-            "AddGlobalFeedBool": addGlobalFeedBool
+            "AddGlobalFeedBool": addGlobalFeedBool,
+            "ReaderPublicKeyBase58Check": user
         }
         try{
             const response = await this.getClient().posts.getSinglePost(request);
@@ -309,17 +341,58 @@ class DesoApi {
     }
     /* ===== Logs in the user ====== */
     async login(){
-        const request = 3
+        const request = 4
         const response = await this.getClient().identity.login(request)
     }
-
     /* ===== Safe Logs in the user ====== */
     async safeLogin(){
         const request = 2
         const response = await this.getClient().identity.login(request)
-        console.log(response)
     }
-    
+
+    /* ======= Logs the user out ===== */
+
+    async logout(user){
+        if(!user){
+            console.log("User is required")
+            return
+        }
+        try{
+            const request = user
+            const response = await this.getClient().identity.logout(request);
+            return response
+        }catch(error){
+            console.log(error)
+            return 
+        }
+    }
+
+    /* ======= Like a Message ===== */
+    async likeMessage(user, postHash, minFee, isUnlike){
+        if(!user){
+            console.log("User is required")
+            return 
+        }
+        if(!postHash){
+            console.log("To like a message a post hash is required")
+            return
+        }
+        try{
+            const request = {
+                "ReaderPublicKeyBase58Check": user,
+                "LikedPostHashHex": postHash,
+                "MinFeeRateNanosPerKB": minFee,
+                "IsUnlike": isUnlike
+              };
+              const response = await this.getClient().social.createLikeStateless(request);
+              return response
+        }catch(error){
+            console.log(error)
+            return
+        }
+    }
+
+
     /* ==== Get User Notifications ===== */
     async getnotifications(user, NumToFetch, FetchStartIndex){
         if(!user){

@@ -7,8 +7,7 @@ import { useEffect, useState } from "react";
 
 //Import style
 import style from "../../styles/MessageInFeed.module.css"
-//Import Deso
-import Deso from 'deso-protocol';
+//Import Deso Api
 import DesoApi from '../../Functions/Desoapi';
 //Import router from next
 import {useRouter} from "next/router"
@@ -174,7 +173,6 @@ const MessageInFeed = (feed) => {
     },[feed.feed, load])
     //This function likes or unlikes posts
     async function like(message){
-      const deso = new Deso();
       let IsUnlike;
       if(document.getElementById(message + "likeimg").src == "http://localhost:3000/Svg/star-on.svg"|| document.getElementById(message + "likeimg").src == "https://web3eva.netlify.app/Svg/star-on.svg" ){
         IsUnlike = true
@@ -191,13 +189,7 @@ const MessageInFeed = (feed) => {
         document.getElementById(message + "likecount").style.color = "yellow"
         document.getElementById(message + "likeimg").src = "/Svg/star-on.svg"
       }
-      const request = {
-        "ReaderPublicKeyBase58Check": localStorage.getItem("deso_user_key"),
-        "LikedPostHashHex": message,
-        "MinFeeRateNanosPerKB": 1000,
-        "IsUnlike": IsUnlike
-      };
-      const response = await deso.social.createLikeStateless(request); 
+      const response = await desoapi.likeMessage(localStorage.getItem("deso_user_key"), message, 1000, IsUnlike)
     }
 
     /* Open and close the diamond modal. If the user hovers over 
@@ -320,7 +312,7 @@ const MessageInFeed = (feed) => {
     }
     function copyToClipboard(value){
       //Used in production mode
-      var productionLink = "https://web3eva.netlify.app/posts/"
+      var productionLink = "https://eva-phi.vercel.app/posts/"
       //Used in development
       var localHost = "http://localhost:3000/posts/"
       //Get the link to copy to the clipboard
@@ -330,7 +322,7 @@ const MessageInFeed = (feed) => {
     }
     function sharePost(value){
       //Used in production mode
-      var productionLink = "https://web3eva.netlify.app/posts/"
+      var productionLink = "https://eva-phi.vercel.app/posts/"
       //Used in development
       var localHost = "http://localhost:3000/posts/"
       //Get the link to copy to the clipboard
@@ -415,18 +407,12 @@ const MessageInFeed = (feed) => {
                     if(ImageURLs && IsNFT ){
                       isImgandNFT = true
                     }
-                    
-
-                    
                     return(
-  
                         <>
-                        
                           {IsHidden ?
                             <></>
                           :
-                          <>
-                           
+                          <> 
                           <article id="messagepost" onClick={(e)=> routePost(e,PostHashHex)} className={style.feedEva}  key={PostHashHex} >
                             
                             
@@ -523,7 +509,7 @@ const MessageInFeed = (feed) => {
                                    {RepostedPostEntryResponse.ProfileEntryResponse.Username}
                                      <div className={style.accWhen}>{
                                            `
-                                           ${RepostedPostEntryResponse.PosterPublicKeyBase58Check.slice(0,4)} ... ${RepostedPostEntryResponse.PosterPublicKeyBase58Check.slice(38)} ·
+                                           ${RepostedPostEntryResponse.PosterPublicKeyBase58Check.slice(0,4)} ... ${RepostedPostEntryResponse.PosterPublicKeyBase58Check.slice(4,6)} ·
                                            ${timeSince(RepostedPostEntryResponse.TimestampNanos)} 
                                          
                                            `  

@@ -58,15 +58,16 @@ export default function Home() {
 
   //Return the html
   return (
+   
     <>
+      {logged != "loading" &&
+      <>
       <Status/>
       <EditPost/>
       <div className="pageIdentify">
       <CommentModal />
       <BuyNFTModal />
       <CreateNft />
-       
-        
         <p id="pageidentify" style={{ display: "inline" }}>
           Home
         </p>
@@ -110,6 +111,8 @@ export default function Home() {
           <MessageInFeed feed={feed} />
         </main>
       </div>
+      </>
+      }
     </>
   );
 }

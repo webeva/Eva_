@@ -4,8 +4,6 @@ be used in the posts page */
 
 //Import the SeSo api
 import DesoApi from "../../Functions/Desoapi";
-//Import DeSo 
-import Deso from "deso-protocol";
 
 //Import the style from Messagesinfeed
 import style from "./styles.module.css";
@@ -54,7 +52,12 @@ export default function SinglePost(postId) {
     const getPost = async (id) => {
       try {
         //Get the single post
-        const response = await deso.getSinglePost(id);
+        const user = localStorage.getItem("deso_user_key")
+        let desoPersist;
+        if(!user){
+          desoPersist = ""
+        }
+        const response = await deso.getSinglePostWithUser(id, user);
         //Set the reponse.PostFound to the value
         setValue(response.PostFound);
       } catch (error) {
@@ -117,7 +120,6 @@ export default function SinglePost(postId) {
 
   //This function likes or unlikes posts (Takes in the post id as a param)
   async function like(message) {
-    const deso = new Deso(); /* Intialiaze Deso */
     let IsUnlike; /* If true this is an unlike */
     if (document.getElementById(message + "likeimg").src == "http://localhost:3000/Svg/star-on.svg" || document.getElementById(message + "likeimg").src == "https://web3eva.netlify.app/Svg/star-on.svg") {
 
@@ -145,15 +147,7 @@ export default function SinglePost(postId) {
       //Set the image src to the yellow star
       document.getElementById(message + "likeimg").src = "/Svg/star-on.svg";
     }
-    //Form the like/unlike request 
-    const request = {
-      ReaderPublicKeyBase58Check: localStorage.getItem("deso_user_key"), /* Current user */
-      LikedPostHashHex: message, /* Post id */
-      MinFeeRateNanosPerKB: 1000, /* MinFeeRateNanosPerKb */
-      IsUnlike: IsUnlike, /* If this is a like or unlike */
-    };
-    //Send the request 
-    const response = await deso.social.createLikeStateless(request);
+    const response = await deso.likeMessage(localStorage.getItem("deso_user_key"), message, 1000, IsUnlike)
   }
 
 
@@ -260,6 +254,7 @@ export default function SinglePost(postId) {
     <>
       {/* Runs if the value is greater than one. Meaning that we have the post information */}
       {Object.keys(value).length > 0 && (
+        
         <div
           style={{
             color: "var(--color-white)",
@@ -317,8 +312,6 @@ export default function SinglePost(postId) {
               )
             )}
             
-             
-                    
             {value.PostExtraData.EmbedVideoURL && (
                 <YoutubeEmb link={value.PostExtraData.EmbedVideoURL}></YoutubeEmb>                  
             )}
@@ -583,7 +576,7 @@ export default function SinglePost(postId) {
                       if (localStorage.getItem("deso_user_key") != null) {
                         repost(value.PostHashHex);
                       } else {
-                        console.log("not logged in");
+                        router.push("/auth")
                       }
                     }}
                   >
@@ -694,8 +687,8 @@ export default function SinglePost(postId) {
           </div>
           <div className={style.line}></div>
           <br></br>
-          <p style={{ marginLeft: "2vw", display: "inline" }}>
-            {value.CommentCount} Comments
+          <p style={{ marginLeft: "1vw", display: "inline" }}>
+            {value.CommentCount} {value.CommentCount == 1 ? "Comment" : "Comments"}
           </p>
           <p
             style={{
@@ -703,23 +696,23 @@ export default function SinglePost(postId) {
               color: Object.values(value.PostEntryReaderState)[0]
                 ? "yellow"
                 : "white",
-              marginLeft: "6vw",
+              marginLeft: "5vw",
             }}
             id={value.PostHashHex + "likecount"}
           >
-            {value.LikeCount} Likes
+            {value.LikeCount} {value.LikeCount == 1 ? "Like": "Likes"}
           </p>
           <p
-            style={{ display: "inline", marginLeft: "6vw" }}
+            style={{ display: "inline", marginLeft: "5vw" }}
             id={"SingleRepost" + value.PostHashHex}
           >
-            {value.RepostCount} Reposts
+            {value.RepostCount} {value.RepostCount == 1 ? "Repost" : "Reposts"}
           </p>
           <p
-            style={{ display: "inline", marginLeft: "6vw" }}
+            style={{ display: "inline", marginLeft: "5vw" }}
             id={value.PostHashHex + "DiamondCount"}
           >
-            {value.DiamondCount} Diamonds
+            {value.DiamondCount} {value.DiamondCount == 1 ? "Diamond" : "Diamonds"}
           </p>
           <br></br>
           <br></br>

@@ -8,10 +8,12 @@
   z-index: 999;
   color: white;
   border-top: 0.5px solid var(--color-black);
+  display: none;
 }
 .hide {
   display: none;
 }
+
 .item {
   width: 32px;
   height: 32px;
@@ -31,4 +33,10 @@
     var(--color-primary),
     var(--color-secondary)
   );
+}
+
+@media all and (max-width: 700px) {
+  .bar{
+    display: block;
+  }
 }

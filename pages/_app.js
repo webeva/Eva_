@@ -18,7 +18,6 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [showRighbar, SetShowRightBar] = useState(false);
   const [showSidebar, SetShowSidebar] = useState(true);
-  const [isAuth, setIsAuth] = useState(false);
   const [theme, setTheme] = useState("");
   const [color, setColor] = useState("");
   const [bg, setBg] = useState("");
@@ -71,7 +70,6 @@ function MyApp({ Component, pageProps }) {
       } else if (path == "/auth" || path == "/terms") {
         SetShowRightBar(false);
         SetShowSidebar(false);
-        setIsAuth(true);
       } else {
         SetShowRightBar(true);
         SetShowSidebar(true);
@@ -140,7 +138,7 @@ function MyApp({ Component, pageProps }) {
             <div className={showRighbar ? style.rightBar : style.hide}>
               <Rightbar />
             </div>
-            <div className={isAuth ? "hide" : "phone"}>
+            <div >
               <MobileBottomBar />
             </div>
           </div>

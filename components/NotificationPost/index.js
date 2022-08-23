@@ -4,7 +4,6 @@ to a notification the user might have */
 import { useEffect, useState } from "react";
 import DesoApi from "../../Functions/Desoapi";
 import { useRouter } from "next/router";
-import style from "../../styles/MessageInFeed.module.css";
 
 export default function NotificationPost(id) {
   const deso = new DesoApi();
@@ -38,6 +37,7 @@ export default function NotificationPost(id) {
             height: "auto",
             width: "45vw",
             padding: "10px 10px",
+            minWidth:"fit-content",
             borderRadius: "10px",
           }}
         >
@@ -53,14 +53,13 @@ export default function NotificationPost(id) {
                 lineHeight: "10vh",
               }}
             >
-              
               This Post was hidden by you
             </div>
           ) : (
             <article
-              
               style={{
                 width: "auto",
+                minHeight:"20px",
                 border: "1px solid var(--color-primary)",
                 borderRadius: "5px",
                 wordWrap: "break-word",

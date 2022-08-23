@@ -131,10 +131,6 @@ export default function Account() {
         const user = localStorage.getItem("deso_user_key")
         window.open('https://identity.deso.org/verify-phone-number?public_key=' + user)
     }
-
-
-
-
   return (
     <>
     <Status></Status>
@@ -173,7 +169,7 @@ export default function Account() {
         </div>
         
 
-        <button onClick={()=>updateProfile()} style={{color:"var(--color-white)", borderRadius:"15px", background:"var(--color-primary)", width:"fit-content", paddingLeft:"2vw", paddingRight:"2vw", height:"8vh", marginTop:"5vh", cursor:"pointer", fontSize:"15px", marginBottom:"13vh"}}>Update</button>
+        <button onClick={()=>updateProfile()} className={style.button}>Update</button>
     </div>
     
     </>

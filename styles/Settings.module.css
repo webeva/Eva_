@@ -222,6 +222,19 @@
 .buyDeso {
   width: 40vw;
 }
+.button{
+  padding-left: 2vw;
+  padding-right: 2vw;
+  height: 8vh;
+  margin-top: 5vh;
+  cursor: pointer;
+  font-size: 15px;
+  margin-bottom: 13vh;
+  min-width: fit-content;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border-radius: 15px;
+}
 
 @media all and (max-width: 700px) {
   .settinglist {
@@ -232,6 +245,11 @@
     left: 0;
     border: none;
   }
+  .button{
+    padding-left: 3vw;
+    padding-right: 3vw;
+    height: 7vh;
+  }
   .buyDeso {
     width: 80vw;
   }
@@ -239,8 +257,9 @@
     font-size: 13px;
   }
   .content {
-    left: 15vw;
+    left: 10vw;
     top: 20vh;
+    width: 72vw;
   }
   .banner {
     height: 25vh;
