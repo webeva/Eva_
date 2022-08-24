@@ -31,7 +31,9 @@ export default function InputField(postId) {
   const inputFile = useRef(null);
   const deso = new DesoApi();
   const router = useRouter();
+  let endText = `
 
+Posted via @EvaSocial`
   const [postHash, setPostHash] = useRecoilState(EditStateHash);
   const [editState, setEditState] = useRecoilState(EditState)
 
@@ -107,7 +109,7 @@ export default function InputField(postId) {
           url = null;
         }
         const user = localStorage.getItem("deso_user_key");
-        const response = await deso.sendMessage(user, newmessage, theFile, url);
+        const response = await deso.sendMessage(user, newmessage + endText, theFile, url);
         if(response.TransactionHex){
           const approve = window.open('https://identity.deso.org/approve?tx=' + response.TransactionHex)
         }

@@ -11,6 +11,7 @@ import { useEffect, useState } from "react"
 import { useRecoilState } from "recoil"
 import { AppState } from "../../../atom/AppStateAtom"
 import dynamic from 'next/dynamic'
+import style from "../../../styles/Search.module.css"
 //Import message comment modal dynamicaly so that we only load it when we need it.
 const CommentModal = dynamic(() => import('../../../components/CommentModal'))
 const BuyNFTModal = dynamic(()=> import("../../../components/BuyNFTModal"))
@@ -34,7 +35,7 @@ export default function Discover() {
       <CreateNFT></CreateNFT>
       <EditPost></EditPost>
       <BuyNFTModal></BuyNFTModal>
-      <div className="mainWindow" style={{marginTop:"25vh", overflowX:"hidden"}}>
+      <div className={style.searchWindow}>
       {logged ? <MessageInFeed feed={feed}/> : <div style={{color:"var(--color-white)", width:"100%", textAlign:"center"}}>Login To View these posts</div>}
       </div>
       

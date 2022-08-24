@@ -403,7 +403,8 @@ class DesoApi {
             const request = {
                 "NumToFetch": NumToFetch,
                 "PublicKeyBase58Check": user,
-                "FetchStartIndex": FetchStartIndex
+                "FetchStartIndex": FetchStartIndex,
+                "FilteredOutNotificationCategories": {}
                
             };
             const response = await this.getClient().notification.getNotifications(request);

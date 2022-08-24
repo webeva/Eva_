@@ -1,6 +1,5 @@
 .wrapper {
   max-width: 450px;
-  width: 1vw;
   top: 5vh;
   left: 30vw;
   position: absolute;
@@ -86,6 +85,7 @@
 @media all and (max-width: 700px) {
   .wrapper {
     left: 15vw;
+    width: 0vw;
   }
   .searchInput {
     width: 75vw;

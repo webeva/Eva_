@@ -63,7 +63,8 @@ const Notifications = () => {
         notifi.map(function (value) {
           setNotificationText(
             value.Metadata.TxnType,
-            value.Metadata.BasicTransferTxindexMetadata.DiamondLevel
+            value.Metadata.BasicTransferTxindexMetadata.DiamondLevel,
+            value.Metadata.AffectedPublicKeys[1].Metadata
           );
         });
         var promises = notifi.map(function (value) {
@@ -80,7 +81,8 @@ const Notifications = () => {
       return value;
     }
 
-    const setNotificationText = (type, amount) => {
+    const setNotificationText = (type, amount, more) => {
+      console.log(more)
       if (amount > 0) {
         const value = 0.01;
         const usdvalue = value * amount;
@@ -100,6 +102,9 @@ const Notifications = () => {
         } else if (type == "FOLLOW") {
           texts.push("Started following you!");
           images.push("/Svg/user-on.svg");
+        } else if(more == 'MentionedPublicKeyBase58Check'){
+          texts.push("Mentioned you!");
+          images.push("/Svg/reply-on.svg");
         } else if (type == "SUBMIT_POST") {
           texts.push("Replied to your post!");
           images.push("/Svg/reply-on.svg");
@@ -151,6 +156,8 @@ const Notifications = () => {
         {notificationsFeed.length > 0 ? (
           notificationsFeed?.map(function (value, index) {
             return (
+              <>
+              {text[index] != "Limited their Dao coin order" && 
               <div key={index} className={style.container}>
                 <div style={{ display: "inline-block", marginLeft: "1vw" }}>
                   <ProfilePic
@@ -197,7 +204,10 @@ const Notifications = () => {
                   />
                 )}
               </div>
+              }
+            </>
             );
+           
           })
         ) : (
           <div
@@ -208,6 +218,7 @@ const Notifications = () => {
             <p style={{ color: "var(--color-white)" }}>Loading...</p>
           </div>
         )}
+        
       </div>
     </>
   );

@@ -35,10 +35,8 @@ export default function Auth() {
     checkAuth();
   }
   function checkAuth() {
-   
     const user = localStorage.getItem("deso_user_key");
     if (user) {
-      
       //User is logged in
       router.push("/");
       //Set app status to log in

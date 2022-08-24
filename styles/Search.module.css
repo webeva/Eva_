@@ -74,6 +74,13 @@
   margin-left: 10%;
 }
 
+/* ========== Main Search Post Window ===== */
+.searchWindow{
+  margin-left: var(--sidebar-width);
+  margin-top: 25vh;
+  overflow: hidden;
+}
+
 /* ====== Media Queries ==== */
 
 @media all and (max-width: 650px) {
@@ -112,7 +119,16 @@
   .body {
     margin-left: 0px;
   }
+  .searchWindow{
+    margin-left: 0;
+  }
   .container {
     width: 85vw;
+  }
+}
+
+@media all and (min-width:1015px) {
+  .searchWindow{
+    width: 57vw;
   }
 }

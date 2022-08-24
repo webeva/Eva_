@@ -136,7 +136,7 @@ const MessageInFeed = (feed) => {
           }else{
            
             let responsevalue = await desoapi.getSearchFeed(user, 25, feed.feed)
-            
+           
             if(responsevalue){
              
               setmessagesFeed(Object.values(responsevalue)[0])
@@ -265,7 +265,7 @@ const MessageInFeed = (feed) => {
     //This function reposts a post.
     async function repost(PostHash){
       const response = await desoapi.rePost(localStorage.getItem("deso_user_key"), PostHash )
-      let current = document.getElementById("Repost" + PostHash).innerText;
+      let current = document.regetElementById("Repost" + PostHash).innerText;
       let currentVar = parseInt(current) + 1
       document.getElementById("Repost" + PostHash).innerText = currentVar;
       document.getElementById("Repost" + PostHash).style.color = "lightgreen"
