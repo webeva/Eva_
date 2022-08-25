@@ -82,7 +82,6 @@ const Notifications = () => {
     }
 
     const setNotificationText = (type, amount, more) => {
-      console.log(more)
       if (amount > 0) {
         const value = 0.01;
         const usdvalue = value * amount;

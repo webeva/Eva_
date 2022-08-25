@@ -359,7 +359,7 @@ const MessageInFeed = (feed) => {
             <>
             {messagesFeed && (
                 messagesFeed.length > 0 ?(
-                  messagesFeed?.map(function(value,index){
+                  messagesFeed?.map(function(value){
                     /*Destruct the properties that we need to make our code
                     look better and remove the value. before every property
                     to add a new property add its name to the object list 

@@ -138,7 +138,7 @@ Posted via @EvaSocial`
           }
           const response = await deso.sendQuote(
             user,
-            newmessage,
+            newmessage + endText,
             theFile,
             url,
             postId.postId
@@ -168,7 +168,7 @@ Posted via @EvaSocial`
           const user = localStorage.getItem("deso_user_key");
           const response = await deso.sendComment(
             user,
-            newmessage,
+            newmessage + endText,
             theFile,
             postId.postId,
             url
@@ -235,7 +235,6 @@ Posted via @EvaSocial`
     //Get the selected image
     const img = event.target.files[0];
     getImageUrl(img)
-    setSelectedFile(URL.createObjectURL(img));
     setclosebutton("flex");
   };
 

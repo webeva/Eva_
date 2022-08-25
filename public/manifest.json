@@ -1,0 +1,38 @@
+{
+    "theme_color": "#1d9bf0",
+    "background_color": "rgb(47, 49, 54)",
+    "display": "standalone",
+    "start_url": "/",
+    "description": "The most advanced decentralized social media platform built on top of a blockchain. Gain cryptocurrency by posting and sharing. A revolution in social media yet to take over the world.",
+    "name": "Eva",
+    "short_name": "Eva",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/icons/maskable_icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

@@ -40,6 +40,7 @@ export default function Home() {
   useEffect(() => {
     checkAuth();
   }, []);
+  
 
   function checkAuth() {
     const user = localStorage.getItem("deso_user_key");

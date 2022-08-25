@@ -21,7 +21,19 @@ function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState("");
   const [color, setColor] = useState("");
   const [bg, setBg] = useState("");
+  
+  /*useEffect(()=> {
+    //Register service worker for PWA
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.register('/sw.js')
+      .then((reg)=> console.log("Service worker registered.", reg))
+      .catch((error)=> console.log("Service worker not registered.", error))
+    }
+  }, [])*/
+
   useEffect(() => {
+
+
     try {
       if (localStorage.getItem("primaryColor")) {
         setColor(localStorage.getItem("primaryColor"));
@@ -77,6 +89,7 @@ function MyApp({ Component, pageProps }) {
     }
   }, [router]);
 
+
   return (
     <>
       <Head>
@@ -105,6 +118,7 @@ function MyApp({ Component, pageProps }) {
           name="twitter:card"
           content="The most advanced decentralized social media platform built on top of a blockchain. Gain cryptocurrency by posting and sharing. A revolution in social media yet to take over the world."
         />
+        <meta name="robots" content="index, archive" />
         <meta
           name="keywords"
           content="decentralized social media, decentralized social media apps, decentralised social media platform, decentralised twitter, deso, post2earn, posttoearn, twitter decentralized social media, decentralized twitter alternative, decentralized social media blockchain, elon musk decentralized social media, decentralized social media apps, decentralized, twitter, share, connect, blockchain, earn, cryptocurrency, decentralized social media platforms blockchain, best decentralized social media platforms, Top decentralized social media platforms"
@@ -118,7 +132,12 @@ function MyApp({ Component, pageProps }) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://web3eva.netlify.app/" />
+        <link rel="canonical" href="https://eva-phi.vercel.app/" />
+        <link rel="manifest" href="/manifest.json"/>
+        <meta name="theme-color" content="#1d9bf0"/>     
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-status-bar" content="#1d9bf0" />
+
       </Head>
       <RecoilRoot style={{ fontSize: "20px" }}>
         <div
