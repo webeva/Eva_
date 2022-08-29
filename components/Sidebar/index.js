@@ -164,8 +164,8 @@ const Sidebar = () => {
             <div className={logged ? style.menuItems : style.hide}>
               <img
                  className={style.menuImgs}
-                alt="debate"
-                src="/Svg/language.svg"
+                alt="Community"
+                src="/Svg/Language.svg"
               />
               Community
             </div>

@@ -82,7 +82,7 @@ export default function MobileBottomBar() {
           className={logged ? style.item : style.hide}
           style={{ marginLeft: "5vw" }}
           alt="Community"
-          src="/Svg/language.svg"
+          src="/Svg/Language.svg"
         />
       </Link>
       <Link href="/notifications">

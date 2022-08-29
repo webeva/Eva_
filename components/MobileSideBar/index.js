@@ -71,7 +71,7 @@ export default function MobileSideBar() {
             <img
                  className={style.menuImgs}
                 alt="debate"
-                src="/Svg/language.svg"
+                src="/Svg/Language.svg"
               />
               Community</div></Link>
         <Link  href="/notifications">
