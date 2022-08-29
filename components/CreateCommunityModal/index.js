@@ -137,7 +137,7 @@ export default function CreateNFTModal() {
      <h1>Create A Community!</h1>
      <input id="name" className={style.name} placeholder="Name"/><br></br>
      <textarea id="description" rows={7} className={style.description} placeholder="Description"/><br></br>
-     <label className={style.label} for="file-upload" >
+     <label className={style.label} htmlFor="file-upload" >
         Upload a banner
      <input id="file-upload" style={{display:"none"}}  alt="uploadImage"
           type="file"

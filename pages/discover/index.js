@@ -27,7 +27,7 @@ export default function Discover({trending, value}) {
         <div className={style.nftcont} style={{marginTop:"5vh"}}>
           <h2 style={{color:"var(--color-white)", marginLeft:"1vw"}}>Top Nfts</h2><br></br>
         {value.slice(0, 8)?.map(function(value){
-          return <div className={style.nft}>
+          return <div key={value.id} className={style.nft}>
             <>
             <ProfilePic size={50} username={value.username} profile={value.id}/>
             <div style={{display:"inline-block", marginLeft:"1vw"}}>
