@@ -114,7 +114,7 @@ function MyApp({ Component, pageProps }) {
 
         <meta
           name="google-site-verification"
-          content="8kQp0RpYF1oBWZChwmjeLYglGSmsKpN90BBCmMGcUFE"
+          content="blJZ7FkA-cWBbQVYss9-LrGv-XMM1SF1ctySLnXbQB0"
         />
         <meta
           name="description"

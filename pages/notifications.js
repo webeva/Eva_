@@ -99,7 +99,7 @@ const Notifications = () => {
           images.push("/Svg/tip-on.svg");
         } else {
           texts.push(
-            "gave you" + amount + " diamonds! " + "(~$" + usdvalue + ")"
+            "gave you " + amount + " diamonds! " + "(~$" + usdvalue + ")"
           );
           images.push("/Svg/tip-on.svg");
         }
