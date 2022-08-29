@@ -49,6 +49,26 @@ export default function MobileBottomBar() {
     }
   }, [router])
 
+  async function prepareNotifi() {
+    //Use nextjs's router to route
+    router.push("/notifications");
+    /* Tries to get the json web token. Sometimes fells as Next 
+    uses server side rendering. In that case log the error */
+    try {
+      //Get the json web token
+      const jwt = await deso.getJwt(localStorage.getItem("deso_user_key"));
+      //Send the response
+      const value = await deso.getUnreadNotifications(localStorage.getItem("deso_user_key"))
+      const index = value.LastUnreadNotificationIndex
+      const response = await deso.sawNotifications(localStorage.getItem("deso_user_key"), jwt, index);
+     
+    } catch (error) {
+      //Logs the errors.
+
+      console.log(error);
+    }
+  }
+
   return (
     <>
     {isAuth == false && 
@@ -85,14 +105,14 @@ export default function MobileBottomBar() {
           src="/Svg/Language.svg"
         />
       </Link>
-      <Link href="/notifications">
+      <div style={{display:"inline-block"}} onClick={() => prepareNotifi()}>
         <img
           className={logged ? style.item : style.hide}
           style={{ marginLeft: "5vw" }}
           alt="Notifications"
           src={notifiImage ? "/Svg/bell-on.svg" : "/Svg/bell.svg"}
         />
-      </Link>
+      </div>
       
       {hasAnAccount ? (
           <div onClick={() => routeProfile()}  className={logged ? style.item : style.hide}>

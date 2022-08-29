@@ -89,6 +89,7 @@ export default function Home() {
                 top: "50%",
                 position: "absolute",
                 transform: "translate(-50%, -50%)",
+                borderRadius:"50%"
               }}
               src="/Svg/comment.svg"
             />

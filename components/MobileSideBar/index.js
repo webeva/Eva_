@@ -5,6 +5,7 @@ import { SideBarMobile } from "../../atom/modalAtom"
 import DesoApi from "../../Functions/Desoapi"
 import { NotifiImage, NotificationAmount } from "../../atom/notificationAtom"
 import { useEffect, useState } from "react"
+import { useRouter } from "next/router"
 
 
 export default function MobileSideBar() {
@@ -13,6 +14,7 @@ export default function MobileSideBar() {
     const [NotificationAmounts] = useRecoilState(NotificationAmount)
     const [user, setUser] = useState()
     const deso = new DesoApi()
+    const router = useRouter()
   
     //Async function that logs the user out 
   async function logout() {
@@ -35,6 +37,26 @@ export default function MobileSideBar() {
     const value = await deso.UsernameByPublickey(id)
     setUser(value)
   }
+  async function prepareNotifi() {
+    //Use nextjs's router to route
+    router.push("/notifications");
+    /* Tries to get the json web token. Sometimes fells as Next 
+    uses server side rendering. In that case log the error */
+    try {
+      //Get the json web token
+      const jwt = await deso.getJwt(localStorage.getItem("deso_user_key"));
+      //Send the response
+      const value = await deso.getUnreadNotifications(localStorage.getItem("deso_user_key"))
+      const index = value.LastUnreadNotificationIndex
+      const response = await deso.sawNotifications(localStorage.getItem("deso_user_key"), jwt, index);
+     
+    } catch (error) {
+      //Logs the errors.
+
+      console.log(error);
+    }
+  }
+
   return (
     <div className={open? style.background: style.hide}>
     <div className={style.sideMenu}>
@@ -74,7 +96,7 @@ export default function MobileSideBar() {
                 src="/Svg/Language.svg"
               />
               Community</div></Link>
-        <Link  href="/notifications">
+        <div onClick={() => prepareNotifi()}>
             <div className={style.link}>
             <img
              className={style.menuImgs}
@@ -82,7 +104,7 @@ export default function MobileSideBar() {
                 src={notifiImage ? "/Svg/bell-on.svg" : "/Svg/bell.svg"}
               />
               Notification
-              {NotificationAmounts}</div></Link>
+              {NotificationAmounts}</div></div>
         <Link  href={`/profile/${user}`}>
             <div className={style.link}>
             <img
