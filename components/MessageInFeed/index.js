@@ -313,7 +313,7 @@ const MessageInFeed = (feed) => {
     }
     function copyToClipboard(value){
       //Used in production mode
-      var productionLink = "https://eva-phi.vercel.app/posts/"
+      var productionLink = "https://www.evasocial.app/posts/"
       //Used in development
       var localHost = "http://localhost:3000/posts/"
       //Get the link to copy to the clipboard
@@ -323,7 +323,7 @@ const MessageInFeed = (feed) => {
     }
     function sharePost(value){
       //Used in production mode
-      var productionLink = "https://eva-phi.vercel.app/posts/"
+      var productionLink = "https://www.evasocial.app/posts/"
       //Used in development
       var localHost = "http://localhost:3000/posts/"
       //Get the link to copy to the clipboard

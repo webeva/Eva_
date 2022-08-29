@@ -207,7 +207,7 @@ export default function PostComments(id) {
   //Function that is used to copy the link of a post to the clipboard (Takes post id as a param)
   function copyToClipboard(value) {
     //Used in production mode
-    var productionLink = "https://eva-phi.vercel.app/posts/";
+    var productionLink = "https://www.evasocial.app/posts/";
     //Used in development
     var localHost = "http://localhost:3000/posts/";
     //Get the link to copy to the clipboard
@@ -220,7 +220,7 @@ export default function PostComments(id) {
 
   function sharePost(value) {
     //Used in production mode
-    var productionLink = "https://eva-phi.vercel.app/posts/";
+    var productionLink = "https://www.evasocial.app/posts/";
     //Used in development
     var localHost = "http://localhost:3000/posts/";
     //Get the link to copy to the clipboard
