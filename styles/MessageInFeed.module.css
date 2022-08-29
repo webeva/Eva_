@@ -18,7 +18,14 @@
   display: none;
   box-shadow: 3px 6px 10px var(--color-primary);
 }
-
+.postMessage{
+  margin: 1vw 1vw;
+  height: auto;
+  width: fit-content;
+  padding: 10px 10px;
+  min-width: 50vw;
+  border-radius: 10px;
+}
 .dropDown li {
   padding: 8px 4px;
   font-size: 16px;
@@ -278,6 +285,19 @@
   display: none;
 }
 
+.postHidden{
+  margin-left: 2vw;
+  width: fit-content;
+  max-width:54vw;
+  height: 10vh;
+  background-color: var(--color-grey);
+  text-align: center;
+  border-radius: 10px;
+  line-height: 10vh;
+  padding-left:5px;
+  padding-right:5px;
+}
+
 /* ====== Media queries ======= */
 @media all and (max-width: 1015px) {
   .feedEva {
@@ -306,6 +326,9 @@
   }
 }
 @media all and (max-width: 700px) {
+  .postMessage{
+    min-width: 70vw;
+  }
   .pageIdentify {
     left: 0;
   }
@@ -321,6 +344,10 @@
   }
   .nftButton {
     margin: 0;
+  }
+  .postHidden{
+    width: 90vw;
+    max-width:90vw;
   }
   
 }
@@ -341,4 +368,36 @@
   .profilePic {
     margin-right: 5px;
   }
+}
+/* ========= Larger devices ============ */
+@media all and (min-width: 2000px) {
+  .interactions {
+    gap: 150px;
+   font-size: 1.5rem;
+  }
+  .feedEva {
+    width: 60.5vw;
+    font-size: 1.8rem;
+  }
+  .accWhen{
+    font-size: 1.8rem;
+  }
+  .edit{
+    width: 32px;
+    height: 32px;
+  }
+  .dropDown li{
+    font-size: 1.5rem;
+    margin-left: 1vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+  }
+  .interactionNums img{
+    height: 35px;
+    width: 35px;
+  }
+  .interactions{
+    margin-top: 1.1vh;
+  }
+  
 }

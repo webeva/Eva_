@@ -1,0 +1,45 @@
+.bannerimg{
+    width: 200px;
+    height: 120px;
+    border-radius: 10px;
+    object-fit: cover;
+    vertical-align:top;
+    float:left;
+    margin-right: 1vw;
+}
+.community{
+    width: 95%;
+    color: var(--color-white);
+    margin-left: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 1.2rem;
+    cursor: pointer;
+    padding: 7px 7px;
+   
+}
+.community:hover{
+    background-color: var(--color-hover);
+}
+.community p{
+    display: inline-block;
+    margin-top: 1vw;
+    font-weight: bold;
+   
+}
+.community h4{
+    display: inline;
+    font-size: 12px;
+    word-wrap: break-word;
+  
+ }
+ .join{
+    position: absolute;
+    right: 60px;
+    bottom: 45px;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+ }

@@ -59,26 +59,11 @@ export default function NotificationPost(id) {
       {postInfo && (
         <article
           onClick={() => routePost(id.id)}
-          style={{
-            margin: "1vw 1vw",
-            height: "auto",
-            width: "45vw",
-            padding: "10px 10px",
-            minWidth: "fit-content",
-            borderRadius: "10px",
-          }}
+          className={style.postMessage}
         >
           {postInfo.IsHidden ? (
             <div
-              style={{
-                marginLeft: "2vw",
-                width: "45vw",
-                height: "10vh",
-                backgroundColor: "var(--color-grey)",
-                textAlign: "center",
-                borderRadius: "10px",
-                lineHeight: "10vh",
-              }}
+              className={style.postHidden}
             >
               This Post was hidden by you
             </div>

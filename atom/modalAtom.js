@@ -60,3 +60,17 @@ export const Response = atom({
     key: "Response", // unique ID (with respect to other atoms/selectors)
     default: null // default value (aka initial value)
 })
+
+/* =========== Create Community ============= */
+
+export const Community = atom({
+    key: "Community", // unique ID (with respect to other atoms/selectors)
+    default: false // default value (aka initial value)
+})
+
+/* ===== SideBar on Mobile ==== */
+
+export const SideBarMobile = atom({
+    key: "SideBarMobile", // unique ID (with respect to other atoms/selectors)
+    default: false // default value (aka initial value)
+})

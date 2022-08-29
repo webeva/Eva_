@@ -47,7 +47,7 @@
 /* ============= Trending Tags ========== */
 .trending {
   color: var(--color-white);
-  margin-top: 5vh;
+  margin-top: 2vh;
   margin-left: 5vw;
   background-color: var(--color-hover);
   width: 47vw;
@@ -73,6 +73,23 @@
   border-radius: 20px;
   margin-left: 10%;
 }
+.nftcont{
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  margin-left: 5vw;
+  gap: 1rem;
+  grid-template: 'date content';
+  margin-top: 1vh;
+  background-color: var(--color-hover);
+  padding: 15px 10px;
+  border-radius: 10px;
+}
+.nft{
+  color: var(--color-white);
+  display: inline-block;
+  margin-left: 1vw;
+}
+
 
 /* ========== Main Search Post Window ===== */
 .searchWindow{
@@ -110,6 +127,9 @@
     margin-left: 0;
     margin-top: 0px;
     
+  }
+  .nftcont{
+    margin-left: 0;
   }
   .banner {
     margin-left: 0;

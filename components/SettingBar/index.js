@@ -96,7 +96,7 @@ export default function SettingBar() {
               <h3>Language</h3>
             </div>
             <div className={style.accWhen}>
-              <p>Pick the language in which the page will be in.</p>
+              <p>Pick the language of the page</p>
             </div>
           </div>
         </li>

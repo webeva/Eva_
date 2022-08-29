@@ -1,0 +1,108 @@
+.communities{
+    width: 55%;
+    position: absolute;
+    left: var(--sidebar-width);
+    color: var(--color-white);
+    top: 15vh;
+    padding-bottom: 10vh;
+}
+.mainWindow{
+    
+    left: var(--sidebar-width);
+  
+   max-width: 60vw;
+    
+    
+}
+.back {
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+  }
+.communities li{
+    width: 95%;
+   
+    margin-left: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 1.2rem;
+    cursor: pointer;
+    padding: 7px 7px;
+   
+}
+.communities li:hover{
+    background-color: var(--color-hover);
+}
+.bannerimg{
+    width: 200px;
+    height: 120px;
+    border-radius: 10px;
+    object-fit: cover;
+    vertical-align:top;
+    float:left;
+    margin-right: 1vw;
+}
+.communities li p{
+    display: inline-block;
+    margin-top: 1vw;
+    font-weight: bold;
+   
+}
+.communities li h4{
+   display: inline;
+   font-size: 12px;
+   word-wrap: break-word;
+ 
+}
+.mainWindow{
+ position: absolute;
+  top: 7.5vh;
+  left: var(--sidebar-width);
+  width: 100%;
+  overflow-x: hidden;
+}
+.post{
+    height: fit-content;
+    min-height: 68vh;
+    max-height: 70vh;
+    overflow-y: auto;
+    width: 80vw;
+    overflow-x: hidden;
+}
+
+@media all and (max-width: 1000px) {
+    .communities{
+        width: 75vw;
+        
+    }
+}
+@media all and (max-width: 700px) {
+    .communities{
+        width: 100vw;
+        left:0px
+    }
+    .bannerimg{
+        width: 100px;
+        height: 100px;
+        margin-right: 15px;
+    }
+    .mainWindow{
+        width: 100vw;
+        max-width: 100vw;
+        left: 0px;
+        padding-bottom: 60px;
+       
+    }
+    .post{
+        width: 100%;
+        min-height: 61vh;
+        height: 62vh;
+        
+    }
+
+}
+@media all and (max-width: 1020px) and (min-width: 506px) {
+    .mainWindow {
+      width: calc(95vw - var(--sidebar-width));
+    }
+  }

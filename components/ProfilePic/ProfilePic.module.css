@@ -5,6 +5,7 @@
   cursor: pointer;
   display: inline-block;
   vertical-align: middle;
+  object-fit: cover;
 }
 
 /* ====== NFT Profile Picture ========= */

@@ -40,7 +40,7 @@ const Sidebar = () => {
     if (response) {
       localStorage.setItem("deso_user_key", "");
       SetLogged(false);
-      router.push("/")
+      router.push("/auth")
     }
   }
   //Set up the nextjs router
@@ -123,18 +123,14 @@ const Sidebar = () => {
               onClick={() => goHome()}
               src={"/images/favicon.png"}
               alt="Eva The Top decentralized social media platform" 
-              width={52}
-              height={52}/>
+              width={50}
+              height={50}/>
           </div>
           {/* Link to the home page */}
           <Link href="/" className={style.link} style={{ marginTop: 30 }}>
             <div className={logged ? style.menuItems : style.hide}>
               <img
-                style={{
-                  width: "30px",
-                  height: "30px",
-                  display: "inline-block",
-                }}
+                className={style.menuImgs}
                 alt="home"
                 src="/Svg/home.svg"
               />
@@ -145,11 +141,7 @@ const Sidebar = () => {
           <Link href="/discover" className={style.link}>
             <div className={style.menuItems}>
               <img
-                style={{
-                  width: "30px",
-                  height: "30px",
-                  display: "inline-block",
-                }}
+                 className={style.menuImgs}
                 alt="discover"
                 src="/Svg/discover.svg"
               />
@@ -157,29 +149,32 @@ const Sidebar = () => {
             </div>
           </Link>
           {/* Link to the weekly debate post */}
-          <Link href="/posts/25a688ce6c52c5b08217154c2343abc10f839f99bf2ab91e4bb82216071ee0fb" className={style.link}>
+          <Link href="/posts/687fa29feb599f140ac25a2f794d5b38ababb969adee726362ba55db9b7e92ee" className={style.link}>
             <div className={style.menuItems}>
               <img
-                style={{
-                  width: "30px",
-                  height: "30px",
-                  display: "inline-block",
-                }}
+                 className={style.menuImgs}
                 alt="debate"
                 src="/Svg/megaphone.svg"
               />
               Debate
             </div>
           </Link>
+          {/* Link to the community page */}
+          <Link href="/community" className={style.link}>
+            <div className={logged ? style.menuItems : style.hide}>
+              <img
+                 className={style.menuImgs}
+                alt="debate"
+                src="/Svg/language.svg"
+              />
+              Community
+            </div>
+          </Link>
           {/* Link to the notification page */}
           <div onClick={() => prepareNotifi()} className={style.link}>
             <div className={logged ? style.menuItems : style.hide}>
               <img
-                style={{
-                  width: "30px",
-                  height: "30px",
-                  display: "inline-block",
-                }}
+                 className={style.menuImgs}
                 alt="notifications"
                 src={notifiImage ? "/Svg/bell-on.svg" : "/Svg/bell.svg"}
               />
@@ -196,11 +191,7 @@ const Sidebar = () => {
             <div onClick={() => routeProfile()} className={style.link}>
               <div className={logged ? style.menuItems : style.hide}>
                 <img
-                  style={{
-                    width: "30px",
-                    height: "30px",
-                    display: "inline-block",
-                  }}
+                   className={style.menuImgs}
                   alt="profile"
                   src="/Svg/user.svg"
                 />
@@ -218,11 +209,7 @@ const Sidebar = () => {
           >
             <div className={logged ? style.menuItems : style.hide}>
               <img
-                style={{
-                  width: "30px",
-                  height: "30px",
-                  display: "inline-block",
-                }}
+                 className={style.menuImgs}
                 alt="settings"
                 src="/Svg/setting.svg"
               />
@@ -235,7 +222,7 @@ const Sidebar = () => {
             className={logged ? style.menuItems : style.hide}
           >
             <img
-              style={{ width: "30px", height: "30px", display: "inline-block" }}
+               className={style.menuImgs}
               alt="logout"
               src="/Svg/logout.svg"
             />

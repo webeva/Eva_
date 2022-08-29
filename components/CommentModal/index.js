@@ -254,7 +254,7 @@ const CommentModal = () =>
                       
   
                           
-                   <InputField postId={postId}></InputField>
+                   <InputField postId={postId} community=""></InputField>
               </Modal>
           )}
           

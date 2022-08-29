@@ -1,0 +1,57 @@
+.hide{
+    display: none;
+}
+.sideMenu{
+    height: 100%;
+    width: 75vw;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    background-color: var(--color-hover);
+    opacity: 100;
+    overflow-x: hidden;
+    padding-top: 60px;
+    color:var(--color-white)
+}
+.background{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.351);
+   
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+.link{
+    padding: 15px 10px 10px 50px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    display: block;
+    transition: 0.3s;
+    
+}
+
+.menuImgs{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-right: 2vw;
+    vertical-align: middle;
+}
+.btnClose{
+    padding: 10px 10px 10px 40px;
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    right: 22px;
+    display: block;
+    transition: 0.3s;
+    font-size: 36px;
+    margin-left: 50px;
+    color: var(--color-white);
+}

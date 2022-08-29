@@ -14,7 +14,7 @@
     display: flex;
     padding: 5px;
     gap:14px;
-    margin-left: 10px;
+    margin-left: 0px;
     justify-content: center;
     align-items: center;
     text-decoration: none !important;
@@ -24,10 +24,10 @@
     display: grid;
     grid-template-columns: 15% 85%;
     gap: 20px;
-    margin-top: 15px;
+    margin-top: 8px;
     align-items: center;
     font-weight: 600;
-    font-size: 19.5px;
+    font-size: 18.5px;
     padding:10px;
     border-radius: 1000px;
     color: var(--color-white) !important;
@@ -43,6 +43,11 @@
 }
 .hide{
     display: none;
+}
+.menuImgs{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
 }
 
 /* ========= Media Queries ======== */
@@ -74,6 +79,24 @@
     
     
 }
+@media all and (min-width:2000px){
+    
+    .details img{
+        width: 90px;
+        height: 90px;
+        margin-top: 10vh;
+    }
+    
+    .menuItems{
+        margin-top: 3vh;
+        font-size: 2rem;
+    }
+    .menuItems img{
+        width: 50px;
+        height: 50px;
+        
+    }
+  }
 
 @media all and (max-width:1155px){
     .menuItems{

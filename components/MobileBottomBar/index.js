@@ -26,7 +26,7 @@ export default function MobileBottomBar() {
   async function login() {
     const response = await deso.login();
     setLogged(true);
-    router.push("/auth");
+    router.push("/");
   }
   //Route the user to their profile page
   async function routeProfile() {
@@ -37,18 +37,7 @@ export default function MobileBottomBar() {
     //Go to /profile + user's username
     router.push(`/profile/${Username}`);
   }
-  async function logout() {
-    //Get the user's public key 
-    const request = localStorage.getItem("deso_user_key");
-    //Logout the user 
-    const response = await deso.logout(request)
-    //If sucess tell the page that we have logged out
-    if (response) {
-      localStorage.setItem("deso_user_key", "");
-      setLogged(false);
-      router.push("/")
-    }
-  }
+  
 
   useEffect(() =>{
     if(router.pathname){
@@ -67,7 +56,7 @@ export default function MobileBottomBar() {
       <Link href="/">
         <img
           className={logged ? style.item : style.hide}
-          style={{ marginLeft: "10vw" }}
+          style={{ marginLeft: "15vw" }}
           alt="Home"
           src="/Svg/home.svg"
         />
@@ -80,12 +69,20 @@ export default function MobileBottomBar() {
           src="/Svg/discover.svg"
         />
       </Link>
-      <Link href="/posts/25a688ce6c52c5b08217154c2343abc10f839f99bf2ab91e4bb82216071ee0fb">
+      <Link href="/posts/687fa29feb599f140ac25a2f794d5b38ababb969adee726362ba55db9b7e92ee">
         <img
           className={logged ? style.item : style.hide}
           style={{ marginLeft: "5vw" }}
           alt="Debate"
           src="/Svg/megaphone.svg"
+        />
+      </Link>
+      <Link href="/community">
+        <img
+          className={logged ? style.item : style.hide}
+          style={{ marginLeft: "5vw" }}
+          alt="Community"
+          src="/Svg/language.svg"
         />
       </Link>
       <Link href="/notifications">
@@ -117,23 +114,8 @@ export default function MobileBottomBar() {
         ) : (
           <></>
         )}
-    {/* Link to the settings page */}
     
-    <Link href="/settings">
-        <img
-          className={logged ? style.item : style.hide}
-          style={{ marginLeft: "5vw" }}
-          alt="Settings"
-          src="/Svg/setting.svg"
-        />
-      </Link>
-      <img 
-        onClick={()=> logout()}
-        className={logged ? style.item : style.hide}
-        style={{ marginLeft: "5vw" }}
-        alt="Logout"
-        src="/Svg/logout.svg"
-      />
+      
       <button
         onClick={() => login()}
         className={logged ? style.hide : style.btn}

@@ -48,7 +48,7 @@ export default function Post() {
     <Status></Status>
         <div className={style.wrapper}>
         <SinglePost postId={id}/>
-        {logged && <InputField postId={id}/>}
+        {logged && <InputField postId={id} community=""/>}
         
         <PostComments postId={id}/>
         </div>

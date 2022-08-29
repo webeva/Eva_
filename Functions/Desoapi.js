@@ -162,6 +162,66 @@ class DesoApi {
         }
         
     }
+    async addToCommunityList(key, username, bio, fr, pic, banner, list){
+       
+        if(!key){
+            console.log("Key is required")
+            return
+        }
+        if(!username){
+            alert("Username cannot be empty")
+            return
+        }
+        
+        try{
+            const request = {
+                "ProfilePublicKeyBase58Check": "",
+                "UpdaterPublicKeyBase58Check": key, 
+                "NewUsername": username,
+                "NewDescription": bio, 
+                "NewCreatorBasisPoints": fr,
+                "MinFeeRateNanosPerKB": 1000,
+                "NewStakeMultipleBasisPoints": 12500,
+                "NewProfilePic": pic,
+                "ExtraData":{
+                    "CommunityList": list,
+                    "FeaturedImageURL": banner,
+
+                }
+            
+            }
+
+            const response = await this.getClient().social.updateProfile(request);
+            return response
+        }catch(error){
+            return(error)
+        }
+    }
+
+    async createCommunity(publickey58, name, description, banner){
+        const request = {
+            "UpdaterPublicKeyBase58Check": publickey58,
+            "BodyObj": {
+              "Body": `Come check out my cool new community on Eva #${name.replace(/\s/g,'')}CommunityOnEva`,
+              "VideoURLs": [],
+              "ImageURLs": [],
+            },
+            "PostExtraData":{
+                "App": "Eva",
+                "Type": "Community",
+                "Name": name,
+                "Description": description,
+                "Banner": banner
+            }
+        }
+        try{
+            const response = await this.getClient().posts.submitPost(request);
+            return response
+        }catch(error){
+            return error
+        }
+        
+    }
 
     async hidePost(postHash, publickey58){
         if(!postHash){
@@ -680,6 +740,30 @@ class DesoApi {
             return
         }
     }
+
+    /* ========== Get Community Posts ========= */
+    async getCommunityPosts(user, NumToFetch, topic){
+        if(!user){
+            console.log("User is needed")
+            return
+        }
+        
+        try{
+            const request = {
+                "ReaderPublicKeyBase58Check": user, 
+                "ResponseLimit": NumToFetch, 
+                "SortByNew": true,
+                "Tag": "#" + topic
+            }
+
+            const response = await this.getClient().posts.getHotFeed(request)
+            
+            return response
+        }catch(error){
+            console.log(error)
+            return
+        }
+    }
     
     /* ========= Return PublicKey by Username ==== */
 
@@ -820,6 +904,8 @@ class DesoApi {
                 "NewProfilePic": pic,
                 "ExtraData":{
                     "FeaturedImageURL": banner,
+                   
+                    
                 }
             }
 

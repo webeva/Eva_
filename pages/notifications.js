@@ -14,14 +14,18 @@ import { useRouter } from "next/router";
 //Import Recoil and atoms
 import { useRecoilState } from "recoil";
 import { NotifiImage, NotificationAmount } from "../atom/notificationAtom";
+import { SideBarMobile } from "../atom/modalAtom";
 //Import Spinner
 import LoadingSpinner from "../components/Spinner";
 import NotificationPost from "../components/NotificationPost";
 //Import Profile Picture
 import ProfilePic from "../components/ProfilePic";
+import dynamic from "next/dynamic";
+const MobileSideBar = dynamic(() => import("../components/MobileSideBar"));
 const Notifications = () => {
   //Stores all the notifications
   const [notificationsFeed, setnotifications] = useState([]);
+  const [open, setOpen] = useRecoilState(SideBarMobile)
   //Stores the usernames
   const [name, setname] = useState([]);
   let usernames = [];
@@ -35,6 +39,7 @@ const Notifications = () => {
   const router = useRouter();
   //Create new deso api
   const deso = new DesoApi();
+  const [isMobile, setIsMobile] = useState(false);
   /* Set the notification amount and change the notification 
     image to let the user know that they saw the image */
   const [notificationAmount, setNotificationAmount] =
@@ -44,6 +49,10 @@ const Notifications = () => {
   useEffect(() => {
     if (!localStorage.getItem("deso_user_key")) {
       router.push("/auth");
+    }
+    var w = window.innerWidth;
+    if (w <= 700) {
+      setIsMobile(true);
     }
   });
   useEffect(() => {
@@ -86,45 +95,45 @@ const Notifications = () => {
         const value = 0.01;
         const usdvalue = value * amount;
         if (amount == 1) {
-          texts.push("Gave your post " + amount + " diamond! " + "(~$0.01)");
+          texts.push("gave you " + amount + " diamond! " + "(~$0.01)");
           images.push("/Svg/tip-on.svg");
         } else {
           texts.push(
-            "Gave your post " + amount + " diamonds! " + "(~$" + usdvalue + ")"
+            "gave you" + amount + " diamonds! " + "(~$" + usdvalue + ")"
           );
           images.push("/Svg/tip-on.svg");
         }
       } else {
         if (type == "LIKE") {
-          texts.push("Liked your post!");
+          texts.push("liked your post!");
           images.push("/Svg/star-on.svg");
         } else if (type == "FOLLOW") {
-          texts.push("Started following you!");
+          texts.push("started following you!");
           images.push("/Svg/user-on.svg");
         } else if(more == 'MentionedPublicKeyBase58Check'){
-          texts.push("Mentioned you!");
+          texts.push("mentioned you!");
           images.push("/Svg/reply-on.svg");
         } else if (type == "SUBMIT_POST") {
-          texts.push("Replied to your post!");
+          texts.push("replied to your post!");
           images.push("/Svg/reply-on.svg");
         } else if (type == "NFT_TRANSFER") {
-          texts.push("Transferred an NFT to you!");
+          texts.push("transferred an NFT to you!");
           images.push("/Svg/transfer-on.svg");
         } else if (type == "DAO_COIN_TRANSFER") {
-          texts.push("Transferred a dao coin!");
+          texts.push("transferred a dao coin!");
           images.push("/Svg/tip-on.svg");
         } else if (type == "BASIC_TRANSFER") {
-          texts.push("Sent you $Deso!");
+          texts.push("sent you $DeSo!");
           images.push("/Svg/tip-on.svg");
         } else if (type === "DAO_COIN_LIMIT_ORDER") {
-          texts.push("Limited their Dao coin order");
+          texts.push("limited their Dao coin order");
           images.push("/Svg/tip-on.svg");
         } else if (type == "CREATOR_COIN") {
-          texts.push("Bought some of your creator coin!");
+          texts.push("bought some of your creator coin!");
           images.push("/Svg/tip-on.svg");
         } else {
           console.log(type);
-          texts.push("Performed a " + type);
+          texts.push("performed a " + type);
         }
       }
 
@@ -141,22 +150,27 @@ const Notifications = () => {
       <Head>
         <title>Eva | Notifications</title>
       </Head>
-      <div className="pageIdentify">
-        <p id="pageidentify" style={{ display: "inline" }}>
+      <MobileSideBar/>
+      <div className={style.pageIdentify}>
+      {isMobile && (
+              <img
+                src = {`https://diamondapp.com/api/v0/get-single-profile-picture/${localStorage.getItem("deso_user_key")}`}
+                className={style.profileToMenu}
+                onClick={()=>setOpen(true)}
+              />
+            )}
+        <p id="pageidentify" style={{ display: "inline-block", marginLeft: "1vw" }}>
           Notifications
         </p>
-        <div
-          style={{ marginLeft: "55vw", display: "inline-block" }}
-          className="details"
-        ></div>
+        
       </div>
-      <div></div>
+      
       <div className="mainWindow">
         {notificationsFeed.length > 0 ? (
           notificationsFeed?.map(function (value, index) {
             return (
               <>
-              {text[index] != "Limited their Dao coin order" && 
+              {text[index] != "limited their Dao coin order" && 
               <div key={index} className={style.container}>
                 <div style={{ display: "inline-block", marginLeft: "1vw" }}>
                   <ProfilePic
@@ -210,8 +224,8 @@ const Notifications = () => {
           })
         ) : (
           <div
-            className="mainWindow"
-            style={{ marginTop: "50vh", marginLeft: "5vw" }}
+            className={style.mainWindow}
+           
           >
             <LoadingSpinner />
             <p style={{ color: "var(--color-white)" }}>Loading...</p>

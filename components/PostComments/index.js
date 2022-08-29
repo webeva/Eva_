@@ -465,7 +465,7 @@ export default function PostComments(id) {
 
                     <div className={style.evaContent}>
                       <div className={style.mention}>
-                        {renderTags(Body, PostHashHex)}
+                        {renderTags(Body.replace("Posted via @EvaSocial", ""), PostHashHex)}
                       </div>
                     </div>
                     {ImageURLs && (

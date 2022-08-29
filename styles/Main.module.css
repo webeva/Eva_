@@ -11,6 +11,31 @@
   width: 19px;
   margin-right: 350px;
 }
+/* Page indentifier */
+.pageIdentify {
+
+  background-color: var(--color-page-identify);
+  position: fixed;
+  padding: 7px;
+  top: 0px;
+  left: var(--sidebar-width);
+  color: var(--color-white);
+  width: 100vw;
+  height: 60px;
+  font-weight: bold;
+  font-size: 21px;
+  z-index: 5;
+  display: flex;
+   align-items:center;
+}
+.profileToMenu{
+  width: 39px;
+  height: 39px;
+  object-fit: cover;
+  cursor: pointer;
+  margin-left: 1vw;
+  margin-right: 2vw;
+}
 .profileEva {
   display: flex;
   justify-content: space-between;
@@ -132,6 +157,25 @@
   background-color: var(--color-hover);
 }
 
+.evaText{
+  background-color: transparent;
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  resize: none;
+  color: white;
+  border: none;
+  outline: none;
+  padding-left: 20px;
+  font-weight: 500;
+  width:100%;
+  height: 8vh;
+  overflow: auto;
+  max-height:200px;
+}
+.create{
+  display: none;
+}
+
 
 /* =========== Media Queries ======= */
 
@@ -193,8 +237,18 @@
     display: none;
   }
 }
+@media all and (max-width: 574px) {
+  .feed:nth-child(4) {
+    display: none;
+  }
+}
 @media all and (max-width: 525px) {
   .feed:nth-child(4) {
+    display: none;
+  }
+}
+@media all and (max-width: 465px) {
+  .feed:nth-child(3) {
     display: none;
   }
 }
@@ -215,7 +269,30 @@
   .evaBox{
     width: 100vw;
   }
-  
+  .feed{
+    font-size: 1.1rem;
+    margin-top: 2vw;
+    padding: 4px 11px;
+    border-radius: 14px;
+   
+  }
+  .create{
+    display: block;
+    position: fixed;
+    bottom:15vh;
+    right: 20px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    z-index: 999;
+    box-shadow: 3px 3px 10px var(--color-black);
+    cursor: pointer;
+  }
+  .pageIdentify {
+    left: 0;
+  }
+
 }
 @media all and (max-width: 412px) {
   .feed:nth-child(6) {
@@ -238,4 +315,29 @@
     padding-bottom: 7px;
     margin-top: 15px;
   }
+}
+/* ========= Even Larger devices ============ */
+@media all and (min-width: 2000px) {
+  .feed{
+    font-size: 1.6rem;
+  }
+  .feeds{
+    height: fit-content;
+  }
+  .feed{
+    margin-bottom: 1vh;
+  }
+  .profilePic{
+    width: 80px;
+    height: 80px;
+    margin-left: 1vw;
+  }
+  .evaText{
+    font-size: 2rem;
+  }
+  .eva{
+    font-size: 1.7rem;
+  }
+  
+  
 }

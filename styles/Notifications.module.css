@@ -1,5 +1,6 @@
 .container {
   width: 54vw;
+ 
   height: fit-content;
   color: var(--color-white);
   position: relative;
@@ -11,10 +12,40 @@
 .container:hover {
   cursor: pointer;
 }
+.profileToMenu{
+  width: 39px;
+  height: 39px;
+  object-fit: cover;
+  cursor: pointer;
+  margin-left: 1vw;
+  margin-right: 2vw;
+}
+.pageIdentify {
+
+  background-color: var(--color-page-identify);
+  position: fixed;
+  padding: 7px;
+  top: 0px;
+  left: var(--sidebar-width);
+  color: var(--color-white);
+  width: 100vw;
+  height: 60px;
+  font-weight: bold;
+  font-size: 21px;
+  z-index: 5;
+  display: flex;
+   align-items:center;
+}
 .publicKey {
   color: var(--color-grey);
   margin-left: 5px;
   display: inline;
+}
+.mainWindow{
+  margin-top: 45vh;
+  margin-left: 6vw;
+  left: var(--sidebar-width);
+  position: absolute;
 }
 @media all and (max-width: 1015px) {
   .container {
@@ -25,5 +56,8 @@
 @media all and (max-width: 700px) {
   .container {
     width: 95vw;
+  }
+  .pageIdentify{
+    left: 0;
   }
 }

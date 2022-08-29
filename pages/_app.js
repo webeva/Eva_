@@ -22,14 +22,6 @@ function MyApp({ Component, pageProps }) {
   const [color, setColor] = useState("");
   const [bg, setBg] = useState("");
   
-  /*useEffect(()=> {
-    //Register service worker for PWA
-    if('serviceWorker' in navigator){
-      navigator.serviceWorker.register('/sw.js')
-      .then((reg)=> console.log("Service worker registered.", reg))
-      .catch((error)=> console.log("Service worker not registered.", error))
-    }
-  }, [])*/
 
   useEffect(() => {
 
@@ -75,11 +67,11 @@ function MyApp({ Component, pageProps }) {
         path == "/settings/display" ||
         path == "/settings/account" ||
         path == "/settings/language" ||
-        path == "/settings/extensions"
+        path == "/settings/extensions" 
       ) {
         SetShowRightBar(false);
         SetShowSidebar(true);
-      } else if (path == "/auth" || path == "/terms") {
+      } else if (path == "/auth" || path == "/terms" ) {
         SetShowRightBar(false);
         SetShowSidebar(false);
       } else {

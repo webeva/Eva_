@@ -687,7 +687,7 @@ export default function SinglePost(postId) {
           </div>
           <div className={style.line}></div>
           <br></br>
-          <p style={{ marginLeft: "1vw", display: "inline" }}>
+          <p style={{ marginLeft: "1vw", display: "inline", }}>
             {value.CommentCount} {value.CommentCount == 1 ? "Comment" : "Comments"}
           </p>
           <p

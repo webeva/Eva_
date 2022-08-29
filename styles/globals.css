@@ -219,3 +219,17 @@ body {
     --profile-left: calc((100vw - 780px) * 0.45);
   }
 }
+
+/* ======= For even larger devices ======*/
+
+@media all and (min-width: 2000px) {
+  :root {
+    --sidebar-width: calc((100vw - 880px) * 0.31);
+    --notification-left: calc((100vw - 880px) * 0.31);
+    --profile-left: calc((100vw - 780px) * 0.31);
+  }
+  .pageIdentify{
+    height: 7vh;
+    font-size: 1.9rem;
+  }
+}

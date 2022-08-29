@@ -136,8 +136,9 @@ const MessageInFeed = (feed) => {
           }else{
            
             let responsevalue = await desoapi.getSearchFeed(user, 25, feed.feed)
-           
+            console.log(responsevalue)
             if(responsevalue){
+              console.log(Object.values(responsevalue)[0].ExtraData)
              
               setmessagesFeed(Object.values(responsevalue)[0])
             }

@@ -337,4 +337,23 @@
       margin-right: 5px;
     }
   }
+
+  @media all and (min-width:2000px){
+    .mention{
+      font-size: 1.8rem;
+    }
+    .interactions {
+      gap: 150px;
+    }
+    .accWhen{
+      font-size: 1.5rem;
+    }
+    .who{
+      font-size: 1.6rem;
+    }
+    .interactionNums img{
+      width: 37px;
+      height: 37px;
+    }
+  }
   

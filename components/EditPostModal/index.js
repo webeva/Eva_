@@ -25,7 +25,7 @@ export default function EditPost() {
         setPostHash(null);
       }}
     >
-      <InputField></InputField>
+      <InputField community=""></InputField>
     </Modal>
   );
 }

@@ -138,6 +138,11 @@
 .agree:hover {
   text-decoration: underline;
 }
+.text{
+  font-size: 16px;
+  margin-left: 0.5vw;
+  display: inline;
+}
 /* ==== Terms and Conditions ====== */
 .terms {
   color: var(--color-white);
@@ -163,5 +168,48 @@
   .profilePic {
     width: 55px;
     height: 55px;
+  }
+}
+@media all and (min-width: 2000px) {
+  .terms {
+    font-size: 1.5rem;
+  }
+  .profilePic {
+    width: 90px;
+    height: 90px;
+  }
+  .trends {
+    height: auto;
+    margin-top: 2vh;
+    padding-top: 0.9vw;
+    padding-bottom: 0.9vw;
+    padding-left: 1vw;
+
+  }
+  .balance{
+    font-size: 1.5rem;
+  }
+  .categorytitle{
+    font-size: 1.9rem;
+  }
+  .category{
+    margin-top: 3vh;
+    height: 5vh;
+  }
+  .text{
+    font-size: 1.7rem;
+    
+  }
+  .buy{
+    font-size: 1.5rem;
+    margin-top: 2vh;
+  }
+  .who{
+    font-size: 1.9rem;
+    margin-left: 1vw;
+  }
+  .accWhen{
+    font-size: 1.7rem;
+    margin-left: 1vw;
   }
 }

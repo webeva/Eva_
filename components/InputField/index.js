@@ -14,16 +14,19 @@ import { useRecoilState } from "recoil";
 import { modalState, quoteState, EditStateHash, EditState } from "../../atom/modalAtom";
 import { Response } from "../../atom/modalAtom";
 
-export default function InputField(postId) {
-
+export default function InputField(postId, community) {
+ 
+  const communityvalue = postId.community.id
+  
+ 
   const [selectedFile, setSelectedFile] = useState("");
   const [theFile, setTheFile] = useState(null);
   const [linkstate, setLinkState] = useState(false);
   const [quote, setQuote] = useRecoilState(quoteState);
   const [quoteComment, setQuoteComment] = useState("Leave a comment");
   const [quoteBtn, setQuoteBtn] = useState("Comment");
-  let file = [];
   const [closebutton, setclosebutton] = useState("none");
+  let file = []
   const [newmessage, setnewmessage] = useState("");
   const [currentUser, setCurrentUser] = useState("");
   const [link, setLink] = useState("");
@@ -49,6 +52,10 @@ Posted via @EvaSocial`
     /* If no postId is passed to this component as a prop
     it means that it is being used to send a message or 
     else it is being used to comment on a post */
+
+    if(!newmessage.length > 0 && !theFile){
+      alert("Message cannot be empty")
+    }else{
 
     
     function getId(link) {
@@ -109,7 +116,13 @@ Posted via @EvaSocial`
           url = null;
         }
         const user = localStorage.getItem("deso_user_key");
-        const response = await deso.sendMessage(user, newmessage + endText, theFile, url);
+        let communityid = "";
+        if(communityvalue){
+        
+          communityid = `
+#${communityvalue}`
+        }
+        const response = await deso.sendMessage(user, newmessage + endText + communityid, theFile, url);
         if(response.TransactionHex){
           const approve = window.open('https://identity.deso.org/approve?tx=' + response.TransactionHex)
         }
@@ -132,7 +145,6 @@ Posted via @EvaSocial`
           let url;
           if (endUrl) {
             url = "https://www.youtube.com/embed/" + endUrl;
-            alert(url);
           } else {
             url = null;
           }
@@ -185,12 +197,21 @@ Posted via @EvaSocial`
           setOpen(false);
           setnewmessage("")
           //Redirect the user to that post's page
-          setTimeout(() => {
-            router.push(`/posts/${postId.postId}`);
-          }, 1000);
-          });
+         
+          if(communityvalue == undefined){
+            setTimeout(() => {
+              router.push(`/posts/${postId.postId}`);
+            }, 1000);
+           
+          }else{
+           
+            router.push(`/community/${communityvalue}`)
+          }
+        });
+          
         }
     }
+  }
       
       
     
@@ -302,21 +323,7 @@ Posted via @EvaSocial`
           placeholder={quoteComment}
           type="text"
           value={newmessage}
-          style={{
-            backgroundColor: "transparent",
-            fontSize: 17,
-            fontFamily: "Arial, Helvetica, sans-serif",
-            resize: "none",
-            color: "white",
-            border: "none",
-            outline: "none",
-            paddingLeft: "20px",
-            fontWeight: "500",
-            width:"100%",
-            height: "8vh",
-            overflow: "auto",
-            maxHeight:"200px"
-          }}
+          className={style.evaText}
           ></textarea>
 
         <input

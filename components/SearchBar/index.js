@@ -65,6 +65,9 @@ export default function SearchBar() {
   function searchPost(id) {
     router.push(`/search/post/${id.searchValue}`);
   }
+  function searchCommunity(id){
+    router.push(`/search/community/${id.searchValue}`)
+  }
   //Reroute to the post search page with the relevant search term
   function searchCloutPost(id) {
     router.push(`/search/post/${id}`);
@@ -95,6 +98,9 @@ export default function SearchBar() {
             </li>
             <li onClick={() => searchPeople({ searchValue })}>
               Search <strong>{searchValue}</strong> in People
+            </li>
+            <li onClick={() => searchCommunity({ searchValue })}>
+              Search <strong>{searchValue}</strong> in Community
             </li>
             {relevantTags.length > 0 &&
               relevantTags.map(function (value) {
