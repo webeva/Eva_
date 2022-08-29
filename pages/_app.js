@@ -21,11 +21,8 @@ function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState("");
   const [color, setColor] = useState("");
   const [bg, setBg] = useState("");
-  
 
   useEffect(() => {
-
-
     try {
       if (localStorage.getItem("primaryColor")) {
         setColor(localStorage.getItem("primaryColor"));
@@ -67,11 +64,11 @@ function MyApp({ Component, pageProps }) {
         path == "/settings/display" ||
         path == "/settings/account" ||
         path == "/settings/language" ||
-        path == "/settings/extensions" 
+        path == "/settings/extensions"
       ) {
         SetShowRightBar(false);
         SetShowSidebar(true);
-      } else if (path == "/auth" || path == "/terms" ) {
+      } else if (path == "/auth" || path == "/terms") {
         SetShowRightBar(false);
         SetShowSidebar(false);
       } else {
@@ -80,7 +77,6 @@ function MyApp({ Component, pageProps }) {
       }
     }
   }, [router]);
-
 
   return (
     <>
@@ -116,7 +112,10 @@ function MyApp({ Component, pageProps }) {
           content="decentralized social media, decentralized social media apps, decentralised social media platform, decentralised twitter, deso, post2earn, posttoearn, twitter decentralized social media, decentralized twitter alternative, decentralized social media blockchain, elon musk decentralized social media, decentralized social media apps, decentralized, twitter, share, connect, blockchain, earn, cryptocurrency, decentralized social media platforms blockchain, best decentralized social media platforms, Top decentralized social media platforms"
         />
 
-        <meta name="google-site-verification" content="8kQp0RpYF1oBWZChwmjeLYglGSmsKpN90BBCmMGcUFE" />
+        <meta
+          name="google-site-verification"
+          content="8kQp0RpYF1oBWZChwmjeLYglGSmsKpN90BBCmMGcUFE"
+        />
         <meta
           name="description"
           content="The most advanced decentralized social media platform built on top of a blockchain. Gain cryptocurrency by posting and sharing. A revolution in social media yet to take over the world."
@@ -125,11 +124,10 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="canonical" href="https://eva-phi.vercel.app/" />
-        <link rel="manifest" href="/manifest.json"/>
-        <meta name="theme-color" content="#1d9bf0"/>     
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#1d9bf0" />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-status-bar" content="#1d9bf0" />
-
       </Head>
       <RecoilRoot style={{ fontSize: "20px" }}>
         <div
@@ -143,13 +141,12 @@ function MyApp({ Component, pageProps }) {
               <Sidebar />
             </div>
             <div>
-              
               <Component {...pageProps} />
             </div>
             <div className={showRighbar ? style.rightBar : style.hide}>
               <Rightbar />
             </div>
-            <div >
+            <div>
               <MobileBottomBar />
             </div>
           </div>

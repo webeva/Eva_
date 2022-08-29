@@ -15,8 +15,8 @@ import { useEffect } from "react";
 import style from "../styles/Auth.module.css";
 //Import Deso
 import DesoApi from "../Functions/Desoapi";
-//Import Next link 
-import Link from "next/link"
+//Import Next link
+import Link from "next/link";
 
 export default function Auth() {
   const [logged, SetLogged] = useRecoilState(AppState);
@@ -30,7 +30,7 @@ export default function Auth() {
     const response = await deso.login();
     checkAuth();
   }
-  async function safeLogin(){
+  async function safeLogin() {
     const response = await deso.safeLogin();
     checkAuth();
   }
@@ -85,47 +85,46 @@ export default function Auth() {
         <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       </Head>
-      {logged != "loading" &&
-
+      {logged != "loading" && (
         <>
-        
-          <div className={logged == "loading" ? style.red: style.container}>
-          {/* Star animation source code: https://github.com/WebDevSHORTS/Parallax-Star-Background/blob/master/style.css */}
-          <div className={style.stars}></div>
-          <div className={style.stars2}></div>
-  
-          <div className={style.formContainer}>
-            <div className={style.login}>
-              <form action="#" className={style.loginForm}>
-                <h2 className={style.title}>Login to Eva</h2>
-  
-                <div className={style.loginSignup} onClick={() => login()}>
-                  <img src="/images/favicon.png" alt="DesoLogin"></img>
-                  Full Login with DeSo
-                </div>
-                
-                <div className={style.loginSignup} onClick={() => safeLogin()}>
-                  <img src="/images/favicon.png" alt="Eva"></img>
-                  Safe Login with DeSo
-                </div>
-                <p className={style.pTag}>
-                  By creating an account you agree to our {" "}
-                  <Link className={style.aTag} href="/terms">
-                     Terms and Conditions
-                  </Link>
-                 
-                  {" "} and {" "}
-                  <a className={style.aTag} href="#">
-                     Privacy Policies
-                  </a>
-                </p>
-              </form>
+          <div className={logged == "loading" ? style.red : style.container}>
+            {/* Star animation source code: https://github.com/WebDevSHORTS/Parallax-Star-Background/blob/master/style.css */}
+            <div className={style.stars}></div>
+            <div className={style.stars2}></div>
+
+            <div className={style.formContainer}>
+              <div className={style.login}>
+                <form action="#" className={style.loginForm}>
+                  <h2 className={style.title}>Login to Eva</h2>
+
+                  <div className={style.loginSignup} onClick={() => login()}>
+                    <img src="/images/favicon.png" alt="DesoLogin"></img>
+                    Full Login with DeSo
+                  </div>
+
+                  <div
+                    className={style.loginSignup}
+                    onClick={() => safeLogin()}
+                  >
+                    <img src="/images/favicon.png" alt="Eva"></img>
+                    Safe Login with DeSo
+                  </div>
+                  <p className={style.pTag}>
+                    By creating an account you agree to our{" "}
+                    <Link className={style.aTag} href="/terms">
+                      Terms and Conditions
+                    </Link>{" "}
+                    and{" "}
+                    <a className={style.aTag} href="#">
+                      Privacy Policies
+                    </a>
+                  </p>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
         </>
-      }
-      
+      )}
     </>
   );
 }

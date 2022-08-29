@@ -4,12 +4,11 @@ the searchbar with the content provided in the
 url. For example going to /eva will enter eva 
 into the searchbar */
 
-import SearchBar from "../../components/SearchBar"
+import SearchBar from "../../components/SearchBar";
 export default function Discover() {
-    return ( 
-      <>
+  return (
+    <>
       <SearchBar></SearchBar>
-      </>
-    )
-  }
-  
+    </>
+  );
+}

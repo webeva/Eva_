@@ -15,8 +15,8 @@ const NotFound = () => {
       <h1>Page not found</h1>
       <strong>404 error</strong>
       <p>
-        Well it seems like you have found a page that doesn&apos;t exist.<br></br>{" "}
-        Maybe try not breaking the website next time.
+        Well it seems like you have found a page that doesn&apos;t exist.
+        <br></br> Maybe try not breaking the website next time.
       </p>
     </div>
   );

@@ -25,7 +25,7 @@ const MobileSideBar = dynamic(() => import("../components/MobileSideBar"));
 const Notifications = () => {
   //Stores all the notifications
   const [notificationsFeed, setnotifications] = useState([]);
-  const [open, setOpen] = useRecoilState(SideBarMobile)
+  const [open, setOpen] = useRecoilState(SideBarMobile);
   //Stores the usernames
   const [name, setname] = useState([]);
   let usernames = [];
@@ -110,7 +110,7 @@ const Notifications = () => {
         } else if (type == "FOLLOW") {
           texts.push("started following you!");
           images.push("/Svg/user-on.svg");
-        } else if(more == 'MentionedPublicKeyBase58Check'){
+        } else if (more == "MentionedPublicKeyBase58Check") {
           texts.push("mentioned you!");
           images.push("/Svg/reply-on.svg");
         } else if (type == "SUBMIT_POST") {
@@ -150,88 +150,93 @@ const Notifications = () => {
       <Head>
         <title>Eva | Notifications</title>
       </Head>
-      <MobileSideBar/>
+      <MobileSideBar />
       <div className={style.pageIdentify}>
-      {isMobile && (
-              <img
-                src = {`https://diamondapp.com/api/v0/get-single-profile-picture/${localStorage.getItem("deso_user_key")}`}
-                className={style.profileToMenu}
-                onClick={()=>setOpen(true)}
-              />
-            )}
-        <p id="pageidentify" style={{ display: "inline-block", marginLeft: "1vw" }}>
+        {isMobile && (
+          <img
+            src={`https://diamondapp.com/api/v0/get-single-profile-picture/${localStorage.getItem(
+              "deso_user_key"
+            )}`}
+            className={style.profileToMenu}
+            onClick={() => setOpen(true)}
+          />
+        )}
+        <p
+          id="pageidentify"
+          style={{ display: "inline-block", marginLeft: "1vw" }}
+        >
           Notifications
         </p>
-        
       </div>
-      
+
       <div className="mainWindow">
         {notificationsFeed.length > 0 ? (
           notificationsFeed?.map(function (value, index) {
             return (
               <>
-              {text[index] != "limited their Dao coin order" && 
-              <div key={index} className={style.container}>
-                <div style={{ display: "inline-block", marginLeft: "1vw" }}>
-                  <ProfilePic
-                    profile={value.Metadata.TransactorPublicKeyBase58Check}
-                    size={43.5}
-                    username={name[index]}
-                  ></ProfilePic>
-                  <div style={{ display: "inline", marginLeft: "1vw" }}>
-                    <strong
-                      key={index + "Username"}
-                      style={{ display: "inline" }}
-                    >
-                      {name[index] ? name[index] : "Loading"}{" "}
-                    </strong>
+                {text[index] != "limited their Dao coin order" && (
+                  <div key={index} className={style.container}>
+                    <div style={{ display: "inline-block", marginLeft: "1vw" }}>
+                      <ProfilePic
+                        profile={value.Metadata.TransactorPublicKeyBase58Check}
+                        size={43.5}
+                        username={name[index]}
+                      ></ProfilePic>
+                      <div style={{ display: "inline", marginLeft: "1vw" }}>
+                        <strong
+                          key={index + "Username"}
+                          style={{ display: "inline" }}
+                        >
+                          {name[index] ? name[index] : "Loading"}{" "}
+                        </strong>
 
-                    {text[index]}
+                        {text[index]}
+                      </div>
+                      <img
+                        src={imgs[index]}
+                        alt="User profile"
+                        width={30}
+                        height={30}
+                        style={{
+                          display: "inline-block",
+                          position: "absolute",
+                          top: "10px",
+                          right: "5px",
+                        }}
+                      ></img>
+                    </div>
+                    {value.Metadata.LikeTxindexMetadata && (
+                      <NotificationPost
+                        id={value.Metadata.LikeTxindexMetadata.PostHashHex}
+                      />
+                    )}
+                    {value.Metadata.BasicTransferTxindexMetadata && (
+                      <NotificationPost
+                        id={
+                          value.Metadata.BasicTransferTxindexMetadata
+                            .PostHashHex
+                        }
+                      />
+                    )}
+                    {value.Metadata.SubmitPostTxindexMetadata && (
+                      <NotificationPost
+                        id={
+                          value.Metadata.SubmitPostTxindexMetadata
+                            .PostHashBeingModifiedHex
+                        }
+                      />
+                    )}
                   </div>
-                  <img
-                    src={imgs[index]}
-                    alt = "User profile"
-                    width={30}
-                    height={30}
-                    style={{
-                      display: "inline-block",
-                      position: "absolute",
-                      top: "10px",
-                      right: "5px",
-                    }}
-                  ></img>
-                </div>
-                {value.Metadata.LikeTxindexMetadata && (
-                  <NotificationPost
-                    id={value.Metadata.LikeTxindexMetadata.PostHashHex}
-                  />
                 )}
-                {value.Metadata.BasicTransferTxindexMetadata && (
-                  <NotificationPost
-                    id={value.Metadata.BasicTransferTxindexMetadata.PostHashHex}
-                  />
-                )}
-                {value.Metadata.SubmitPostTxindexMetadata && (
-                  <NotificationPost
-                    id={value.Metadata.SubmitPostTxindexMetadata.PostHashBeingModifiedHex}
-                  />
-                )}
-              </div>
-              }
-            </>
+              </>
             );
-           
           })
         ) : (
-          <div
-            className={style.mainWindow}
-           
-          >
+          <div className={style.mainWindow}>
             <LoadingSpinner />
             <p style={{ color: "var(--color-white)" }}>Loading...</p>
           </div>
         )}
-        
       </div>
     </>
   );

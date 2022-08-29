@@ -369,7 +369,8 @@ class DesoApi {
                 "ReceiverPublicKeyBase58Check": ReceiverPublicKeyBase58Check,
                 "SenderPublicKeyBase58Check": SenderPublicKeyBase58Check,
                 "DiamondPostHashHex": DiamondPostHashHex,
-                "DiamondLevel": DiamondLevel
+                "DiamondLevel": DiamondLevel,
+                "MinFeeRateNanosPerKB": 2000,
               };
               const response = await this.getClient().social.sendDiamonds(request)
               return response

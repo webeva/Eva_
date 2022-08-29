@@ -6,54 +6,62 @@ on a post and is loaded even if the user is not
 logged in */
 
 //Import the router from next
-import {useRouter} from "next/router"
+import { useRouter } from "next/router";
 
 //Import the styles
-import style from "../../styles/Post.module.css"
+import style from "../../styles/Post.module.css";
 //Import the singlpost
-import SinglePost from "../../components/SinglePost"
+import SinglePost from "../../components/SinglePost";
 //Import auth state
-import { useRecoilState } from "recoil"
-import {AppState} from "../../atom/AppStateAtom"
+import { useRecoilState } from "recoil";
+import { AppState } from "../../atom/AppStateAtom";
 
-
-import dynamic from 'next/dynamic'
-import PostComments from "../../components/PostComments"
+import dynamic from "next/dynamic";
+import PostComments from "../../components/PostComments";
 //Import message comment modal dynamicaly so that we only load it when we need it.
-const CommentModal = dynamic(() => import('../../components/CommentModal'))
-const BuyNFTModal = dynamic(()=> import("../../components/BuyNFTModal"))
-const InputField = dynamic(()=> import("../../components/InputField"))
-const CreateNft = dynamic(()=> import("../../components/CreateNFT"))
-const EditPost = dynamic(()=> import("../../components/EditPostModal"))
-const Status = dynamic(()=> import("../../components/Status"))
+const CommentModal = dynamic(() => import("../../components/CommentModal"));
+const BuyNFTModal = dynamic(() => import("../../components/BuyNFTModal"));
+const InputField = dynamic(() => import("../../components/InputField"));
+const CreateNft = dynamic(() => import("../../components/CreateNFT"));
+const EditPost = dynamic(() => import("../../components/EditPostModal"));
+const Status = dynamic(() => import("../../components/Status"));
 //Export the post page
 export default function Post() {
-    const router = useRouter()
-    //Get the current post id
-    const {id} = router.query
-    //Get the current auth state
-    const [logged] = useRecoilState(AppState)
+  const router = useRouter();
+  //Get the current post id
+  const { id } = router.query;
+  //Get the current auth state
+  const [logged] = useRecoilState(AppState);
 
   return (
     <>
-    <div  className="pageIdentify">
-            <img className={style.back} onClick={()=> history.back()}  src="/Svg/back.svg" width={30} height={30}/>
-            <p id="pageidentify" style={{display:"inline"}}>Post</p>
-            <div style={{marginLeft:"55vw", display:"inline-block"}} className="details"></div>
-    </div>
-    <CommentModal></CommentModal>
-    <BuyNFTModal></BuyNFTModal>
-    <CreateNft></CreateNft>
-    <EditPost></EditPost>
-    <Status></Status>
-        <div className={style.wrapper}>
-        <SinglePost postId={id}/>
-        {logged && <InputField postId={id} community=""/>}
-        
-        <PostComments postId={id}/>
-        </div>
-        
+      <div className="pageIdentify">
+        <img
+          className={style.back}
+          onClick={() => history.back()}
+          src="/Svg/back.svg"
+          width={30}
+          height={30}
+        />
+        <p id="pageidentify" style={{ display: "inline" }}>
+          Post
+        </p>
+        <div
+          style={{ marginLeft: "55vw", display: "inline-block" }}
+          className="details"
+        ></div>
+      </div>
+      <CommentModal></CommentModal>
+      <BuyNFTModal></BuyNFTModal>
+      <CreateNft></CreateNft>
+      <EditPost></EditPost>
+      <Status></Status>
+      <div className={style.wrapper}>
+        <SinglePost postId={id} />
+        {logged && <InputField postId={id} community="" />}
+
+        <PostComments postId={id} />
+      </div>
     </>
-    
-  )
+  );
 }

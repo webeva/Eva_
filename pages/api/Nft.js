@@ -1,3 +1,6 @@
+/* This api will fetch the top Nfts to display in the 
+discover page */
+
 
 class NFT {
     async getTopNft() {

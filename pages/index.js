@@ -36,7 +36,7 @@ export default function Home() {
   const deso = new DesoApi();
   const [profile, setProfile] = useState();
   const [username, setUsername] = useState();
-  const [open, setOpen] = useRecoilState(SideBarMobile)
+  const [open, setOpen] = useRecoilState(SideBarMobile);
   //Intialize the router
   const router = useRouter();
 
@@ -101,9 +101,11 @@ export default function Home() {
           <div className={style.pageIdentify}>
             {isMobile && (
               <img
-                src = {`https://diamondapp.com/api/v0/get-single-profile-picture/${localStorage.getItem("deso_user_key")}`}
+                src={`https://diamondapp.com/api/v0/get-single-profile-picture/${localStorage.getItem(
+                  "deso_user_key"
+                )}`}
                 className={style.profileToMenu}
-                onClick={()=>setOpen(true)}
+                onClick={() => setOpen(true)}
               />
             )}
             <p
