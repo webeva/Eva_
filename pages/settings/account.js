@@ -78,6 +78,7 @@ export default function Account() {
   //Save the updated information
 
   async function updateProfile() {
+    
     //Check the fr to make sure it is valid
     let checkedFr = parseInt(fr);
     if (checkedFr > 100) {
@@ -85,15 +86,18 @@ export default function Account() {
     } else {
       checkedFr = checkedFr * 100;
     }
+    
     const response = await deso.updateInfo(
       localStorage.getItem("deso_user_key"),
       username,
       bio,
       checkedFr,
       pic,
-      bg
+      bg,
     );
+   
     setResponse(response);
+
   }
   //Clicks the banner upload image input
   function clickBanner() {

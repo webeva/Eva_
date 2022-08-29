@@ -232,4 +232,8 @@ body {
     height: 7vh;
     font-size: 1.9rem;
   }
+  p{
+    font-size: 2rem;
+  }
+  
 }

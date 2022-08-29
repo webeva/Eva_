@@ -102,7 +102,7 @@ export default function SearchBar() {
             <li onClick={() => searchCommunity({ searchValue })}>
               Search <strong>{searchValue}</strong> in Community
             </li>
-            {relevantTags.length > 0 &&
+            {relevantTags?.length > 0 &&
               relevantTags.map(function (value) {
                 const { clouttag } = value;
                 return (

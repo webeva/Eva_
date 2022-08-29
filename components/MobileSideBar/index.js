@@ -6,12 +6,14 @@ import DesoApi from "../../Functions/Desoapi"
 import { NotifiImage, NotificationAmount } from "../../atom/notificationAtom"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
+import { HasAccount } from "../../atom/AppStateAtom"
 
 
 export default function MobileSideBar() {
     const [open, setOpen] = useRecoilState(SideBarMobile)
     const [notifiImage] = useRecoilState(NotifiImage);
     const [NotificationAmounts] = useRecoilState(NotificationAmount)
+    const [account] = useRecoilState(HasAccount)
     const [user, setUser] = useState()
     const deso = new DesoApi()
     const router = useRouter()
@@ -105,6 +107,8 @@ export default function MobileSideBar() {
               />
               Notification
               {NotificationAmounts}</div></div>
+        
+        {account ? (
         <Link  href={`/profile/${user}`}>
             <div className={style.link}>
             <img
@@ -113,6 +117,9 @@ export default function MobileSideBar() {
                   src="/Svg/user.svg"
                 />
                 Your Profile</div></Link>
+        ):(
+          <div></div>
+        )}
         <Link  href="/settings">
             <div className={style.link}>
             <img

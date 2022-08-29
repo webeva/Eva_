@@ -181,12 +181,11 @@ class DesoApi {
                 "NewDescription": bio, 
                 "NewCreatorBasisPoints": fr,
                 "MinFeeRateNanosPerKB": 1000,
-                "NewStakeMultipleBasisPoints": 12500,
+                "NewStakeMultipleBasisPoints": 12000,
                 "NewProfilePic": pic,
                 "ExtraData":{
                     "CommunityList": list,
                     "FeaturedImageURL": banner,
-
                 }
             
             }
@@ -202,7 +201,11 @@ class DesoApi {
         const request = {
             "UpdaterPublicKeyBase58Check": publickey58,
             "BodyObj": {
-              "Body": `Come check out my cool new community on Eva #${name.replace(/\s/g,'')}CommunityOnEva`,
+              "Body": `Come check out my new community on Eva! 
+              
+Link: https://eva-phi.vercel.app/community/${name}  
+              
+#${name.replace(/\s/g,'')}CommunityOnEva`,
               "VideoURLs": [],
               "ImageURLs": [],
             },

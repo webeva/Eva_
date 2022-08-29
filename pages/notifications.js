@@ -143,6 +143,9 @@ const Notifications = () => {
     //Call the get notification function
     getnoti();
   }, []);
+  function hide(id){
+    document.getElementById(id).style.display = "none"
+  }
 
   //Return the html
   return (
@@ -157,8 +160,10 @@ const Notifications = () => {
             src={`https://diamondapp.com/api/v0/get-single-profile-picture/${localStorage.getItem(
               "deso_user_key"
             )}`}
+            id="profileToMenu"
             className={style.profileToMenu}
             onClick={() => setOpen(true)}
+            onError={()=> hide("profileToMenu")}
           />
         )}
         <p
@@ -190,7 +195,7 @@ const Notifications = () => {
                           {name[index] ? name[index] : "Loading"}{" "}
                         </strong>
 
-                        {text[index]}
+                        <p style={{display:"inline"}}>{text[index]}</p>
                       </div>
                       <img
                         src={imgs[index]}

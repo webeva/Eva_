@@ -13,8 +13,6 @@ const withPWA = require('next-pwa')({
 })
 
 
-
-
 const securityHeaders = [
   
   //Informs the browser that this page should only access pages using HTTPS

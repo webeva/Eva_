@@ -30,8 +30,11 @@ export default function Communities() {
     let communityValue = await Promise.all(
       communities.split(",").map(async function (id) {
         let res = await deso.getSinglePost(id);
-        communityarray.push(res.PostFound);
-        return communityarray;
+        if(res){
+          communityarray.push(res.PostFound);
+          return communityarray;
+        }
+        
       })
     );
     setValue(communityValue[0]);
@@ -45,8 +48,8 @@ export default function Communities() {
       <SearchBar />
 
       <Createcommunity></Createcommunity>
-
-      {value && (
+    
+      
         <ul className={style.communities}>
           <li onClick={() => setOpen(true)}>
             <img
@@ -56,12 +59,13 @@ export default function Communities() {
             />
             <p>Create A New Community</p>
             <br></br>
-            <h4>
+            <h4 >
               Click on this button to create a new Eva community on the DeSo
               blockchain.
             </h4>
           </li>
-          {value.map(function (post) {
+        {value && (
+          [...new Set(value)].map(function (post) {
             return (
               <>
                 <li
@@ -74,13 +78,14 @@ export default function Communities() {
                   />
                   <p>{post.PostExtraData.Name}</p>
                   <br></br>
-                  <h4>{post.PostExtraData.Description}</h4>
+                  <h4 className={style.des}>{post.PostExtraData.Description}</h4>
                 </li>
               </>
-            );
-          })}
+          
+            )
+            })
+        )}
         </ul>
-      )}
     </>
   );
 }

@@ -72,10 +72,12 @@ export default function CreateNFTModal() {
     const name = document.getElementById("name").value
     const description = document.getElementById("description").value
     if(name.length > 0 && name != null && description.length > 0 && description != null && banner){
-        const response = await deso.createCommunity(localStorage.getItem("deso_user_key"), name, description, banner ).then(async function update(res){
+        alert("Creating community...")
+        setOpen(false)
+        
+        const response = await deso.createCommunity(localStorage.getItem("deso_user_key"), name, description, banner).then(async function update(res){
         let listupdate;
         if(list){
-
           let value = list
           setList(value.concat(`,${res.submittedTransactionResponse.PostEntryResponse.PostHashHex}`))
          listupdate = value.concat(`,${res.submittedTransactionResponse.PostEntryResponse.PostHashHex}`)
@@ -83,18 +85,18 @@ export default function CreateNFTModal() {
           setList(res.submittedTransactionResponse.PostEntryResponse.PostHashHex)
           listupdate = res.submittedTransactionResponse.PostEntryResponse.PostHashHex
         }
-        
-          
-
-      updateUserList(listupdate)
+         updateUserList(listupdate)
       })
       
     }
   }
   async  function updateUserList(listupdate){
-   
+    
+    let communitylist = listupdate.split(",")
+    let latestCommunityList = communitylist[communitylist.length - 1]
+
     const response = await deso.addToCommunityList(localStorage.getItem("deso_user_key"), username, bio, fr, pic, bg, listupdate)
-    setOpen(false)
+    router.push(`/community/${latestCommunityList}`)
     
   }
   const getBase64FromUrl = async (url) => {

@@ -94,7 +94,7 @@ export default function CommunityPost({ post }) {
         value.map(function (value) {
           return (
             <>
-              {!value.IsHidden && (
+              {value.IsHidden && (
                 
                 <li
                   className={style.community}

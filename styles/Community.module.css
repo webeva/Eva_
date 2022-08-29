@@ -48,7 +48,7 @@
     font-weight: bold;
    
 }
-.communities li h4{
+.des{
    display: inline;
    font-size: 12px;
    word-wrap: break-word;
@@ -69,7 +69,15 @@
     width: 80vw;
     overflow-x: hidden;
 }
-
+@media all and (min-width: 2000px) {
+    .des{
+        font-size: 1.3rem;
+        
+    }
+    .communities li p{
+        font-size: 1.5rem;
+    }
+}
 @media all and (max-width: 1000px) {
     .communities{
         width: 75vw;

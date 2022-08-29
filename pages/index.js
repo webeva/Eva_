@@ -73,6 +73,9 @@ export default function Home() {
     const res = await deso.UsernameByPublickey(id);
     setUsername(res);
   }
+  function hide(id){
+    document.getElementById(id).style.display = "none"
+  }
 
   //Return the html
   return (
@@ -89,7 +92,7 @@ export default function Home() {
                 top: "50%",
                 position: "absolute",
                 transform: "translate(-50%, -50%)",
-                borderRadius:"50%"
+                
               }}
               src="/Svg/comment.svg"
             />
@@ -105,8 +108,10 @@ export default function Home() {
                 src={`https://diamondapp.com/api/v0/get-single-profile-picture/${localStorage.getItem(
                   "deso_user_key"
                 )}`}
+                id="profileToMenu"
                 className={style.profileToMenu}
                 onClick={() => setOpen(true)}
+                onError={()=> hide("profileToMenu")}
               />
             )}
             <p

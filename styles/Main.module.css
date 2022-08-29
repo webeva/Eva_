@@ -35,6 +35,7 @@
   cursor: pointer;
   margin-left: 1vw;
   margin-right: 2vw;
+  border-radius: 50%;
 }
 .profileEva {
   display: flex;

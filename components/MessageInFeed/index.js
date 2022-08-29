@@ -136,9 +136,9 @@ const MessageInFeed = (feed) => {
           }else{
            
             let responsevalue = await desoapi.getSearchFeed(user, 25, feed.feed)
-            console.log(responsevalue)
+           
             if(responsevalue){
-              console.log(Object.values(responsevalue)[0].ExtraData)
+              
              
               setmessagesFeed(Object.values(responsevalue)[0])
             }
@@ -502,7 +502,7 @@ const MessageInFeed = (feed) => {
                               {RepostedPostEntryResponse &&
                                <div  className={RepostedPostEntryResponse ? "show": "hide"}>
                                      
-                               <div id="Remessagepost" className={style.quote} onClick={()=> routePost(RepostedPostEntryResponse.PostHashHex)}>
+                               <div id="Remessagepost" className={style.quote} onClick={()=> JustroutePost(RepostedPostEntryResponse.PostHashHex)}>
                                <div  className={style.container} >
                                  
                                  <ProfilePic profile={RepostedPostEntryResponse.PosterPublicKeyBase58Check} username={RepostedPostEntryResponse.ProfileEntryResponse.Username} size={50} IsNFT={ReNft}></ProfilePic>
