@@ -160,7 +160,7 @@ export default function Communities() {
                   />
                   <p>Seelz Social</p>
                   <br></br>
-                  <h4 className={style.des}>Seelz Island Collective was born from Disruptepreneur Fund on DeSo Protocol, a new layer-1 blockchain built from the ground up to scale decentralized social applications to one billion users. Disruptepreneur, also known as Jeremy Gardner is a long-time blockchain OG having started Augur Project and BEN (Blockchain Education Network). 'SirGuy' operates as his digital pseudonym in the web3 space, and Seelz Island Collective was created as a vehicle to explore the web3 space from all points of view. We are Investors, Collectors, VC Fund Managers, and NFT Collection Founders.</h4>
+                  <h4 className={style.des}>Seelz Island Collective was born from Disruptepreneur Fund on DeSo Protocol, a new layer-1 blockchain built from the ground up to scale decentralized social applications to one billion users. Disruptepreneur, also known as Jeremy Gardner is a long-time blockchain OG having started Augur Project and BEN (Blockchain Education Network). SirGuy apos operates as his digital pseudonym in the web3 space, and Seelz Island Collective was created as a vehicle to explore the web3 space from all points of view. We are Investors, Collectors, VC Fund Managers, and NFT Collection Founders.</h4>
                   
                 </li>
 
