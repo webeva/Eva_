@@ -43,3 +43,26 @@
     border-radius: 5px;
     cursor: pointer;
  }
+ .dropDown {
+    position: absolute;
+    left: 34.3vw;
+    width: 14.5vw;
+    display: none;
+    z-index: 5;
+    background-color: var(--color-hover);
+   padding: 0;
+   
+    border-radius: 7px;
+    box-shadow: 3px 6px 10px var(--color-primary);
+  }
+  .dropDown li {
+    padding: 7px;
+    font-size: 16px;
+    margin: 5px;
+    border-radius: 5px;
+   
+  }
+  .dropDown li:hover {
+    font-weight: bold;
+    background-color: var(--color-primary);
+  }

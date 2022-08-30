@@ -42,7 +42,7 @@ export default function Discover({ trending, value }) {
                     username={value.username}
                     profile={value.id}
                   />
-                  <div style={{ display: "inline-block", marginLeft: "1vw" }}>
+                  <div style={{ display: "inline-block", marginLeft: "1vw", fontSize:"0.9rem" }}>
                     <strong>{value.username}</strong>
                     <br></br>
                     {value.items + " items"}

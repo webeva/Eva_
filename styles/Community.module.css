@@ -4,7 +4,8 @@
     left: var(--sidebar-width);
     color: var(--color-white);
     top: 15vh;
-    padding-bottom: 10vh;
+    padding-bottom: 200px;
+    
 }
 .mainWindow{
     
@@ -69,6 +70,35 @@
     width: 80vw;
     overflow-x: hidden;
 }
+.edit{
+    position: relative;
+    top: 0px;
+    left: 28vw;
+    cursor: pointer;
+}
+.dropDown {
+    position: absolute;
+    left: 34.3vw;
+    width: 14.5vw;
+    display: none;
+    z-index: 5;
+    background-color: var(--color-hover);
+   padding: 0;
+   
+    border-radius: 7px;
+    box-shadow: 3px 6px 10px var(--color-primary);
+  }
+  .dropDown li {
+    padding: 7px;
+    font-size: 16px;
+    margin: 5px;
+    border-radius: 5px;
+   
+  }
+  .dropDown li:hover {
+    font-weight: bold;
+    background-color: var(--color-primary);
+  }
 @media all and (min-width: 2000px) {
     .des{
         font-size: 1.3rem;
@@ -105,6 +135,15 @@
         width: 100%;
         min-height: 61vh;
         height: 62vh;
+        
+    }
+    .edit{
+        left: 49vw;
+    }
+    .dropDown {
+        width: 50vw;
+       
+        left: 45vw;
         
     }
 

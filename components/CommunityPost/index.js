@@ -102,6 +102,10 @@ export default function CommunityPost({ post }) {
                     router.push(`/community/${value.PostHashHex}`)
                   }
                 >
+                   <ul className={style.dropDown} id={`${post.PostHashHex}Modal`} >
+                    <li key="copyLink" onClick={(e)=> {copyToClipboard(post.PostHashHex), e.stopPropagation()}}>Copy Link</li>
+                    <li key="shareLink" onClick={(e)=> {shareCommunity(post.PostHashHex), e.stopPropagation()}}>Share Link</li>
+                  </ul>
                   <img
                     className={style.bannerimg}
                     src={`${value.PostExtraData.Banner}`}
