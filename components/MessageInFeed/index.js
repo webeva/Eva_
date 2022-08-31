@@ -13,7 +13,7 @@ import DesoApi from '../../Functions/Desoapi';
 import {useRouter} from "next/router"
 //Import Recoil and states
 import {useRecoilState} from "recoil"
-import {modalState, postIdState, NFTState, quoteState, CreateNftState, createNftHash, EditState, EditStateHash} from "../../atom/modalAtom"
+import {modalState, postIdState, NFTState, quoteState, CreateNftState, createNftHash, EditState, EditStateHash, ImageModalState, ImageSrc} from "../../atom/modalAtom"
 import { loadState } from "../../atom/feedAtom";
 //Import Spinner
 import LoadingSpinner from "../Spinner";
@@ -49,6 +49,9 @@ const MessageInFeed = (feed) => {
     const seenPosts = []
     const desoapi = new DesoApi()
     const postapi = new GetPosts()
+
+    const [src, setSrc] = useRecoilState(ImageSrc)
+    const [imageOpen, setImageOpen] = useRecoilState(ImageModalState)
     //Router 
     const router = useRouter()
     //This function returns the time since a specific date
@@ -266,7 +269,7 @@ const MessageInFeed = (feed) => {
     //This function reposts a post.
     async function repost(PostHash){
       const response = await desoapi.rePost(localStorage.getItem("deso_user_key"), PostHash )
-      let current = document.regetElementById("Repost" + PostHash).innerText;
+      let current = document.getElementById("Repost" + PostHash).innerText;
       let currentVar = parseInt(current) + 1
       document.getElementById("Repost" + PostHash).innerText = currentVar;
       document.getElementById("Repost" + PostHash).style.color = "lightgreen"
@@ -351,13 +354,13 @@ const MessageInFeed = (feed) => {
       document.getElementById("Body" + post).innerText = "This Message has been deleted"
     }
 
-   
+    
 
 
 
     //Return the html
     return (
-            <>
+            <div>
             {messagesFeed && (
                 messagesFeed.length > 0 ?(
                   messagesFeed?.map(function(value){
@@ -467,7 +470,7 @@ const MessageInFeed = (feed) => {
                                 <div className={style.mention} id={"Body" + PostHashHex}>{renderTags(Body, PostHashHex)}</div>
                                
                                 </div>
-                              {ImageURLs   && <img  id={PostHashHex + "Image"} src={ImageURLs[0]} onError={(e)=>{HideVideo(PostHashHex + "Image")}} className={style.evaImg} alt = "Image" loading="lazy"></img>}
+                              {ImageURLs   && <img onClick={()=> {setSrc(ImageURLs[0]), setImageOpen(true)}}  id={PostHashHex + "Image"} src={ImageURLs[0]} onError={(e)=>{HideVideo(PostHashHex + "Image")}} className={style.evaImg} alt = "Image" loading="lazy"></img>}
                               
                               {VideoURLs && (
                                  VideoURLs != "" && (
@@ -652,7 +655,7 @@ const MessageInFeed = (feed) => {
             )}
               
                 
-            </>
+            </div>
     )
 }
 //Export the messages in feed

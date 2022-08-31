@@ -13,6 +13,10 @@ import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { modalState, quoteState, EditStateHash, EditState } from "../../atom/modalAtom";
 import { Response } from "../../atom/modalAtom";
+import dynamic from "next/dynamic";
+const Picker = dynamic(() => import('emoji-picker-react'), {
+  ssr:false,
+})
 
 export default function InputField(postId, community) {
  
@@ -227,6 +231,21 @@ Posted via @EvaSocial`
     setSelectedFile("")
    
   }
+  const onEmojiClick = (event, emojiObject) => {
+    
+    let value = newmessage += emojiObject.emoji
+   
+    setnewmessage(value)
+  
+  };
+  function showPicker(){
+    if(document.getElementById("picker").style.display == "none"){
+      document.getElementById("picker").style.display = "block"
+    }else{
+      document.getElementById("picker").style.display = "none"
+    }
+  }
+
   async function getPost(postHash){
    
     const response = await deso.getSinglePost(postHash)
@@ -405,6 +424,7 @@ Posted via @EvaSocial`
                 style={{ width: "23px", height: "23px" }}
                 src="/Svg/emoji.svg"
                 alt="emoji"
+                onClick={()=> showPicker()}
               />
             </div>
           </div>
@@ -414,8 +434,14 @@ Posted via @EvaSocial`
               {quoteBtn}
             </div>
           </div>
+          
         </div>
+        <div id="picker" style={{display:"none", position:"absolute"}}>
+        <Picker onEmojiClick={onEmojiClick}  />
+        </div>
+       
       </div>
+      
     </div>
   );
 }

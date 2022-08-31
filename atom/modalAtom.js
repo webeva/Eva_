@@ -74,3 +74,16 @@ export const SideBarMobile = atom({
     key: "SideBarMobile", // unique ID (with respect to other atoms/selectors)
     default: false // default value (aka initial value)
 })
+
+/* ===== Image Modal ==== */
+
+export const ImageModalState = atom({
+    key: "ImageModalState", // unique ID (with respect to other atoms/selectors)
+    default: false // default value (aka initial value)
+})
+
+export const ImageSrc = atom({
+    key: "ImageSrc", // unique ID (with respect to other atoms/selectors)
+    default: null // default value (aka initial value)
+})
+

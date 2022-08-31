@@ -25,6 +25,7 @@ const CreateNft = dynamic(() => import("../components/CreateNFT"));
 const EditPost = dynamic(() => import("../components/EditPostModal"));
 const Status = dynamic(() => import("../components/Status"));
 const MobileSideBar = dynamic(() => import("../components/MobileSideBar"));
+const ImageModal = dynamic(()=> import("../components/ImageModal"))
 //Import input field
 import InputField from "../components/InputField";
 import DesoApi from "../Functions/Desoapi";
@@ -76,7 +77,7 @@ export default function Home() {
   function hide(id){
     document.getElementById(id).style.display = "none"
   }
-
+  
   //Return the html
   return (
     <>
@@ -102,6 +103,7 @@ export default function Home() {
           <CommentModal />
           <BuyNFTModal />
           <CreateNft />
+          <ImageModal/>
           <div className={style.pageIdentify}>
             {isMobile && (
               <img
@@ -163,8 +165,10 @@ export default function Home() {
                   #Food
                 </div>
               </div>
-
+              <div id="feeds">
               <MessageInFeed feed={feed} />
+              </div>
+              
             </main>
           </div>
         </>

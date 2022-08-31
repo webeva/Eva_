@@ -148,7 +148,7 @@ const Rightbar = () => {
         )}
       {HasAnAccount ? <a className={styles.buy} href="https://www.coinbase.com/price/decentralized-social">{logged? "Withdraw": "Buy"} $Deso</a>: <div></div> }
       <div className={styles.trends}>
-        <h1 className={styles.categorytitle} >Recommended  Creators</h1>
+        <h1 className={styles.categorytitle} >Who To Follow</h1>
         <div className={styles.category} onClick={()=> goToUser("dharmesh")} style={{marginTop:30}}><ProfilePic profile={"BC1YLianxEsskKYNyL959k6b6UPYtRXfZs4MF3GkbWofdoFQzZCkJRB"} username={"dharmesh"} size={40}></ProfilePic> <p  className={styles.text}>dharmesh</p></div>
         <div className={styles.category} onClick={()=> goToUser("Krassenstein")}><ProfilePic profile={"BC1YLj3a3xppVPtAoMAzh1FFYtCTiGomjaA5PRcqS1PVRk8KqDw385y"} username={"Krassenstein"} size={40}></ProfilePic> <p  className={styles.text}>Krassenstein</p></div>
         <div className={styles.category} onClick={()=> goToUser("EvaSocial")}><ProfilePic profile={"BC1YLhNySXmFdZDyuwT9V115PbbSB2dfx2Y4mKowBwGDYx7KDDE2Ycb"} username={"EvaSocial"} size={40}></ProfilePic> <p  className={styles.text}>EvaSocial</p></div>

@@ -1,0 +1,22 @@
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
+    border-radius: 20px;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    max-height: 100vh;
+    min-width: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+}
+.image{
+  
+    max-width: 50vw;
+    border-radius: 10px;
+    
+}
