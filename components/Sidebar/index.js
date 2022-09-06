@@ -149,7 +149,7 @@ const Sidebar = () => {
             </div>
           </Link>
           {/* Link to the weekly debate post */}
-          <Link href="/posts/687fa29feb599f140ac25a2f794d5b38ababb969adee726362ba55db9b7e92ee" className={style.link}>
+          <Link href="/posts/5e95586572be344a95a5c0b5d00394fb723db4210c4b229eebc8e71efcc07938" className={style.link}>
             <div className={style.menuItems}>
               <img
                  className={style.menuImgs}

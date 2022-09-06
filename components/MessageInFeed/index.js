@@ -421,7 +421,7 @@ const MessageInFeed = (feed) => {
                             
                             
                           {/* Show more*/}   
-                          <img onClick={()=> openModal("OpenModal" + PostHashHex)}  src="/Svg/more.svg" width={15} height={15} className={style.edit} alt="moreOptions"></img>
+                          <img  onClick={()=> openModal("OpenModal" + PostHashHex)}  src="/Svg/more.svg" width={15} height={15} className={style.edit} alt="moreOptions"></img>
                           <div style={{position: "relative"}}>
                             
                             <div id={"OpenModal" + PostHashHex} className={style.dropDown}>
@@ -443,11 +443,11 @@ const MessageInFeed = (feed) => {
                          
                           <ProfilePic profile={PosterPublicKeyBase58Check} username={isProfile ? profileUsername : value.ProfileEntryResponse.Username} size={50} IsNFT={Nft}></ProfilePic>
                           </div>
-  
+                          
                             <div  id={PostHashHex}  className={style.completeEva} style={{marginLeft:"1vw"}}>
                               
                               <div className={style.who} onClick={()=> routePost(PostHashHex)}>
-                                
+                               
                               <p >{isProfile ? profileUsername :value.ProfileEntryResponse.Username}  </p>
                                 <div className={style.accWhen} style={{marginLeft:"0.2vw"}}>
                                   {
@@ -464,7 +464,7 @@ const MessageInFeed = (feed) => {
                               
                               </div>
                               
-            
+                              
                               <div className={style.evaContent} onClick={()=> JustroutePost(PostHashHex)}>
                                 
                                 <div className={style.mention} id={"Body" + PostHashHex}>{renderTags(Body, PostHashHex)}</div>
@@ -500,7 +500,7 @@ const MessageInFeed = (feed) => {
                                   }} className={style.nftButton}  style={{ marginLeft: "1vw"}}>Buy NFT</button>
                                 </div>
                               )}
-  
+                            
   
                               {RepostedPostEntryResponse &&
                                <div  className={RepostedPostEntryResponse ? "show": "hide"}>

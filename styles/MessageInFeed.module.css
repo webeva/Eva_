@@ -326,6 +326,7 @@
   }
 }
 @media all and (max-width: 700px) {
+  
   .postMessage{
     min-width: 70vw;
   }
@@ -334,6 +335,9 @@
   }
   .feedEva {
     width: 100vw;
+    
+   
+    
   }
   .edit {
     left: 83vw;
@@ -349,6 +353,12 @@
     width: 90vw;
     max-width:90vw;
   }
+  .evaContent{
+    padding: 0;
+    
+  }
+  
+  
   
 }
 @media all and (max-width: 380px) {
