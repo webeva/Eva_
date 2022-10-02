@@ -81,11 +81,16 @@ export default function Account() {
     
     //Check the fr to make sure it is valid
     let checkedFr = parseInt(fr);
-    if (checkedFr > 100) {
-      alert("Fr cannot be greater then 100");
-    } else {
-      checkedFr = checkedFr * 100;
+    if(checkedFr){
+      if (checkedFr > 100) {
+        alert("Fr cannot be greater then 100");
+      } else {
+        checkedFr = checkedFr * 100;
+      }
+    }else{
+      checkedFr = 10000
     }
+   
     
     const response = await deso.updateInfo(
       localStorage.getItem("deso_user_key"),

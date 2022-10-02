@@ -896,6 +896,7 @@ Link: https://eva-phi.vercel.app/community/${name}
             return
         }
         
+        
         try{
             const request = {
                 "ProfilePublicKeyBase58Check": "",
@@ -907,9 +908,7 @@ Link: https://eva-phi.vercel.app/community/${name}
                 "NewStakeMultipleBasisPoints": 12500,
                 "NewProfilePic": pic,
                 "ExtraData":{
-                    "FeaturedImageURL": banner,
-                   
-                    
+                    "FeaturedImageURL": banner,  
                 }
             }
 

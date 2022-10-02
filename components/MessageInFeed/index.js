@@ -50,11 +50,15 @@ const MessageInFeed = (feed) => {
     const desoapi = new DesoApi()
     const postapi = new GetPosts()
 
-    const [src, setSrc] = useRecoilState(ImageSrc)
-    const [imageOpen, setImageOpen] = useRecoilState(ImageModalState)
-    //Router 
+    const [src, setSrc] = useRecoilState(ImageSrc) //Large opened image src
+    const [imageOpen, setImageOpen] = useRecoilState(ImageModalState) //Large opened image state
+    //Next Router used for smooth transitions 
     const router = useRouter()
-    //This function returns the time since a specific date
+    //This function returns the time since a specific date 
+    /*
+      @pararm date in miliseconds
+      @return date string 
+    */
     function timeSince(date) {
       //Find the second the post was sent
       const secondsOfPost = Math.round((date)/1000000000.0)
@@ -66,13 +70,13 @@ const MessageInFeed = (feed) => {
       var h = Math.floor(seconds % (3600*24) / 3600);
       //Find the difference in terms of minutes
       var m = Math.floor(seconds % 3600 / 60);
-
+      //Number of days that have passed
       var dDisplay = d > 0 ? d + (d == 1 ? " day " : " days ") : "";
-     
+      //Number of hours that have passed
       var hDisplay = h > 0 ? h + (h == 1 ? " hour " : " hours ") : "";
-
+      //Number of minutes that have passed
       var mDisplay = m > 0 ? m + (m == 1 ? " minute " : " minutes ") : "";
-      
+      //If the message was sent one day ago return "Yesterday"
       if(d == 1){
         dDisplay = "Yesterday"
         hDisplay = ""
