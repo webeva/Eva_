@@ -102,8 +102,10 @@ const Rightbar = () => {
   }
   //Function that opens the get starter deso iframe in a new window.
   function getStartDeso(){
-    var win = window.open();
-    win.document.write(`<iframe title="Get Starter Deso on Eva" src="https://identity.deso.org/verify-phone-number?public_key=BC1YLgZ1yMKV7NeFvnV3xCLaN3AYEiWcrEWWyd8eC3xNc99PfcR6T8C" frameborder="0" allowfullscreen></iframe>`)
+    const user = localStorage.getItem("deso_user_key");
+    window.open(
+      "https://identity.deso.org/verify-phone-number?public_key=" + user
+    );
   }
   //Return the rightbar jsx
   return (

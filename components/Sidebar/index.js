@@ -48,12 +48,17 @@ const Sidebar = () => {
 
   //Route the user to their profile page
   async function routeProfile() {
-    //Get the current user's public key
-    const publicKey = localStorage.getItem("deso_user_key");
-    //Convert that publickey to their username
-    const Username = await deso.UsernameByPublickey(publicKey);
-    //Go to /profile + user's username
-    router.push(`/profile/${Username}`);
+    if(hasAnAccount){
+      //Get the current user's public key
+      const publicKey = localStorage.getItem("deso_user_key");
+      //Convert that publickey to their username
+      const Username = await deso.UsernameByPublickey(publicKey);
+      //Go to /profile + user's username
+      router.push(`/profile/${Username}`);
+    }else{
+      router.push("/settings/account")
+    }
+    
   }
   //Route the user back to the home page
   function goHome() {
@@ -187,7 +192,7 @@ const Sidebar = () => {
             </div>
           </div>
           {/* Link to the profile page page */}
-          {hasAnAccount ? (
+          
             <div onClick={() => routeProfile()} className={style.link}>
               <div className={logged ? style.menuItems : style.hide}>
                 <img
@@ -195,12 +200,11 @@ const Sidebar = () => {
                   alt="profile"
                   src="/Svg/user.svg"
                 />
-                Profile
+                {hasAnAccount ? "Profile" : "Update"}
+                
               </div>
             </div>
-          ) : (
-            <div></div>
-          )}
+          
            {/* Link to the settings account page*/}
           <Link
             
