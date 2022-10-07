@@ -26,6 +26,7 @@ const EditPost = dynamic(() => import("../components/EditPostModal"));
 const Status = dynamic(() => import("../components/Status"));
 const MobileSideBar = dynamic(() => import("../components/MobileSideBar"));
 const ImageModal = dynamic(()=> import("../components/ImageModal"))
+const UploadWebsite = dynamic(()=> import("../components/UploadWebsite"))
 //Import input field
 import InputField from "../components/InputField";
 import DesoApi from "../Functions/Desoapi";
@@ -104,6 +105,7 @@ export default function Home() {
           <BuyNFTModal />
           <CreateNft />
           <ImageModal/>
+          <UploadWebsite/>
           <div className={style.pageIdentify}>
             {isMobile && (
               <img

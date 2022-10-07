@@ -11,7 +11,7 @@ import DesoApi from "../../Functions/Desoapi";
 //Import router
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
-import { modalState, quoteState, EditStateHash, EditState } from "../../atom/modalAtom";
+import { modalState, quoteState, EditStateHash, EditState, UploadWesite } from "../../atom/modalAtom";
 import { Response } from "../../atom/modalAtom";
 import dynamic from "next/dynamic";
 const Picker = dynamic(() => import('emoji-picker-react'), {
@@ -27,6 +27,7 @@ export default function InputField(postId, community) {
   const [theFile, setTheFile] = useState(null);
   const [linkstate, setLinkState] = useState(false);
   const [quote, setQuote] = useRecoilState(quoteState);
+  const [website, setWebsite] = useRecoilState(UploadWesite)
   const [quoteComment, setQuoteComment] = useState("Leave a comment");
   const [quoteBtn, setQuoteBtn] = useState("Comment");
   const [closebutton, setclosebutton] = useState("none");
@@ -418,13 +419,23 @@ Posted via @EvaSocial`
               alt="Embed link"
             />
           </div>
-          <div className={style.imgOrEva}>
+          <div >
             <div className={style.imgDiv}>
               <img
                 style={{ width: "23px", height: "23px" }}
                 src="/Svg/emoji.svg"
                 alt="emoji"
                 onClick={()=> showPicker()}
+              />
+            </div>
+          </div>
+          <div className={style.imgOrEva}>
+            <div className={style.imgDiv}>
+              <img
+                style={{ width: "23px", height: "23px" }}
+                src="/Svg/Web.svg"
+                alt="Web"
+                onClick={()=> setWebsite(true)}
               />
             </div>
           </div>

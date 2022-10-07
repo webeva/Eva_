@@ -131,6 +131,9 @@ const Notifications = () => {
         } else if (type == "CREATOR_COIN") {
           texts.push("bought some of your creator coin!");
           images.push("/Svg/tip-on.svg");
+        } else if(type == "UPDATE_NFT"){
+          texts.push("put your NFT on sale.")
+          images.push("/Svg/tip-on.svg")
         } else {
           console.log(type);
           texts.push("performed a " + type);

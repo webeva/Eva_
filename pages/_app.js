@@ -68,7 +68,7 @@ function MyApp({ Component, pageProps }) {
       ) {
         SetShowRightBar(false);
         SetShowSidebar(true);
-      } else if (path == "/auth" || path == "/terms") {
+      } else if (path == "/auth" || path == "/terms" || path == "/u/[id]" ) {
         SetShowRightBar(false);
         SetShowSidebar(false);
       } else {

@@ -197,13 +197,47 @@ class DesoApi {
         }
     }
 
+    async addToWeb(key, username, bio, fr, pic, banner, web){
+       
+        if(!key){
+            console.log("Key is required")
+            return
+        }
+        if(!username){
+            return
+        }
+        
+        try{
+            const request = {
+                "ProfilePublicKeyBase58Check": "",
+                "UpdaterPublicKeyBase58Check": key, 
+                "NewUsername": username,
+                "NewDescription": bio, 
+                "NewCreatorBasisPoints": fr,
+                "MinFeeRateNanosPerKB": 1000,
+                "NewStakeMultipleBasisPoints": 12000,
+                "NewProfilePic": pic,
+                "ExtraData":{
+                    "Website": web,
+                    "FeaturedImageURL": banner,
+                }
+            
+            }
+
+            const response = await this.getClient().social.updateProfile(request);
+            return response
+        }catch(error){
+            return(error)
+        }
+    }
+
     async createCommunity(publickey58, name, description, banner){
         const request = {
             "UpdaterPublicKeyBase58Check": publickey58,
             "BodyObj": {
               "Body": `Come check out my new community on Eva! 
               
-Link: https://eva-phi.vercel.app/community/${name}  
+Link: https://evasocial.app/community/${name}  
               
 #${name.replace(/\s/g,'')}CommunityOnEva`,
               "VideoURLs": [],
@@ -249,6 +283,34 @@ Link: https://eva-phi.vercel.app/community/${name}
         }
         
     }
+    async hostWebsite(publickey58, name, files){
+        const request = {
+            "UpdaterPublicKeyBase58Check": publickey58,
+            "BodyObj": {
+              "Body": `Come check out my decentralized website on 
+              
+web.evasocial.app/${name}
+              
+#eva`,
+              "VideoURLs": [],
+              "ImageURLs": [],
+            },
+            "PostExtraData":{
+                "App": "Eva",
+                "Type": "Website",
+                "Files": JSON.stringify(files)
+            }
+        }
+        try{
+            const response = await this.getClient().posts.submitPost(request);
+            return response
+        }catch(error){
+            return error
+        }
+        
+    }
+
+    
     /* ========= Edit a message ====== */
 
     async editMessage(publickey58, text, img, link, post){

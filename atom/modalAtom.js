@@ -87,3 +87,9 @@ export const ImageSrc = atom({
     default: null // default value (aka initial value)
 })
 
+export const UploadWesite = atom({
+    key: "UploadWesite", // unique ID (with respect to other atoms/selectors)
+    default: false // default value (aka initial value)
+})
+
+

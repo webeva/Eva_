@@ -27,6 +27,7 @@ export default function BuyCoinModal() {
     >
       <h1>Buy Creator Coin</h1>
       <h2>Feature Launching Soon...</h2>
+      
     </Modal>
   );
 }
