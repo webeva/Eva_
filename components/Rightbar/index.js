@@ -148,7 +148,7 @@ const Rightbar = () => {
           <div  style={{marginTop:"4vh"}} className={styles.buy} onClick={()=> getStartDeso()}>Get Free Starter Deso</div>
           </>
         )}
-      {HasAnAccount ? <a className={styles.buy} href="https://www.coinbase.com/price/decentralized-social">{logged? "Withdraw": "Buy"} $Deso</a>: <div></div> }
+      {HasAnAccount ? <a className={styles.buy} onClick={()=> window.open("https://megaswap.xyz/#/iframe/v1?theme=dark-blue&depositTicker=DESO&destinationTicker=USDC")}>{logged? "Withdraw": "Buy"} $Deso</a>: <div></div> }
       <div className={styles.trends}>
         <h1 className={styles.categorytitle} >Who To Follow</h1>
         <div className={styles.category} onClick={()=> goToUser("dharmesh")} style={{marginTop:30}}><ProfilePic profile={"BC1YLianxEsskKYNyL959k6b6UPYtRXfZs4MF3GkbWofdoFQzZCkJRB"} username={"dharmesh"} size={40}></ProfilePic> <p  className={styles.text}>dharmesh</p></div>
